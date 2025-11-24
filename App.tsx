@@ -21,7 +21,7 @@ function App() {
     return (
       <div className="h-screen w-full bg-cyber-black flex flex-col items-center justify-center font-mono text-cyber-primary p-4">
         <div className="w-64 border-2 border-cyber-dim p-1 mb-4">
-          <div className="h-2 bg-cyber-primary animate-[width_1.5s_ease-in-out_forwards]" style={{width: '0%'}} />
+          <div className="h-2 bg-cyber-primary animate-[width_1.5s_ease-in-out_forwards]" style={{ width: '0%' }} />
         </div>
         <div className="text-sm animate-pulse">
           INITIALIZING NEXUS CORE...
@@ -34,16 +34,15 @@ function App() {
   }
 
   const NavItem = ({ id, label }: { id: string, label: string }) => (
-    <button 
+    <button
       onClick={() => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
         setActiveSection(id);
       }}
-      className={`px-4 py-2 font-mono text-sm transition-all border-b-2 ${
-        activeSection === id 
-        ? 'border-cyber-primary text-cyber-primary' 
-        : 'border-transparent text-cyber-muted hover:text-cyber-text'
-      }`}
+      className={`px-4 py-2 font-mono text-sm transition-all border-b-2 ${activeSection === id
+          ? 'border-cyber-primary text-cyber-primary'
+          : 'border-transparent text-cyber-muted hover:text-cyber-text'
+        }`}
     >
       {`// ${label}`}
     </button>
@@ -75,7 +74,7 @@ function App() {
 
       {/* Main Content */}
       <main className="relative z-10 pt-20">
-        
+
         {/* HERO SECTION */}
         <section id="home" className="min-h-[90vh] flex items-center justify-center px-6 relative">
           <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -92,15 +91,15 @@ function App() {
               <p className="text-lg text-cyber-text/80 max-w-xl leading-relaxed">
                 {PROFILE.bio}
               </p>
-              
+
               <div className="flex flex-wrap gap-4 pt-4">
-                <button 
+                <button
                   onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-3 bg-cyber-primary text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all font-mono"
                 >
                   INITIATE_VIEW
                 </button>
-                <a 
+                <a
                   href={PROFILE.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -129,7 +128,7 @@ function App() {
               </div>
             </div>
           </div>
-          
+
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
             <ChevronDown className="w-6 h-6 text-cyber-muted" />
           </div>
@@ -155,7 +154,7 @@ function App() {
         {/* SKILLS & EXPERIENCE SECTION */}
         <section id="skills" className="py-24 px-6">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
+
             {/* Skills Radar */}
             <div>
               <div className="flex items-center gap-3 mb-8">
@@ -163,7 +162,7 @@ function App() {
                 <h2 className="text-2xl font-bold">Tech_Stack_Matrix</h2>
               </div>
               <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative">
-                 <SkillRadar />
+                <SkillRadar />
               </div>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {EXPERIENCE.map((exp) => (
@@ -189,13 +188,13 @@ function App() {
                 <p>
                   <strong className="text-white">Focus:</strong> Currently exploring the intersection of distributed systems and generative AI. I am particularly interested in how LLMs can be optimized for edge computing environments (WebGPU/WASM).
                 </p>
-                
+
                 <div className="p-6 bg-cyber-dark border-l-2 border-cyber-secondary mt-6">
                   <h3 className="text-cyber-secondary font-mono mb-2">LATEST_COMMIT_LOG</h3>
                   <div className="space-y-2 font-mono text-xs text-cyber-muted">
-                    <p>> Refactored Neural-Vortex rendering pipeline</p>
-                    <p>> Integrated Gemini 2.5 Flash for real-time analysis</p>
-                    <p>> Optimized Docker containers for 30% smaller footprint</p>
+                    <p>&gt; Refactored Neural-Vortex rendering pipeline</p>
+                    <p>&gt; Integrated Gemini 2.5 Flash for real-time analysis</p>
+                    <p>&gt; Optimized Docker containers for 30% smaller footprint</p>
                   </div>
                 </div>
               </div>
@@ -211,7 +210,7 @@ function App() {
             <p className="text-cyber-muted mb-12 max-w-xl mx-auto">
               Open for collaboration on AI infrastructure and high-performance web applications.
             </p>
-            
+
             <div className="flex justify-center gap-8">
               <a href={PROFILE.social.github} className="p-4 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
                 <Github className="w-6 h-6" />
