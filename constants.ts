@@ -1,4 +1,4 @@
-import { Experience, Project, Skill } from './types';
+import { Experience, Project, Skill, Education } from './types';
 
 export const PROFILE = {
   name: "NafizHC",
@@ -89,6 +89,16 @@ export const EXPERIENCE: Experience[] = [
     company: "University",
     period: "Present",
     description: "Working on various personal projects involving AI, Web Development, and System Programming."
+  }
+];
+
+export const EDUCATION: Education[] = [
+  {
+    id: "edu1",
+    degree: "B.Sc. in Computer Science & Engineering",
+    institution: "North South University",
+    period: "2020 - Present",
+    description: "Major in Artificial Intelligence and Machine Learning. Relevant coursework: Data Structures, Algorithms, AI, Machine Learning, Database Systems."
   }
 ];
 

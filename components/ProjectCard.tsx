@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { Github, ExternalLink, GitFork, Star } from 'lucide-react';
+import { Github, ExternalLink, GitFork, Star, Layout, Server, Database, Cpu, Code, Box, Terminal } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -9,7 +9,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
-    <div 
+    <div
       className="group relative bg-cyber-panel border border-cyber-dim hover:border-cyber-primary rounded-lg p-6 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] overflow-hidden"
       style={{ animationDelay: `${index * 100}ms` }}
     >
@@ -33,21 +33,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyber-primary transition-colors font-sans">
         {project.title}
       </h3>
-      
+
       <p className="text-cyber-muted text-sm mb-6 leading-relaxed min-h-[60px]">
         {project.description}
       </p>
 
       <div className="flex flex-wrap gap-2 mb-6">
-        {project.techStack.map((tech) => (
-          <span key={tech} className="text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50">
-            {tech}
-          </span>
-        ))}
+        {project.techStack.map((tech) => {
+          const getIcon = (t: string) => {
+            const lower = t.toLowerCase();
+            if (lower.includes('react') || lower.includes('html') || lower.includes('css') || lower.includes('front')) return <Layout className="w-3 h-3" />;
+            if (lower.includes('node') || lower.includes('back') || lower.includes('net') || lower.includes('server')) return <Server className="w-3 h-3" />;
+            if (lower.includes('data') || lower.includes('sql') || lower.includes('pandas')) return <Database className="w-3 h-3" />;
+            if (lower.includes('ai') || lower.includes('ml') || lower.includes('learning') || lower.includes('tensor') || lower.includes('neural')) return <Cpu className="w-3 h-3" />;
+            if (lower.includes('python') || lower.includes('java') || lower.includes('c#') || lower.includes('c++')) return <Code className="w-3 h-3" />;
+            if (lower.includes('git') || lower.includes('docker')) return <Box className="w-3 h-3" />;
+            return <Terminal className="w-3 h-3" />;
+          };
+
+          return (
+            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary/50 transition-colors">
+              {getIcon(tech)}
+              {tech}
+            </span>
+          );
+        })}
       </div>
 
       <div className="flex items-center gap-4 pt-4 border-t border-cyber-dim">
-        <a 
+        <a
           href={project.repoUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -57,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <span className="font-mono">SOURCE</span>
         </a>
         {project.demoUrl && (
-          <a 
+          <a
             href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"

@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, Code, ChevronDown, Terminal as TerminalIcon, Da
 import TerminalChat from './components/TerminalChat';
 import ProjectCard from './components/ProjectCard';
 import SkillRadar from './components/SkillRadar';
+import Education from './components/Education';
 import { PROFILE, PROJECTS, EXPERIENCE } from './constants';
 
 function App() {
@@ -40,8 +41,8 @@ function App() {
         setActiveSection(id);
       }}
       className={`px-4 py-2 font-mono text-sm transition-all border-b-2 ${activeSection === id
-          ? 'border-cyber-primary text-cyber-primary'
-          : 'border-transparent text-cyber-muted hover:text-cyber-text'
+        ? 'border-cyber-primary text-cyber-primary'
+        : 'border-transparent text-cyber-muted hover:text-cyber-text'
         }`}
     >
       {`// ${label}`}
@@ -65,6 +66,7 @@ function App() {
           </div>
           <div className="hidden md:flex gap-2">
             <NavItem id="home" label="ROOT" />
+            <NavItem id="about" label="SYSTEM" />
             <NavItem id="projects" label="PROJECTS" />
             <NavItem id="skills" label="STATS" />
             <NavItem id="contact" label="UPLINK" />
@@ -134,6 +136,34 @@ function App() {
           </div>
         </section>
 
+        {/* SYSTEM ARCHITECTURE / ABOUT */}
+        <section id="about" className="py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 mb-8">
+              <Layers className="w-8 h-8 text-cyber-secondary" />
+              <h2 className="text-3xl font-bold text-white">System_Architecture</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="md:col-span-2 space-y-6 text-cyber-text/90 leading-relaxed font-light text-lg">
+                <p>
+                  <strong className="text-white">Philosophy:</strong> I treat code as a living organism. It requires structure to survive, but adaptability to thrive. My approach to software engineering combines rigorous type safety with creative problem-solving.
+                </p>
+                <p>
+                  <strong className="text-white">Focus:</strong> Currently exploring the intersection of distributed systems and generative AI. I am particularly interested in how LLMs can be optimized for edge computing environments (WebGPU/WASM).
+                </p>
+              </div>
+              <div className="p-6 bg-cyber-dark border-l-2 border-cyber-secondary h-fit">
+                <h3 className="text-cyber-secondary font-mono mb-4 text-sm">LATEST_COMMIT_LOG</h3>
+                <div className="space-y-3 font-mono text-xs text-cyber-muted">
+                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Refactored Neural-Vortex rendering pipeline</p>
+                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Integrated Gemini 2.5 Flash for real-time analysis</p>
+                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Optimized Docker containers for 30% smaller footprint</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* PROJECTS SECTION */}
         <section id="projects" className="py-24 px-6 bg-cyber-dark/50">
           <div className="max-w-7xl mx-auto">
@@ -175,55 +205,35 @@ function App() {
               </div>
             </div>
 
-            {/* About / Philosophy */}
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-8">
-                <Layers className="w-6 h-6 text-cyber-secondary" />
-                <h2 className="text-2xl font-bold">System_Architecture</h2>
-              </div>
-              <div className="space-y-6 text-cyber-text/90 leading-relaxed font-light">
-                <p>
-                  <strong className="text-white">Philosophy:</strong> I treat code as a living organism. It requires structure to survive, but adaptability to thrive. My approach to software engineering combines rigorous type safety with creative problem-solving.
-                </p>
-                <p>
-                  <strong className="text-white">Focus:</strong> Currently exploring the intersection of distributed systems and generative AI. I am particularly interested in how LLMs can be optimized for edge computing environments (WebGPU/WASM).
-                </p>
-
-                <div className="p-6 bg-cyber-dark border-l-2 border-cyber-secondary mt-6">
-                  <h3 className="text-cyber-secondary font-mono mb-2">LATEST_COMMIT_LOG</h3>
-                  <div className="space-y-2 font-mono text-xs text-cyber-muted">
-                    <p>&gt; Refactored Neural-Vortex rendering pipeline</p>
-                    <p>&gt; Integrated Gemini 2.5 Flash for real-time analysis</p>
-                    <p>&gt; Optimized Docker containers for 30% smaller footprint</p>
-                  </div>
-                </div>
-              </div>
+            {/* Education Section (Replaces System Architecture) */}
+            <div>
+              <Education />
             </div>
 
           </div>
         </section>
 
         {/* FOOTER / CONTACT */}
-        <section id="contact" className="py-24 px-6 bg-cyber-black border-t border-cyber-dim relative overflow-hidden">
+        <section id="contact" className="py-8 px-6 bg-cyber-black border-t border-cyber-dim relative overflow-hidden">
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl font-bold mb-8 glitch-text">Establish_Uplink</h2>
-            <p className="text-cyber-muted mb-12 max-w-xl mx-auto">
+            <h2 className="text-2xl font-bold mb-4 glitch-text">Establish_Uplink</h2>
+            <p className="text-cyber-muted mb-6 max-w-xl mx-auto text-sm">
               Open for collaboration on AI infrastructure and high-performance web applications.
             </p>
 
-            <div className="flex justify-center gap-8">
-              <a href={PROFILE.social.github} className="p-4 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
-                <Github className="w-6 h-6" />
+            <div className="flex justify-center gap-6">
+              <a href={PROFILE.social.github} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
+                <Github className="w-5 h-5" />
               </a>
-              <a href={PROFILE.social.linkedin} className="p-4 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
-                <Linkedin className="w-6 h-6" />
+              <a href={PROFILE.social.linkedin} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
+                <Linkedin className="w-5 h-5" />
               </a>
-              <a href={`mailto:contact@example.com`} className="p-4 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
-                <Mail className="w-6 h-6" />
+              <a href={`mailto:contact@example.com`} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
+                <Mail className="w-5 h-5" />
               </a>
             </div>
 
-            <div className="mt-20 font-mono text-xs text-cyber-dim">
+            <div className="mt-8 font-mono text-[10px] text-cyber-dim">
               <p>SYSTEM ID: {PROFILE.name}_V1.0.0</p>
               <p>© {new Date().getFullYear()} ALL RIGHTS RESERVED.</p>
             </div>

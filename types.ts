@@ -24,6 +24,14 @@ export interface Experience {
   description: string;
 }
 
+export interface Education {
+  id: string;
+  degree: string;
+  institution: string;
+  period: string;
+  description: string;
+}
+
 export interface Message {
   id: string;
   role: 'user' | 'model' | 'system';
