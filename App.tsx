@@ -66,9 +66,10 @@ function App() {
           </div>
           <div className="hidden md:flex gap-2">
             <NavItem id="home" label="ROOT" />
-            <NavItem id="about" label="SYSTEM" />
+            <NavItem id="education" label="EDUCATION" />
+            <NavItem id="skills" label="TECH_STACK" />
             <NavItem id="projects" label="PROJECTS" />
-            <NavItem id="skills" label="STATS" />
+            <NavItem id="about" label="SYSTEM" />
             <NavItem id="contact" label="UPLINK" />
           </div>
         </div>
@@ -78,7 +79,7 @@ function App() {
       <main className="relative z-10 pt-20">
 
         {/* HERO SECTION */}
-        <section id="home" className="min-h-[90vh] flex items-center justify-center px-6 relative">
+        <section id="home" className="min-h-screen flex items-center justify-center px-6 relative">
           <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-block px-3 py-1 rounded bg-cyber-dim border border-cyber-primary/30 text-cyber-primary text-xs font-mono mb-4">
@@ -136,9 +137,66 @@ function App() {
           </div>
         </section>
 
+        {/* EDUCATION SECTION */}
+        <section id="education" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+          <div className="max-w-7xl mx-auto w-full">
+            <Education />
+          </div>
+        </section>
+
+        {/* SKILLS & TECH STACK SECTION */}
+        <section id="skills" className="min-h-screen flex items-center py-24 px-6">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Skills Radar */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <Database className="w-6 h-6 text-cyber-primary" />
+                <h2 className="text-2xl font-bold">Tech_Stack_Matrix</h2>
+              </div>
+              <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative">
+                <SkillRadar />
+              </div>
+            </div>
+
+            {/* Experience */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <TerminalIcon className="w-6 h-6 text-cyber-primary" />
+                <h2 className="text-2xl font-bold">Experience_Log</h2>
+              </div>
+              <div className="grid gap-4">
+                {EXPERIENCE.map((exp) => (
+                  <div key={exp.id} className="p-4 border border-cyber-dim rounded hover:border-cyber-primary/50 transition-colors">
+                    <div className="text-cyber-primary font-mono text-xs mb-1">{exp.period}</div>
+                    <div className="font-bold text-white mb-1">{exp.role}</div>
+                    <div className="text-cyber-muted text-sm">{exp.company}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECTS SECTION */}
+        <section id="projects" className="min-h-screen flex items-center py-24 px-6 bg-cyber-dark/50">
+          <div className="max-w-7xl mx-auto w-full">
+            <div className="flex items-end gap-4 mb-12 border-b border-cyber-dim pb-4">
+              <Code className="w-8 h-8 text-cyber-primary" />
+              <h2 className="text-3xl font-bold text-white">Project_Repositories</h2>
+              <span className="text-cyber-muted font-mono text-sm mb-1 ml-auto">Index: {PROJECTS.length} items</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+              {PROJECTS.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SYSTEM ARCHITECTURE / ABOUT */}
-        <section id="about" className="py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
-          <div className="max-w-4xl mx-auto">
+        <section id="about" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+          <div className="max-w-4xl mx-auto w-full">
             <div className="flex items-center gap-3 mb-8">
               <Layers className="w-8 h-8 text-cyber-secondary" />
               <h2 className="text-3xl font-bold text-white">System_Architecture</h2>
@@ -161,55 +219,6 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* PROJECTS SECTION */}
-        <section id="projects" className="py-24 px-6 bg-cyber-dark/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-end gap-4 mb-12 border-b border-cyber-dim pb-4">
-              <Code className="w-8 h-8 text-cyber-primary" />
-              <h2 className="text-3xl font-bold text-white">Project_Repositories</h2>
-              <span className="text-cyber-muted font-mono text-sm mb-1 ml-auto">Index: {PROJECTS.length} items</span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {PROJECTS.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SKILLS & EXPERIENCE SECTION */}
-        <section id="skills" className="py-24 px-6">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-
-            {/* Skills Radar */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <Database className="w-6 h-6 text-cyber-primary" />
-                <h2 className="text-2xl font-bold">Tech_Stack_Matrix</h2>
-              </div>
-              <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative">
-                <SkillRadar />
-              </div>
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {EXPERIENCE.map((exp) => (
-                  <div key={exp.id} className="p-4 border border-cyber-dim rounded hover:border-cyber-primary/50 transition-colors">
-                    <div className="text-cyber-primary font-mono text-xs mb-1">{exp.period}</div>
-                    <div className="font-bold text-white mb-1">{exp.role}</div>
-                    <div className="text-cyber-muted text-sm">{exp.company}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Education Section (Replaces System Architecture) */}
-            <div>
-              <Education />
-            </div>
-
           </div>
         </section>
 
