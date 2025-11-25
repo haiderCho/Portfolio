@@ -23,21 +23,18 @@ const AiAvatar = ({ state, mood }: { state: 'idle' | 'thinking' | 'speaking', mo
 
   return (
     <div className={`relative w-8 h-8 flex items-center justify-center transition-all duration-500 ${currentColor}`}>
-       {/* Outer Ring */}
-      <div className={`absolute inset-0 border-2 rounded-full border-t-transparent border-b-transparent opacity-80 transition-all duration-500 ${
-        state === 'thinking' ? 'animate-spin duration-150' : 'animate-[spin_4s_linear_infinite]'
-      } ${currentColor}`} />
-      
+      {/* Outer Ring */}
+      <div className={`absolute inset-0 border-2 rounded-full border-t-transparent border-b-transparent opacity-80 transition-all duration-500 ${state === 'thinking' ? 'animate-spin duration-150' : 'animate-[spin_4s_linear_infinite]'
+        } ${currentColor}`} />
+
       {/* Inner Ring */}
-      <div className={`absolute inset-1.5 border rounded-full border-r-transparent border-l-transparent opacity-60 transition-all duration-500 ${
-        state === 'thinking' ? 'animate-[spin_0.5s_linear_infinite_reverse]' : 'animate-[spin_2s_linear_infinite_reverse]'
-      } ${currentColor}`} />
+      <div className={`absolute inset-1.5 border rounded-full border-r-transparent border-l-transparent opacity-60 transition-all duration-500 ${state === 'thinking' ? 'animate-[spin_0.5s_linear_infinite_reverse]' : 'animate-[spin_2s_linear_infinite_reverse]'
+        } ${currentColor}`} />
 
       {/* Core */}
-      <div className={`w-1.5 h-1.5 rounded-full shadow-[0_0_15px_currentColor] transition-all duration-300 ${currentCore} ${
-        state === 'speaking' ? 'animate-speaking scale-125' : 
-        state === 'thinking' ? 'animate-pulse scale-90' : 'animate-pulse'
-      }`} />
+      <div className={`w-1.5 h-1.5 rounded-full shadow-[0_0_15px_currentColor] transition-all duration-300 ${currentCore} ${state === 'speaking' ? 'animate-speaking scale-125' :
+          state === 'thinking' ? 'animate-pulse scale-90' : 'animate-pulse'
+        }`} />
     </div>
   );
 };
@@ -49,13 +46,13 @@ const TerminalChat: React.FC = () => {
     {
       id: 'init',
       role: 'system',
-      content: 'Digital Twin System v2.5 initialized. Ask me anything about Alex\'s work.',
+      content: 'Digital Twin System v2.5 initialized. Ask me anything about Nafiz\'s work.',
       timestamp: new Date()
     }
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [hasKey, setHasKey] = useState(false);
-  
+
   // Avatar State
   const [avatarState, setAvatarState] = useState<'idle' | 'thinking' | 'speaking'>('idle');
   const [mood, setMood] = useState<'neutral' | 'happy' | 'alert'>('neutral');
@@ -82,7 +79,7 @@ const TerminalChat: React.FC = () => {
   // Derive Avatar State from Messaging Status
   useEffect(() => {
     const lastMsg = messages[messages.length - 1];
-    
+
     // Determine Activity State
     if (lastMsg?.role === 'model' && lastMsg?.isStreaming) {
       if (lastMsg.content.length > 0) {
@@ -91,7 +88,7 @@ const TerminalChat: React.FC = () => {
         setAvatarState('thinking');
       }
     } else if (isTyping) {
-       setAvatarState('thinking');
+      setAvatarState('thinking');
     } else {
       setAvatarState('idle');
     }
@@ -136,14 +133,14 @@ const TerminalChat: React.FC = () => {
     setMessages(prev => [...prev, botMsg]);
 
     await sendMessageStream(chatSessionRef.current, userMsg.content, (chunk) => {
-      setMessages(prev => prev.map(msg => 
-        msg.id === botMsgId 
+      setMessages(prev => prev.map(msg =>
+        msg.id === botMsgId
           ? { ...msg, content: msg.content + chunk }
           : msg
       ));
     });
 
-    setMessages(prev => prev.map(msg => 
+    setMessages(prev => prev.map(msg =>
       msg.id === botMsgId ? { ...msg, isStreaming: false } : msg
     ));
     setIsTyping(false);
@@ -172,7 +169,7 @@ const TerminalChat: React.FC = () => {
 
   return (
     <div className="fixed bottom-6 right-6 w-[90vw] md:w-[450px] h-[600px] bg-cyber-black/95 backdrop-blur-md border border-cyber-primary rounded-lg flex flex-col shadow-[0_0_30px_rgba(0,0,0,0.8)] z-50 overflow-hidden font-mono text-sm">
-      
+
       {/* Scanline Overlay */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-cyber-primary/10 to-transparent animate-scanline pointer-events-none z-20" />
 
@@ -189,7 +186,7 @@ const TerminalChat: React.FC = () => {
             </span>
           </div>
         </div>
-        <button 
+        <button
           onClick={() => setIsOpen(false)}
           className="text-cyber-muted hover:text-cyber-primary transition-colors"
         >
@@ -200,34 +197,33 @@ const TerminalChat: React.FC = () => {
       {/* Terminal Output */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 font-mono crt relative z-10">
         {!hasKey && (
-           <div className="p-3 border border-red-500 bg-red-900/20 text-red-400 rounded">
-             Warning: API_KEY not detected. Neural link offline. Please configure environment.
-           </div>
+          <div className="p-3 border border-red-500 bg-red-900/20 text-red-400 rounded">
+            Warning: API_KEY not detected. Neural link offline. Please configure environment.
+          </div>
         )}
-        
+
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div 
-              className={`max-w-[85%] p-3 rounded-lg ${
-                msg.role === 'user' 
-                  ? 'bg-cyber-primary/10 border border-cyber-primary/30 text-cyber-primary' 
+            <div
+              className={`max-w-[85%] p-3 rounded-lg ${msg.role === 'user'
+                  ? 'bg-cyber-primary/10 border border-cyber-primary/30 text-cyber-primary'
                   : 'bg-cyber-panel border border-cyber-dim text-cyber-text'
-              }`}
+                }`}
             >
               <div className="text-[10px] uppercase opacity-50 mb-1 flex justify-between">
                 <span>{msg.role === 'model' ? 'Nexus' : 'User'}</span>
-                <span>{msg.timestamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                <span>{msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
               </div>
               <div className="whitespace-pre-wrap leading-relaxed break-words">
                 {msg.content}
                 {msg.isStreaming && !msg.content && (
                   <span className="text-cyber-primary animate-pulse flex items-center gap-1">
-                    <span className="inline-block w-2 h-4 bg-cyber-primary"/>
+                    <span className="inline-block w-2 h-4 bg-cyber-primary" />
                     PROCESSING_QUERY...
                   </span>
                 )}
                 {msg.isStreaming && msg.content && (
-                  <span className="inline-block w-2.5 h-5 bg-cyber-primary ml-1 animate-pulse align-middle shadow-[0_0_8px_rgba(0,240,255,0.8)]"/>
+                  <span className="inline-block w-2.5 h-5 bg-cyber-primary ml-1 animate-pulse align-middle shadow-[0_0_8px_rgba(0,240,255,0.8)]" />
                 )}
               </div>
             </div>
@@ -249,7 +245,7 @@ const TerminalChat: React.FC = () => {
             disabled={!hasKey || isTyping}
             className="flex-1 bg-transparent border-none outline-none text-cyber-text placeholder-cyber-muted"
           />
-          <button 
+          <button
             onClick={handleSend}
             disabled={!input.trim() || !hasKey || isTyping}
             className="text-cyber-primary hover:text-white disabled:opacity-30 transition-colors"

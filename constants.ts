@@ -4,7 +4,7 @@ export const PROFILE = {
   name: "Nafiz Haider Chowdhury",
   title: "AI/ML Engineer",
   tagline: "Turning ideas into reality.",
-  bio: "I in Full Stack Development and Machine Learning, with a keen interest in building scalable systems and solving complex problems.",
+  bio: "I specialize in Machine Learning, with additional experience in Full Stack Development, and a keen interest in building scalable systems and solving complex problems.",
   location: "Dhaka, Bangladesh",
   availability: "Open to Opportunities",
   social: {
@@ -95,27 +95,34 @@ export const SKILLS: Skill[] = [
 export const EXPERIENCE: Experience[] = [
   {
     id: "e1",
-    role: "Computer Science Student",
-    company: "University",
+    role: "AI/ML Engineer & Data Scientist",
+    company: "TDR Ltd",
     period: "Present",
-    description: "Working on various personal projects involving AI, Web Development, and System Programming."
+    description: "Develop and deploy advanced artificial intelligence models, create data-driven predictive analytics solutions, and optimize machine-learning pipelines for performance, scalability, and reliability. Responsibilities include designing end-to-end modeling workflows, evaluating and preparing datasets, improving algorithmic accuracy, and collaborating with stakeholders to translate business needs into actionable AI solutions. Consistently leverage best practices in model validation, experimentation, and optimization to deliver high-impact, production-ready systems."
   }
 ];
 
 export const EDUCATION: Education[] = [
   {
     id: "edu1",
+    degree: "Secondary Education",
+    institution: "Birshreshtha Noor Mohammad Public College",
+    period: "2014",
+    description: ""
+  },
+  {
+    id: "edu2",
     degree: "Higher Secondary Education",
     institution: "Birshreshtha Noor Mohammad Public College",
     period: "2016",
     description: ""
   },
   {
-    id: "edu2",
+    id: "edu3",
     degree: "B.Sc. in Computer Science & Engineering",
     institution: "North South University",
     period: "2025",
-    description: "Major in Artificial Intelligence and Machine Learning. Relevant coursework: Data Structures, Algorithms, AI, Machine Learning, Database Systems."
+    description: "Artificial Intelligence and Machine Learning Trail."
   }
 ];
 

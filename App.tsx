@@ -237,7 +237,7 @@ function App() {
               <a href={PROFILE.social.linkedin} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href={`mailto:contact@example.com`} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
+              <a href={`mailto:nafizhc@gmail.com`} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
