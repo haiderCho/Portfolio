@@ -7,7 +7,7 @@ export interface Project {
   demoUrl?: string;
   stars: number;
   forks: number;
-  category: 'AI/ML' | 'Web' | 'Systems' | 'Blockchain';
+  category: 'AI/ML' | 'Web' | 'Web / Front-end' | 'Systems' | 'Blockchain';
 }
 
 export interface Skill {

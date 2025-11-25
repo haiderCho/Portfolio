@@ -2,9 +2,9 @@ import { Experience, Project, Skill, Education } from './types';
 
 export const PROFILE = {
   name: "NafizHC",
-  title: "AI/ML Developer | Data & Deep Learning Focus",
-  tagline: "Turning coffee into code and ideas into reality.",
-  bio: "I specialize in Full Stack Development and Machine Learning, with a keen interest in building scalable systems and solving complex problems.",
+  title: "AI/ML Engineer",
+  tagline: "Turning ideas into reality.",
+  bio: "I in Full Stack Development and Machine Learning, with a keen interest in building scalable systems and solving complex problems.",
   location: "Dhaka, Bangladesh",
   availability: "Open to Opportunities",
   social: {
@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
     id: "p1",
     title: "Music Recommendation System",
     description: "A music recommendation system built using Jupyter Notebook, analyzing user preferences to suggest songs.",
-    techStack: ["Jupyter Notebook", "Python", "Pandas", "Scikit-learn"],
+    techStack: ["Jupyter Notebook", "Python"],
     repoUrl: "https://github.com/haiderCho/CSE299-Project-MRS",
     stars: 4,
     forks: 0,
@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
     id: "p2",
     title: "USB Access Control",
     description: "A C# application designed to control and monitor USB device access on a system for enhanced security.",
-    techStack: ["C#", ".NET", "Windows Forms"],
+    techStack: ["C#", "Java", "PHP"],
     repoUrl: "https://github.com/haiderCho/CSE323-Project-UAC",
     stars: 1,
     forks: 0,
@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
     id: "p3",
     title: "Tic-Tac-Toe AI",
     description: "An unbeatable Tic-Tac-Toe AI implemented using the Minimax algorithm with Alpha-Beta pruning.",
-    techStack: ["Python", "AI", "Algorithms"],
+    techStack: ["Python", "Minimax Algorithm", "Alpha-Beta Pruning"],
     repoUrl: "https://github.com/haiderCho/CSE440-Project-TTTAI",
     stars: 1,
     forks: 0,
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     id: "p4",
     title: "Phishing URL Detection",
     description: "Machine learning model to detect phishing URLs, enhancing cybersecurity by identifying malicious links.",
-    techStack: ["Jupyter Notebook", "Python", "Machine Learning"],
+    techStack: ["Python", "Scikit-learn", "XGBoost", "Pandas"],
     repoUrl: "https://github.com/haiderCho/CSE445-Project-MLPUD",
     stars: 1,
     forks: 0,
@@ -59,11 +59,21 @@ export const PROJECTS: Project[] = [
     id: "p5",
     title: "Freshwater Fish Disease Classification",
     description: "Deep learning model using ResNet50 and transfer learning to classify diseases in freshwater fish from images — aimed at improving aquaculture health monitoring.",
-    techStack: ["Jupyter Notebook", "Python", "TensorFlow / Keras", "Scikit-learn", "PIL / NumPy / Pandas", "Matplotlib / Seaborn"],
+    techStack: ["Python", "TensorFlow", "Keras", "ResNet50"],
     repoUrl: "https://github.com/haiderCho/FWFDC",
     stars: 0,
     forks: 0,
     category: "AI/ML"
+  },
+  {
+    id: "p6",
+    title: "Personal Portfolio Website",
+    description: "A responsive and modern personal portfolio site showcasing the developer’s skills, projects, experience, and contact information.",
+    techStack: ["TypeScript", "React", "HTML"],
+    repoUrl: "https://github.com/haiderCho/Portfolio",
+    stars: 0,
+    forks: 0,
+    category: "Web / Front-end"
   }
 ];
 
@@ -95,9 +105,16 @@ export const EXPERIENCE: Experience[] = [
 export const EDUCATION: Education[] = [
   {
     id: "edu1",
+    degree: "Higher Secondary Education",
+    institution: "Birshreshtha Noor Mohammad Public College",
+    period: "2016",
+    description: ""
+  },
+  {
+    id: "edu2",
     degree: "B.Sc. in Computer Science & Engineering",
     institution: "North South University",
-    period: "2020 - Present",
+    period: "2025",
     description: "Major in Artificial Intelligence and Machine Learning. Relevant coursework: Data Structures, Algorithms, AI, Machine Learning, Database Systems."
   }
 ];
