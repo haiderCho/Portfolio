@@ -62,7 +62,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tighter flex items-center gap-2">
             <div className="w-3 h-3 bg-cyber-primary rounded-full animate-pulse" />
-            <span className="font-mono">NEXUS_PF</span>
+            <span className="font-mono">NafizHC</span>
           </div>
           <div className="hidden md:flex gap-2">
             <NavItem id="home" label="ROOT" />

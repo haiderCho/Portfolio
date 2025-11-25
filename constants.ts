@@ -1,7 +1,7 @@
 import { Experience, Project, Skill, Education } from './types';
 
 export const PROFILE = {
-  name: "NafizHC",
+  name: "Nafiz Haider Chowdhury",
   title: "AI/ML Engineer",
   tagline: "Turning ideas into reality.",
   bio: "I in Full Stack Development and Machine Learning, with a keen interest in building scalable systems and solving complex problems.",
