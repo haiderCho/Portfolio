@@ -169,7 +169,8 @@ function App() {
                   <div key={exp.id} className="p-4 border border-cyber-dim rounded hover:border-cyber-primary/50 transition-colors">
                     <div className="text-cyber-primary font-mono text-xs mb-1">{exp.period}</div>
                     <div className="font-bold text-white mb-1">{exp.role}</div>
-                    <div className="text-cyber-muted text-sm">{exp.company}</div>
+                    <div className="text-cyber-muted text-sm mb-2">{exp.company}</div>
+                    <p className="text-cyber-text/80 text-sm leading-relaxed">{exp.description}</p>
                   </div>
                 ))}
               </div>
@@ -243,7 +244,7 @@ function App() {
             </div>
 
             <div className="mt-8 font-mono text-[10px] text-cyber-dim">
-              <p>SYSTEM ID: {PROFILE.name}_V1.0.0</p>
+              <p>SYSTEM ID: NafizHC_V1.0.0</p>
               <p>© {new Date().getFullYear()} ALL RIGHTS RESERVED.</p>
             </div>
           </div>
