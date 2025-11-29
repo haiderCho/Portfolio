@@ -40,20 +40,81 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
       <div className="flex flex-wrap gap-2 mb-6">
         {project.techStack.map((tech) => {
-          const getIcon = (t: string) => {
+          const getIconInfo = (t: string): { class: string; type: 'devicon' | 'si' } | null => {
             const lower = t.toLowerCase();
-            if (lower.includes('react') || lower.includes('html') || lower.includes('css') || lower.includes('front')) return <Layout className="w-3 h-3" />;
-            if (lower.includes('node') || lower.includes('back') || lower.includes('net') || lower.includes('server')) return <Server className="w-3 h-3" />;
-            if (lower.includes('data') || lower.includes('sql') || lower.includes('pandas')) return <Database className="w-3 h-3" />;
-            if (lower.includes('ai') || lower.includes('ml') || lower.includes('learning') || lower.includes('tensor') || lower.includes('neural')) return <Cpu className="w-3 h-3" />;
-            if (lower.includes('python') || lower.includes('java') || lower.includes('c#') || lower.includes('c++')) return <Code className="w-3 h-3" />;
-            if (lower.includes('git') || lower.includes('docker')) return <Box className="w-3 h-3" />;
-            return <Terminal className="w-3 h-3" />;
+
+            // Languages
+            if (lower === 'assembly') return { class: 'si-assemblyscript', type: 'si' };
+            if (lower === 'c') return { class: 'devicon-c-plain', type: 'devicon' };
+            if (lower === 'c++') return { class: 'devicon-cplusplus-plain', type: 'devicon' };
+            if (lower === 'c#') return { class: 'devicon-csharp-plain', type: 'devicon' };
+            if (lower === 'css' || lower === 'css3') return { class: 'devicon-css3-plain', type: 'devicon' };
+            if (lower === 'html' || lower === 'html5') return { class: 'devicon-html5-plain', type: 'devicon' };
+            if (lower === 'java') return { class: 'devicon-java-plain', type: 'devicon' };
+            if (lower === 'javascript') return { class: 'devicon-javascript-plain', type: 'devicon' };
+            if (lower === 'kotlin') return { class: 'devicon-kotlin-plain', type: 'devicon' };
+            if (lower === 'php') return { class: 'devicon-php-plain', type: 'devicon' };
+            if (lower === 'python') return { class: 'devicon-python-plain', type: 'devicon' };
+            if (lower === 'r') return { class: 'devicon-r-plain', type: 'devicon' };
+            if (lower === 'rust') return { class: 'devicon-rust-plain', type: 'devicon' };
+            if (lower === 'typescript') return { class: 'devicon-typescript-plain', type: 'devicon' };
+
+            // Frameworks & Libraries - Web
+            if (lower === 'react') return { class: 'devicon-react-original', type: 'devicon' };
+            if (lower === 'nodejs' || lower === 'node.js') return { class: 'devicon-nodejs-plain', type: 'devicon' };
+            if (lower === 'vue' || lower === 'vuejs' || lower === 'vue.js') return { class: 'devicon-vuejs-plain', type: 'devicon' };
+            if (lower === 'angular') return { class: 'devicon-angular-plain', type: 'devicon' };
+            if (lower === 'bootstrap') return { class: 'devicon-bootstrap-plain', type: 'devicon' };
+            if (lower === 'tailwind' || lower === 'tailwindcss') return { class: 'devicon-tailwindcss-plain', type: 'devicon' };
+            if (lower === 'jquery') return { class: 'devicon-jquery-plain', type: 'devicon' };
+            if (lower === 'laravel') return { class: 'devicon-laravel-plain', type: 'devicon' };
+            if (lower === 'flask') return { class: 'devicon-flask-original', type: 'devicon' };
+            if (lower === 'django') return { class: 'devicon-django-plain', type: 'devicon' };
+            if (lower === 'streamlit') return { class: 'devicon-streamlit-plain', type: 'devicon' };
+
+            // Frameworks & Libraries - ML/AI
+            if (lower === 'tensorflow') return { class: 'devicon-tensorflow-original', type: 'devicon' };
+            if (lower === 'pytorch') return { class: 'devicon-pytorch-plain', type: 'devicon' };
+            if (lower === 'keras') return { class: 'devicon-keras-plain', type: 'devicon' };
+            if (lower === 'numpy') return { class: 'devicon-numpy-plain', type: 'devicon' };
+            if (lower === 'pandas') return { class: 'devicon-pandas-plain', type: 'devicon' };
+            if (lower === 'scikit-learn' || lower === 'sklearn') return { class: 'devicon-scikitlearn-plain', type: 'devicon' };
+            if (lower === 'opencv') return { class: 'devicon-opencv-plain', type: 'devicon' };
+            if (lower === 'matplotlib') return { class: 'devicon-matplotlib-plain', type: 'devicon' };
+            if (lower === 'hugging face' || lower === 'huggingface') return { class: 'si-huggingface', type: 'si' };
+            if (lower === 'jax') return { class: 'devicon-python-plain', type: 'devicon' };
+            if (lower === 'weights & biases' || lower === 'wandb') return { class: 'si-weightsandbiases', type: 'si' };
+            if (lower === 'yolov8' || lower === 'yolo') return { class: 'si-yolo', type: 'si' };
+            if (lower === 'tensorboard') return { class: 'devicon-tensorflow-original', type: 'devicon' };
+            if (lower.includes('nltk') || lower.includes('seaborn')) return { class: 'devicon-python-plain', type: 'devicon' };
+
+            // Tools & Platforms
+            if (lower === 'docker') return { class: 'devicon-docker-plain', type: 'devicon' };
+            if (lower === 'git') return { class: 'devicon-git-plain', type: 'devicon' };
+            if (lower === 'github') return { class: 'devicon-github-original', type: 'devicon' };
+            if (lower === 'mysql') return { class: 'devicon-mysql-plain', type: 'devicon' };
+            if (lower === 'postgresql' || lower === 'postgres') return { class: 'devicon-postgresql-plain', type: 'devicon' };
+            if (lower === 'mongodb' || lower === 'mongo') return { class: 'devicon-mongodb-plain', type: 'devicon' };
+            if (lower === 'jupyter notebook' || lower === 'jupyter') return { class: 'devicon-jupyter-plain', type: 'devicon' };
+            if (lower === 'linux') return { class: 'devicon-linux-plain', type: 'devicon' };
+            if (lower === 'vscode' || lower === 'visual studio code') return { class: 'devicon-vscode-plain', type: 'devicon' };
+
+            // Algorithms & Concepts (no specific icon)
+            if (lower.includes('algorithm') || lower.includes('pruning') || lower.includes('minimax')) return null;
+            if (lower.includes('resnet') || lower.includes('xgboost') || lower.includes('alpha-beta')) return null;
+
+            return null;
           };
+
+          const iconInfo = getIconInfo(tech);
 
           return (
             <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary/50 transition-colors">
-              {getIcon(tech)}
+              {iconInfo ? (
+                <i className={`${iconInfo.type === 'si' ? 'si' : ''} ${iconInfo.class} text-cyber-primary`} style={{ fontSize: '14px' }}></i>
+              ) : (
+                <Terminal className="w-3 h-3" />
+              )}
               {tech}
             </span>
           );

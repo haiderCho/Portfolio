@@ -63,5 +63,5 @@ export interface ProgrammingLanguage {
   icon: string;
   color: string;
   glowColor: string;
-  category: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms';
+  category: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms' | 'Operating Systems';
 }

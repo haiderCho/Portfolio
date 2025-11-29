@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, Code, ChevronDown, Terminal as TerminalIcon, Database, Layers } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, ChevronDown, Terminal as TerminalIcon, Database, Layers, Monitor } from 'lucide-react';
 import TerminalChat from './components/TerminalChat';
 import ProjectCard from './components/ProjectCard';
 import SkillRadar from './components/SkillRadar';
@@ -156,7 +156,7 @@ function App() {
         </section>
 
         {/* SKILLS & TECH STACK SECTION */}
-        <section id="skills" className="min-h-screen flex items-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Skills Radar & Languages */}
             <div className="space-y-8">
@@ -179,6 +179,11 @@ function App() {
               <ProgrammingLanguages category="Languages" />
               <ProgrammingLanguages category="Frameworks & Libraries" />
             </div>
+          </div>
+
+          {/* Operating Systems - Full Width Section at Bottom */}
+          <div className="max-w-7xl mx-auto w-full mt-16">
+            <ProgrammingLanguages category="Operating Systems" />
           </div>
         </section>
 
@@ -224,6 +229,39 @@ function App() {
                 </div>
               </div>
             </div>
+
+            {/* Current Workspace */}
+            <div className="mt-12 p-6 bg-cyber-dark border-l-2 border-cyber-secondary">
+              <h3 className="text-cyber-secondary font-mono mb-6 text-lg flex items-center gap-2">
+                <Monitor className="w-5 h-5" />
+                CURRENT_WORKSPACE
+              </h3>
+              <div className="flex flex-wrap gap-3 items-center">
+                {/* Windows 11 */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                  <i className="devicon-windows11-original text-cyber-secondary" style={{ fontSize: '16px' }}></i>
+                  <span className="text-cyber-text">Windows 11 PRO</span>
+                </div>
+
+                {/* Intel CPU */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                  <i className="si si-intel text-cyber-secondary" style={{ fontSize: '16px' }}></i>
+                  <span className="text-cyber-text">i7 11th Gen</span>
+                </div>
+
+                {/* RAM */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                  <i className="si si-corsair text-cyber-secondary" style={{ fontSize: '16px' }}></i>
+                  <span className="text-cyber-text">32GB RAM</span>
+                </div>
+
+                {/* NVIDIA GPU */}
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                  <i className="si si-nvidia text-cyber-secondary" style={{ fontSize: '16px' }}></i>
+                  <span className="text-cyber-text">RTX 3060</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -257,7 +295,7 @@ function App() {
             </div>
 
             <div className="mt-8 font-mono text-[10px] text-cyber-dim">
-              <p>SYSTEM ID: NexusOS_V1.11.0</p>
+              <p>SYSTEM ID: Nexus_Core_V1.12.0</p>
               <p>© {new Date().getFullYear()} ALL RIGHTS RESERVED.</p>
             </div>
           </div>

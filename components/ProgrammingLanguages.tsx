@@ -1,9 +1,9 @@
 import React from 'react';
-import { Code2, Layers, Wrench } from 'lucide-react';
+import { Code2, Layers, Wrench, Monitor } from 'lucide-react';
 import { PROGRAMMING_LANGUAGES } from '../constants';
 
 interface ProgrammingLanguagesProps {
-    category?: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms';
+    category?: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms' | 'Operating Systems';
     title?: string;
 }
 
@@ -18,6 +18,7 @@ const ProgrammingLanguages: React.FC<ProgrammingLanguagesProps> = ({ category, t
         if (category === 'Languages') return <Code2 className="w-5 h-5 text-cyber-primary" />;
         if (category === 'Frameworks & Libraries') return <Layers className="w-5 h-5 text-cyber-primary" />;
         if (category === 'Tools & Platforms') return <Wrench className="w-5 h-5 text-cyber-primary" />;
+        if (category === 'Operating Systems') return <Monitor className="w-5 h-5 text-cyber-primary" />;
         return <Code2 className="w-5 h-5 text-cyber-primary" />;
     };
 
