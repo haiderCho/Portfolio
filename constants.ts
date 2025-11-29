@@ -78,18 +78,18 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  { name: "Python", level: 90, category: "Core" },
-  { name: "JavaScript", level: 65, category: "Frontend" },
-  { name: "C#", level: 70, category: "Core" },
+  { name: "Python", level: 95, category: "Core" },
+  { name: "TensorFlow", level: 85, category: "AI/ML" },
+  { name: "React", level: 80, category: "Frontend" },
+  { name: "Node.js", level: 75, category: "Backend" },
+  { name: "Docker", level: 70, category: "DevOps" },
   { name: "C++", level: 75, category: "Core" },
   { name: "Java", level: 75, category: "Core" },
-  { name: "React", level: 80, category: "Frontend" },
-  { name: "HTML5/CSS3", level: 90, category: "Frontend" },
-  { name: "Node.js", level: 70, category: "Backend" },
-  { name: "SQL", level: 75, category: "Backend" },
-  { name: "Git/GitHub", level: 95, category: "DevOps" },
-  { name: "Docker", level: 60, category: "DevOps" },
-  { name: "TensorFlow", level: 75, category: "AI/ML" }
+  { name: "SQL", level: 80, category: "Backend" },
+  { name: "Git", level: 90, category: "DevOps" },
+  { name: "JavaScript", level: 85, category: "Frontend" },
+  { name: "TypeScript", level: 80, category: "Frontend" },
+  { name: "AWS", level: 65, category: "DevOps" }
 ];
 
 export const EXPERIENCE: Experience[] = [
@@ -104,11 +104,18 @@ export const EXPERIENCE: Experience[] = [
 
 export const EDUCATION: Education[] = [
   {
-    id: "edu1",
-    degree: "Secondary Education",
-    institution: "Birshreshtha Noor Mohammad Public College",
-    period: "2014",
-    description: ""
+    id: "edu4",
+    degree: "M.Sc. in Computer Science & Engineering",
+    institution: "Loading...",
+    period: "Loading...",
+    description: "Loading..."
+  },
+  {
+    id: "edu3",
+    degree: "B.Sc. in Computer Science & Engineering",
+    institution: "North South University",
+    period: "2025",
+    description: "Artificial Intelligence and Machine Learning Trail."
   },
   {
     id: "edu2",
@@ -118,12 +125,51 @@ export const EDUCATION: Education[] = [
     description: ""
   },
   {
-    id: "edu3",
-    degree: "B.Sc. in Computer Science & Engineering",
-    institution: "North South University",
-    period: "2025",
-    description: "Artificial Intelligence and Machine Learning Trail."
+    id: "edu1",
+    degree: "Secondary Education",
+    institution: "Birshreshtha Noor Mohammad Public College",
+    period: "2014",
+    description: ""
   }
+];
+
+export const PROGRAMMING_LANGUAGES: import('./types').ProgrammingLanguage[] = [
+  // Languages
+  { name: "C", icon: "devicon-c-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "C#", icon: "devicon-csharp-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "C++", icon: "devicon-cplusplus-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "CSS3", icon: "devicon-css3-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "Java", icon: "devicon-java-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "HTML5", icon: "devicon-html5-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "JavaScript", icon: "devicon-javascript-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "Kotlin", icon: "devicon-kotlin-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "Markdown", icon: "devicon-markdown-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "Python", icon: "devicon-python-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+  { name: "PHP", icon: "devicon-php-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
+
+  // Frameworks & Libraries
+  { name: "Bootstrap", icon: "devicon-bootstrap-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "Flutter", icon: "devicon-flutter-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "jQuery", icon: "devicon-jquery-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "Laravel", icon: "devicon-laravel-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "Node.js", icon: "devicon-nodejs-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "React", icon: "devicon-react-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "Vue.js", icon: "devicon-vuejs-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "NumPy", icon: "devicon-numpy-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "Pandas", icon: "devicon-pandas-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "scikit-learn", icon: "devicon-scikitlearn-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+  { name: "TensorFlow", icon: "devicon-tensorflow-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
+
+  // Tools & Platforms
+  { name: "Netlify", icon: "devicon-netlify-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "Vercel", icon: "devicon-vercel-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "Docker", icon: "devicon-docker-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "GitHub", icon: "devicon-github-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "Jupyter", icon: "devicon-jupyter-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "MySQL", icon: "devicon-mysql-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "Trello", icon: "devicon-trello-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "Notion", icon: "devicon-notion-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
+  { name: "LaTeX", icon: "devicon-latex-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" }
 ];
 
 export const SYSTEM_PROMPT = `

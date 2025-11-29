@@ -45,3 +45,23 @@ export interface SystemState {
   terminalOpen: boolean;
   currentSection: string;
 }
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  tags: string[];
+  excerpt: string;
+  coverImage?: string;
+  content: string;
+  readingTime: string;
+}
+
+export interface ProgrammingLanguage {
+  name: string;
+  icon: string;
+  color: string;
+  glowColor: string;
+  category: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms';
+}

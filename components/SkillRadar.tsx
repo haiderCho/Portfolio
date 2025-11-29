@@ -11,15 +11,14 @@ const SkillRadar: React.FC = () => {
 
   return (
     <div className="h-[300px] w-full relative">
-       {/* Background Grid Effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyber-primary/5 to-transparent pointer-events-none" />
-      
+      {/* Clean Background */}
+
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
           <PolarGrid stroke="#333" />
-          <PolarAngleAxis 
-            dataKey="subject" 
-            tick={{ fill: '#a0a0a0', fontSize: 12, fontFamily: '"JetBrains Mono", monospace' }} 
+          <PolarAngleAxis
+            dataKey="subject"
+            tick={{ fill: '#a0a0a0', fontSize: 12, fontFamily: '"JetBrains Mono", monospace' }}
           />
           <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
           <Radar
@@ -30,9 +29,9 @@ const SkillRadar: React.FC = () => {
             fill="#00f0ff"
             fillOpacity={0.2}
           />
-          <Tooltip 
-            contentStyle={{ 
-              backgroundColor: '#0a0a0a', 
+          <Tooltip
+            contentStyle={{
+              backgroundColor: '#0a0a0a',
               borderColor: '#00f0ff',
               color: '#fff',
               fontFamily: 'monospace'

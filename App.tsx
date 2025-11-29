@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, Code, ChevronDown, Terminal as TerminalIcon, Database, Layers } from 'lucide-react';
 import TerminalChat from './components/TerminalChat';
 import ProjectCard from './components/ProjectCard';
 import SkillRadar from './components/SkillRadar';
 import Education from './components/Education';
-import { PROFILE, PROJECTS, EXPERIENCE } from './constants';
+import Experience from './components/Experience';
+import ProgrammingLanguages from './components/ProgrammingLanguages';
+import { PROFILE, PROJECTS } from './constants';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -66,6 +69,7 @@ function App() {
           </div>
           <div className="hidden md:flex gap-2">
             <NavItem id="home" label="ROOT" />
+            <NavItem id="experience" label="EXPERIENCE" />
             <NavItem id="education" label="EDUCATION" />
             <NavItem id="skills" label="TECH_STACK" />
             <NavItem id="projects" label="PROJECTS" />
@@ -137,43 +141,43 @@ function App() {
           </div>
         </section>
 
+        {/* EXPERIENCE SECTION */}
+        <section id="experience" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+          <div className="max-w-7xl mx-auto w-full">
+            <Experience />
+          </div>
+        </section>
+
         {/* EDUCATION SECTION */}
-        <section id="education" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+        <section id="education" className="min-h-screen flex items-center py-20 px-6">
           <div className="max-w-7xl mx-auto w-full">
             <Education />
           </div>
         </section>
 
         {/* SKILLS & TECH STACK SECTION */}
-        <section id="skills" className="min-h-screen flex items-center py-24 px-6">
+        <section id="skills" className="min-h-screen flex items-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Skills Radar */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <Database className="w-6 h-6 text-cyber-primary" />
-                <h2 className="text-2xl font-bold">Tech_Stack_Matrix</h2>
+            {/* Skills Radar & Languages */}
+            <div className="space-y-8">
+              <div>
+                <div className="flex items-center gap-3 mb-8">
+                  <Database className="w-6 h-6 text-cyber-primary" />
+                  <h2 className="text-2xl font-bold">Tech_Stack_Matrix</h2>
+                </div>
+                <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative mb-8">
+                  <SkillRadar />
+                </div>
               </div>
-              <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative">
-                <SkillRadar />
-              </div>
+
+              {/* Tools Section - Below Matrix */}
+              <ProgrammingLanguages category="Tools & Platforms" />
             </div>
 
-            {/* Experience */}
-            <div>
-              <div className="flex items-center gap-3 mb-8">
-                <TerminalIcon className="w-6 h-6 text-cyber-primary" />
-                <h2 className="text-2xl font-bold">Experience_Log</h2>
-              </div>
-              <div className="grid gap-4">
-                {EXPERIENCE.map((exp) => (
-                  <div key={exp.id} className="p-4 border border-cyber-dim rounded hover:border-cyber-primary/50 transition-colors">
-                    <div className="text-cyber-primary font-mono text-xs mb-1">{exp.period}</div>
-                    <div className="font-bold text-white mb-1">{exp.role}</div>
-                    <div className="text-cyber-muted text-sm mb-2">{exp.company}</div>
-                    <p className="text-cyber-text/80 text-sm leading-relaxed">{exp.description}</p>
-                  </div>
-                ))}
-              </div>
+            {/* Languages & Frameworks - Right Column */}
+            <div className="space-y-8">
+              <ProgrammingLanguages category="Languages" />
+              <ProgrammingLanguages category="Frameworks & Libraries" />
             </div>
           </div>
         </section>
@@ -231,6 +235,15 @@ function App() {
               Open for collaboration on AI infrastructure and high-performance web applications.
             </p>
 
+            <div className="mb-8">
+              <Link
+                to="/blog"
+                className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_10px_rgba(0,240,255,0.3)]"
+              >
+                ACCESS_BLOG_ARCHIVE
+              </Link>
+            </div>
+
             <div className="flex justify-center gap-6">
               <a href={PROFILE.social.github} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
                 <Github className="w-5 h-5" />
@@ -244,7 +257,7 @@ function App() {
             </div>
 
             <div className="mt-8 font-mono text-[10px] text-cyber-dim">
-              <p>SYSTEM ID: NafizHC_V1.0.0</p>
+              <p>SYSTEM ID: NexusOS_V1.11.0</p>
               <p>© {new Date().getFullYear()} ALL RIGHTS RESERVED.</p>
             </div>
           </div>
