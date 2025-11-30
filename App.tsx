@@ -158,32 +158,27 @@ function App() {
         {/* SKILLS & TECH STACK SECTION */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Skills Radar & Languages */}
+            {/* Left Column: Matrix + Frameworks */}
             <div className="space-y-8">
               <div>
                 <div className="flex items-center gap-3 mb-8">
-                  <Database className="w-6 h-6 text-cyber-primary" />
-                  <h2 className="text-2xl font-bold">Tech_Stack_Matrix</h2>
+                  <Database className="w-8 h-8 text-cyber-primary" />
+                  <h2 className="text-3xl font-bold">Tech_Stack_Matrix</h2>
                 </div>
                 <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative mb-8">
                   <SkillRadar />
                 </div>
               </div>
 
-              {/* Tools Section - Below Matrix */}
-              <ProgrammingLanguages category="Tools & Platforms" />
-            </div>
-
-            {/* Languages & Frameworks - Right Column */}
-            <div className="space-y-8">
-              <ProgrammingLanguages category="Languages" />
               <ProgrammingLanguages category="Frameworks & Libraries" />
             </div>
-          </div>
 
-          {/* Operating Systems - Full Width Section at Bottom */}
-          <div className="max-w-7xl mx-auto w-full mt-16">
-            <ProgrammingLanguages category="Operating Systems" />
+            {/* Right Column: Languages + Tools + OS */}
+            <div className="space-y-8 pt-[60px]">
+              <ProgrammingLanguages category="Languages" />
+              <ProgrammingLanguages category="Tools & Platforms" />
+              <ProgrammingLanguages category="Operating Systems" />
+            </div>
           </div>
         </section>
 

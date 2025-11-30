@@ -78,24 +78,18 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  { name: "Python", level: 95, category: "Core" },
-  { name: "C++", level: 65, category: "Core" },
-  { name: "Java", level: 70, category: "Core" },
-  { name: "C#", level: 45, category: "Core" },
-  { name: "React", level: 60, category: "Frontend" },
-  { name: "TypeScript", level: 60, category: "Frontend" },
-  { name: "Node.js", level: 60, category: "Backend" },
-  { name: "SQL", level: 80, category: "Backend" },
-  { name: "Docker", level: 70, category: "DevOps" },
-  { name: "Git", level: 90, category: "DevOps" },
-  { name: "TensorFlow", level: 65, category: "AI/ML" },
-  { name: "PyTorch", level: 65, category: "AI/ML" },
-  { name: "Scikit-learn", level: 85, category: "AI/ML" },
-  { name: "XGBoost", level: 65, category: "AI/ML" },
-  { name: "Pandas", level: 85, category: "AI/ML" },
-  { name: "NumPy", level: 75, category: "AI/ML" },
-  { name: "Matplotlib", level: 70, category: "AI/ML" },
-  { name: "Seaborn", level: 75, category: "AI/ML" },
+  { name: "Python", level: 85, category: "Languages" },
+  { name: "C++", level: 65, category: "Languages" },
+  { name: "Java", level: 85, category: "Languages" },
+  { name: "Rust", level: 35, category: "Languages" },
+  { name: "TypeScript", level: 65, category: "Languages" },
+  { name: "React", level: 80, category: "Frameworks" },
+  { name: "Node.js", level: 75, category: "Frameworks" },
+  { name: "TensorFlow", level: 55, category: "Frameworks" },
+  { name: "PyTorch", level: 55, category: "Frameworks" },
+  { name: "Docker", level: 55, category: "Tools" },
+  { name: "Git", level: 90, category: "Tools" },
+  { name: "SQL", level: 80, category: "Tools" },
 ];
 
 export const EXPERIENCE: Experience[] = [
@@ -195,9 +189,11 @@ export const PROGRAMMING_LANGUAGES: import('./types').ProgrammingLanguage[] = [
   // Operating Systems
   { name: "Windows 11", icon: "devicon-windows11-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
   { name: "Ubuntu", icon: "devicon-ubuntu-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
+  { name: "Fedora", icon: "devicon-fedora-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
   { name: "Arch Linux", icon: "devicon-archlinux-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
   { name: "Kali Linux", icon: "si si-kalilinux", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
   { name: "Android", icon: "devicon-android-plain", color: "#00f0ff", glowColor: "rgba(0,240,255,0.5)", category: "Operating Systems" },
+  { name: "MacOS", icon: "devicon-apple-plain", color: "#00f0ff", glowColor: "rgba(0,240,255,0.5)", category: "Operating Systems" },
 ];
 
 export const SYSTEM_PROMPT = `
