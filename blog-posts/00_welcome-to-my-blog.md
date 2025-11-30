@@ -3,10 +3,8 @@ title: "Welcome to My Blog"
 date: "2025-11-29"
 tags: ["Welcome", "Introduction"]
 excerpt: "Welcome to my blog! Here I'll share my thoughts on AI, machine learning, software development, and technology."
-coverImage: ""
+coverImage: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&q=80"
 ---
-
-# Welcome to My Blog
 
 Hello and welcome! I'm excited to share my journey in technology, AI/ML, and software engineering with you through this blog.
 

@@ -1,0 +1,57 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Glow filter -->
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Simple circle border -->
+  <circle 
+    cx="100" 
+    cy="100" 
+    r="85" 
+    fill="none" 
+    stroke="#00F0FF" 
+    stroke-width="3" 
+    opacity="0.8"/>
+  
+  <!-- Inner circle -->
+  <circle 
+    cx="100" 
+    cy="100" 
+    r="70" 
+    fill="none" 
+    stroke="#00F0FF" 
+    stroke-width="1" 
+    stroke-dasharray="8,4"
+    opacity="0.4"/>
+  
+  <!-- NHC Text -->
+  <text 
+    x="100" 
+    y="118" 
+    font-family="'Courier New', monospace" 
+    font-size="52" 
+    font-weight="bold" 
+    fill="#00F0FF" 
+    text-anchor="middle" 
+    filter="url(#textGlow)"
+    letter-spacing="-1">NHC</text>
+  
+  <!-- Corner accent lines -->
+  <line x1="15" y1="100" x2="30" y2="100" stroke="#00F0FF" stroke-width="2" opacity="0.6"/>
+  <line x1="170" y1="100" x2="185" y2="100" stroke="#00F0FF" stroke-width="2" opacity="0.6"/>
+  <line x1="100" y1="15" x2="100" y2="30" stroke="#00F0FF" stroke-width="2" opacity="0.6"/>
+  <line x1="100" y1="170" x2="100" y2="185" stroke="#00F0FF" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Corner dots -->
+  <circle cx="15" cy="100" r="3" fill="#00F0FF" opacity="0.8"/>
+  <circle cx="185" cy="100" r="3" fill="#00F0FF" opacity="0.8"/>
+  <circle cx="100" cy="15" r="3" fill="#00F0FF" opacity="0.8"/>
+  <circle cx="100" cy="185" r="3" fill="#00F0FF" opacity="0.8"/>
+</svg>

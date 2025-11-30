@@ -24,6 +24,15 @@ function App() {
   if (!booted) {
     return (
       <div className="h-screen w-full bg-cyber-black flex flex-col items-center justify-center font-mono text-cyber-primary p-4">
+        {/* Logo */}
+        <div className="w-32 h-32 mb-8 animate-pulse flex items-center justify-center">
+          <img
+            src={`${import.meta.env.BASE_URL}logo-bold.svg`}
+            alt="NHC Logo"
+            className="w-full h-full"
+          />
+        </div>
+
         <div className="w-64 border-2 border-cyber-dim p-1 mb-4">
           <div className="h-2 bg-cyber-primary animate-[width_1.5s_ease-in-out_forwards]" style={{ width: '0%' }} />
         </div>
@@ -64,7 +73,11 @@ function App() {
       <nav className="fixed top-0 left-0 right-0 z-40 bg-cyber-black/80 backdrop-blur-md border-b border-cyber-dim">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tighter flex items-center gap-2">
-            <div className="w-3 h-3 bg-cyber-primary rounded-full animate-pulse" />
+            <img
+              src={`${import.meta.env.BASE_URL}logo-bold.svg`}
+              alt="NHC"
+              className="w-8 h-8 animate-pulse"
+            />
             <span className="font-mono">NafizHC</span>
           </div>
           <div className="hidden md:flex gap-2">

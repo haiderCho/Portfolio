@@ -1,0 +1,37 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="minimalGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Square frame with cut corners (cyberpunk style) -->
+  <path 
+    d="M 40,60 L 60,40 L 140,40 L 160,60 L 160,140 L 140,160 L 60,160 L 40,140 Z" 
+    fill="none" 
+    stroke="#00F0FF" 
+    stroke-width="2.5" 
+    filter="url(#minimalGlow)"/>
+  
+  <!-- NHC Text - Bold and centered -->
+  <text 
+    x="100" 
+    y="120" 
+    font-family="'Arial Black', sans-serif" 
+    font-size="48" 
+    font-weight="900" 
+    fill="#00F0FF" 
+    text-anchor="middle" 
+    filter="url(#minimalGlow)"
+    letter-spacing="-2">NHC</text>
+  
+  <!-- Small accent dots at corners -->
+  <circle cx="60" cy="40" r="3" fill="#00F0FF"/>
+  <circle cx="140" cy="40" r="3" fill="#00F0FF"/>
+  <circle cx="140" cy="160" r="3" fill="#00F0FF"/>
+  <circle cx="60" cy="160" r="3" fill="#00F0FF"/>
+</svg>
