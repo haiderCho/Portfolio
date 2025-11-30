@@ -62,10 +62,13 @@ export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
 
     for (const path in postFiles) {
         const content = postFiles[path] as string;
-        const slug = path.replace('../blog-posts/', '').replace('.md', '');
+        const filename = path.replace('../blog-posts/', '').replace('.md', '');
 
-        // Skip the template file
-        if (slug === 'template') continue;
+        // Skip hidden files (like _template)
+        if (filename.startsWith('_')) continue;
+
+        // Strip numeric prefix for the slug (e.g. 00_welcome -> welcome)
+        const slug = filename.replace(/^\d+_/, '');
 
         try {
             const { data, content: markdownContent } = parseFrontmatter(content);
@@ -98,13 +101,20 @@ export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
 export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
     try {
         const postFiles = import.meta.glob('../blog-posts/*.md', { as: 'raw', eager: true });
-        const path = `../blog-posts/${slug}.md`;
 
-        if (!(path in postFiles)) {
+        // Find the file that matches the slug, considering potential prefixes
+        const matchingPath = Object.keys(postFiles).find(path => {
+            const filename = path.replace('../blog-posts/', '').replace('.md', '');
+            if (filename.startsWith('_')) return false;
+            const currentSlug = filename.replace(/^\d+_/, '');
+            return currentSlug === slug;
+        });
+
+        if (!matchingPath) {
             return null;
         }
 
-        const content = postFiles[path] as string;
+        const content = postFiles[matchingPath] as string;
         const { data, content: markdownContent } = parseFrontmatter(content);
         const readingTime = calculateReadingTime(markdownContent);
 
