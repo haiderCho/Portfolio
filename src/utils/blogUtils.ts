@@ -54,7 +54,7 @@ const parseFrontmatter = (content: string) => {
 // This will be used to dynamically import all markdown files from the blog-posts directory
 export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
     // In a Vite setup, we use import.meta.glob to get all markdown files
-    const postFiles = import.meta.glob('../blog-posts/*.md', { as: 'raw', eager: true });
+    const postFiles = import.meta.glob('../data/blog-posts/*.md', { query: '?raw', import: 'default', eager: true });
 
     // console.log('Blog Utils: Found post files:', Object.keys(postFiles));
 
@@ -62,7 +62,7 @@ export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
 
     for (const path in postFiles) {
         const content = postFiles[path] as string;
-        const filename = path.replace('../blog-posts/', '').replace('.md', '');
+        const filename = path.replace('../data/blog-posts/', '').replace('.md', '');
 
         // Skip hidden files (like _template)
         if (filename.startsWith('_')) continue;
@@ -100,11 +100,11 @@ export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
 
 export const getBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
     try {
-        const postFiles = import.meta.glob('../blog-posts/*.md', { as: 'raw', eager: true });
+        const postFiles = import.meta.glob('../data/blog-posts/*.md', { query: '?raw', import: 'default', eager: true });
 
         // Find the file that matches the slug, considering potential prefixes
         const matchingPath = Object.keys(postFiles).find(path => {
-            const filename = path.replace('../blog-posts/', '').replace('.md', '');
+            const filename = path.replace('../data/blog-posts/', '').replace('.md', '');
             if (filename.startsWith('_')) return false;
             const currentSlug = filename.replace(/^\d+_/, '');
             return currentSlug === slug;

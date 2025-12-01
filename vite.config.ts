@@ -17,8 +17,21 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(__dirname, './src'),
       }
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom', 'react-router-dom'],
+            ui: ['lucide-react'],
+            genai: ['@google/genai'],
+            charts: ['recharts'],
+            markdown: ['react-markdown', 'rehype-highlight', 'gray-matter', 'reading-time'],
+          },
+        },
+      },
     }
   };
 });

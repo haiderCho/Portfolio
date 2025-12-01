@@ -92,7 +92,7 @@ hsl(160, 84%, 39%)
 
 ## Glow Effects
 
-For that signature cyberpunk glow, use box-shadow or text-shadow:
+For that signature cyberpunk glow, box-shadow or text-shadow:
 
 ```css
 /* Cyan Glow */
@@ -127,7 +127,7 @@ text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
 
 ## 3-Color Minimal Palette
 
-If you need a minimal 3-color version:
+For a minimal 3-color version:
 
 1. **Primary**: `#00F0FF` (Cyber Cyan)
 2. **Background**: `#0A0A0A` (Deep Space Black)
@@ -181,6 +181,5 @@ module.exports = {
 
 ---
 
-**Generated**: 2025-11-30  
+**Created**: 2025-11-30  
 **Theme**: Cyberpunk Tech / Dark Mode  
-**Primary Use**: Portfolio, Tech Websites, Developer Tools

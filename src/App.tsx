@@ -27,7 +27,7 @@ function App() {
         {/* Logo */}
         <div className="w-32 h-32 mb-8 animate-pulse flex items-center justify-center">
           <img
-            src={`${import.meta.env.BASE_URL}logo-bold.svg`}
+            src={`${import.meta.env.BASE_URL}assets/icons/logo-bold.svg`}
             alt="NHC Logo"
             className="w-full h-full"
           />
@@ -74,7 +74,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tighter flex items-center gap-2">
             <img
-              src={`${import.meta.env.BASE_URL}logo-bold.svg`}
+              src={`${import.meta.env.BASE_URL}assets/icons/logo-bold.svg`}
               alt="NHC"
               className="w-8 h-8 animate-pulse"
             />
@@ -170,15 +170,15 @@ function App() {
 
         {/* SKILLS & TECH STACK SECTION */}
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Left Column: Matrix + Frameworks */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div>
                 <div className="flex items-center gap-3 mb-8">
                   <Database className="w-8 h-8 text-cyber-primary" />
                   <h2 className="text-3xl font-bold">Tech_Stack_Matrix</h2>
                 </div>
-                <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative mb-8">
+                <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative mb-6">
                   <SkillRadar />
                 </div>
               </div>
@@ -187,7 +187,7 @@ function App() {
             </div>
 
             {/* Right Column: Languages + Tools + OS */}
-            <div className="space-y-8 pt-[60px]">
+            <div className="space-y-6 pt-[50px]">
               <ProgrammingLanguages category="Languages" />
               <ProgrammingLanguages category="Tools & Platforms" />
               <ProgrammingLanguages category="Operating Systems" />

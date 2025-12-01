@@ -10,7 +10,7 @@ const SkillRadar: React.FC = () => {
   }));
 
   return (
-    <div className="h-[300px] w-full relative">
+    <div className="h-[250px] w-full relative">
       {/* Clean Background */}
 
       <ResponsiveContainer width="100%" height="100%">
