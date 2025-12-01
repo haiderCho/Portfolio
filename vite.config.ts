@@ -26,9 +26,8 @@ export default defineConfig(({ mode }) => {
           manualChunks: {
             vendor: ['react', 'react-dom', 'react-router-dom'],
             ui: ['lucide-react'],
-            genai: ['@google/genai'],
             charts: ['recharts'],
-            markdown: ['react-markdown', 'rehype-highlight', 'gray-matter', 'reading-time'],
+            markdown: ['react-markdown', 'rehype-highlight', 'gray-matter'],
           },
         },
       },

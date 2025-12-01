@@ -34,13 +34,13 @@ function App() {
         </div>
 
         <div className="w-64 border-2 border-cyber-dim p-1 mb-4">
-          <div className="h-2 bg-cyber-primary animate-[width_1.5s_ease-in-out_forwards]" style={{ width: '0%' }} />
+          <div className="h-2 bg-cyber-primary loading-bar" />
         </div>
         <div className="text-sm animate-pulse">
-          INITIALIZING NEXUS CORE...
+          INITIALIZING FOYTRIX CORE...
         </div>
         <div className="mt-2 text-xs text-cyber-muted">
-          LOADING MODULES: [ REACT, TAILWIND, GEMINI_API, D3 ]
+          LOADING MODULES: [ REACT, TAILWIND, D3 ]
         </div>
       </div>
     );
@@ -140,7 +140,7 @@ function App() {
               <div className="absolute font-mono text-[10px] text-cyber-primary/40 whitespace-pre leading-none">
                 {`
       10101010101010
-    10101  NEXUS  10101
+    10101 FOYTRIX 10101
    10101   CORE    10101
     10101 SYSTEM  10101
       10101010101010
@@ -303,7 +303,7 @@ function App() {
             </div>
 
             <div className="mt-8 font-mono text-[10px] text-cyber-dim">
-              <p>SYSTEM ID: Nexus_Core_V1.12.0</p>
+              <p>SYSTEM ID: Foytrix_Core_V1.17.0</p>
               <p>© {new Date().getFullYear()} ALL RIGHTS RESERVED.</p>
             </div>
           </div>
@@ -312,7 +312,7 @@ function App() {
       </main>
 
       {/* Floating Chat Terminal */}
-      <TerminalChat />
+      {/* <TerminalChat /> */}
     </div>
   );
 }

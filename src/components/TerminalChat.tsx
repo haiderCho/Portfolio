@@ -33,7 +33,7 @@ const AiAvatar = ({ state, mood }: { state: 'idle' | 'thinking' | 'speaking', mo
 
       {/* Core */}
       <div className={`w-1.5 h-1.5 rounded-full shadow-[0_0_15px_currentColor] transition-all duration-300 ${currentCore} ${state === 'speaking' ? 'animate-speaking scale-125' :
-          state === 'thinking' ? 'animate-pulse scale-90' : 'animate-pulse'
+        state === 'thinking' ? 'animate-pulse scale-90' : 'animate-pulse'
         }`} />
     </div>
   );
@@ -179,7 +179,7 @@ const TerminalChat: React.FC = () => {
           <AiAvatar state={avatarState} mood={mood} />
           <div className="flex flex-col">
             <span className={`font-bold tracking-wider text-xs ${mood === 'alert' ? 'text-red-500' : mood === 'happy' ? 'text-cyber-secondary' : 'text-cyber-primary'}`}>
-              NEXUS_AI_V2.5
+              FOYTRIX_AI_V2.5
             </span>
             <span className="text-[10px] text-cyber-muted uppercase tracking-widest">
               STATUS: {avatarState === 'idle' ? 'STANDBY' : avatarState === 'thinking' ? 'PROCESSING' : 'TRANSMITTING'}
@@ -206,12 +206,12 @@ const TerminalChat: React.FC = () => {
           <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
               className={`max-w-[85%] p-3 rounded-lg ${msg.role === 'user'
-                  ? 'bg-cyber-primary/10 border border-cyber-primary/30 text-cyber-primary'
-                  : 'bg-cyber-panel border border-cyber-dim text-cyber-text'
+                ? 'bg-cyber-primary/10 border border-cyber-primary/30 text-cyber-primary'
+                : 'bg-cyber-panel border border-cyber-dim text-cyber-text'
                 }`}
             >
               <div className="text-[10px] uppercase opacity-50 mb-1 flex justify-between">
-                <span>{msg.role === 'model' ? 'Nexus' : 'User'}</span>
+                <span>{msg.role === 'model' ? 'Foytrix' : 'User'}</span>
                 <span>{msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
               </div>
               <div className="whitespace-pre-wrap leading-relaxed break-words">
