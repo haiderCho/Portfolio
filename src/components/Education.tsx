@@ -14,7 +14,7 @@ const Education = () => {
                 {EDUCATION.map((edu, index) => (
                     <div
                         key={edu.id}
-                        className="relative p-6 bg-cyber-panel border border-cyber-dim rounded-lg hover:border-cyber-primary/50 transition-all group"
+                        className="relative p-6 bg-cyber-panel border border-cyber-dim rounded-lg hover:border-cyber-primary/50 transition-all group card-shine"
                         style={{ animationDelay: `${index * 100}ms` }}
                     >
                         {/* Decorative line */}

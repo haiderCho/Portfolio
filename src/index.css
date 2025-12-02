@@ -1,6 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+    --color-cyber-black: #0a0a0a;
+    --color-cyber-dark: #111111;
+    --color-cyber-panel: #1a1a1a;
+    --color-cyber-primary: #00f0ff;
+    --color-cyber-secondary: #7000ff;
+    --color-cyber-dim: rgba(0, 240, 255, 0.1);
+    --color-cyber-text: #e0e0e0;
+    --color-cyber-muted: #858585;
+
+    --font-family-mono: "JetBrains Mono", monospace;
+    --font-family-sans: "Space Grotesk", sans-serif;
+
+    --animate-spin-slow: spin 12s linear infinite;
+    --animate-pulse-fast: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-scanline: scanline 4s linear infinite;
+    --animate-speaking: speaking 0.4s ease-in-out infinite;
+}
+
+@keyframes scanline {
+    0% {
+        top: -20%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes speaking {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0.6;
+    }
+}
+
 body {
-    background-color: #0a0a0a;
-    color: #e0e0e0;
+    background-color: var(--color-cyber-black);
+    color: var(--color-cyber-text);
 }
 
 /* Custom Scrollbar */
@@ -50,7 +95,41 @@ body {
     0% {
         width: 0%;
     }
+
     100% {
         width: 100%;
     }
+}
+
+/* Card Shine Effect */
+.card-shine {
+    transition: all 0.3s ease;
+}
+
+.card-shine:hover {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+/* Section Divider Glow */
+.section-glow {
+    position: relative;
+}
+
+.section-glow::before,
+.section-glow::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.6) 0%, rgba(0, 240, 255, 0.3) 40%, transparent 70%);
+    pointer-events: none;
+}
+
+.section-glow::before {
+    top: 0;
+}
+
+.section-glow::after {
+    bottom: 0;
 }

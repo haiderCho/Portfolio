@@ -3,7 +3,7 @@ title: "In Applied ML, the Data Wins. Every Time."
 date: "2025-11-30"
 tags: ["Machine Learning", "Data Science", "AI", "Software Engineering"]
 excerpt: "After years of chasing model architectures, I learned the hard way: the biggest ML breakthroughs don't come from better models—they come from better data."
-coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80"
+coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80"
 ---
 
 When you first dive into machine learning, it's almost impossible not to fixate on models. I did that throughout my academic years. I'd chase the newest architecture, tune hyperparameters like it was a competitive sport, and convince myself the next tweak would unlock some dramatic performance jump. But after enough late nights staring at disappointing results, the real pattern became obvious: **the biggest problems weren't inside the model**. They were upstream—in the data I hadn't looked at closely enough.

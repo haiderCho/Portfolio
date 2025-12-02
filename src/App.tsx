@@ -155,7 +155,7 @@ function App() {
         </section>
 
         {/* EXPERIENCE SECTION */}
-        <section id="experience" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+        <section id="experience" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
           <div className="max-w-7xl mx-auto w-full">
             <Experience />
           </div>
@@ -169,7 +169,7 @@ function App() {
         </section>
 
         {/* SKILLS & TECH STACK SECTION */}
-        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Left Column: Matrix + Frameworks */}
             <div className="space-y-6">
@@ -213,7 +213,7 @@ function App() {
         </section>
 
         {/* SYSTEM ARCHITECTURE / ABOUT */}
-        <section id="about" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30">
+        <section id="about" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
           <div className="max-w-4xl mx-auto w-full">
             <div className="flex items-center gap-3 mb-8">
               <Layers className="w-8 h-8 text-cyber-secondary" />
@@ -246,25 +246,25 @@ function App() {
               </h3>
               <div className="flex flex-wrap gap-3 items-center">
                 {/* Windows 11 */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
                   <i className="devicon-windows11-original text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">Windows 11 PRO</span>
                 </div>
 
                 {/* Intel CPU */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
                   <i className="si si-intel text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">i7 11th Gen</span>
                 </div>
 
                 {/* RAM */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
                   <i className="si si-corsair text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">32GB RAM</span>
                 </div>
 
                 {/* NVIDIA GPU */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim rounded text-xs font-mono">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
                   <i className="si si-nvidia text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">RTX 3060</span>
                 </div>
@@ -284,7 +284,7 @@ function App() {
             <div className="mb-8">
               <Link
                 to="/blog"
-                className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_10px_rgba(0,240,255,0.3)]"
+                className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary hover:bg-cyber-primary/10 text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:scale-105"
               >
                 ACCESS_BLOG_ARCHIVE
               </Link>
