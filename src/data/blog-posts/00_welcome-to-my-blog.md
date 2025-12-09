@@ -24,6 +24,7 @@ I'm an AI/ML Engineer with experience in full-stack development and a passion fo
 ## Stay Connected
 
 I'll be posting regularly about:
+
 - Technical tutorials and guides
 - Project updates and case studies
 - Industry insights and analysis

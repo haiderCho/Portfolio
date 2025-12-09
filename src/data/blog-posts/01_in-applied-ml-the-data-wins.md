@@ -10,7 +10,6 @@ When you first dive into machine learning, it's almost impossible not to fixate 
 
 Working on models *feels* exciting. You get clean abstractions, clever math, and tidy graphs that make you feel productive. Data, on the other hand, is the opposite. It's messy, slow, and full of judgment calls you'd rather skip. I avoided that part far too often, and my projects reflected it—unstable training, weird metric swings, and whole weeks spent trying to tune architectures that were never the real issue.
 
-
 ## The Hidden Cost of Bad Data
 
 Whenever something underperformed, I'd start by blaming the model. But almost every time, one of these familiar problems was lurking underneath:
@@ -26,7 +25,6 @@ Whenever something underperformed, I'd start by blaming the model. But almost ev
 
 These problems don't just hurt accuracy—they waste time, destabilize training, and make everything harder to reason about.
 
-
 ## Why Everyone Over-Invests in Models
 
 And it's not just big teams in industry. Anyone learning ML falls into the same rhythm:
@@ -39,7 +37,6 @@ And it's not just big teams in industry. Anyone learning ML falls into the same 
   Fixing data forces you to confront mistaken assumptions about the problem and the domain. It's uncomfortable and requires domain expertise.
 
 So you end up gravitating toward architecture changes because they feel safe, controlled, and exciting—even when they're the wrong lever to pull.
-
 
 ## Data Quality Is What Actually Moves the Needle
 
@@ -58,7 +55,6 @@ Looping in people with domain context surfaced problems I never would've spotted
 
 With cleaner data, even straightforward models started performing like they actually understood the task.
 
-
 ## A Quick Reality Check
 
 Data isn't the culprit *every single time*. I've made plenty of other mistakes that can tank a model on their own:
@@ -68,19 +64,17 @@ Data isn't the culprit *every single time*. I've made plenty of other mistakes t
 - **Using the wrong loss function**, poor hyperparameters, or unstable training procedures.
 - **Insufficient regularization** leading to overfitting, or too much regularization preventing learning.
 
-These issues matter. They can absolutely break performance. But they're usually easier to diagnose—you'll see NaN losses, exploding gradients, or training that doesn't converge at all. 
+These issues matter. They can absolutely break performance. But they're usually easier to diagnose—you'll see NaN losses, exploding gradients, or training that doesn't converge at all.
 
 **Data problems hide.** They masquerade as model issues and trick you into tuning the wrong thing. You'll see mediocre performance that *looks* reasonable, but never improves no matter what you try.
 
-
 ## The Hard Truth
 
-If your model is struggling, the architecture might not be the villain. Most of my hardest problems weren't about layers, attention mechanisms, or embeddings. They were about data I had trusted too quickly. 
+If your model is struggling, the architecture might not be the villain. Most of my hardest problems weren't about layers, attention mechanisms, or embeddings. They were about data I had trusted too quickly.
 
 **Bigger models didn't fix those issues. Cleaner pipelines did.**
 
 Once you truly internalize that principle, your whole approach shifts. You stop chasing complexity for its own sake and start building systems on top of a foundation you actually understand.
-
 
 ## Key Takeaways
 
@@ -90,7 +84,6 @@ Once you truly internalize that principle, your whole approach shifts. You stop 
 - 🏷️ **Label consistency is non-negotiable** for supervised learning
 - 🔄 **Version your datasets** just like you version your code
 - 🤝 **Collaborate with domain experts** to understand data context
-
 
 ## Conclusion
 
