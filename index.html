@@ -14,6 +14,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@latest/font/simple-icons.min.css">
 
+  <!-- GitHub Pages SPA redirect handler -->
+  <script>
+    // Check if we have a redirect parameter from 404.html
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const redirect = params.get('redirect');
+      
+      if (redirect) {
+        // Remove the redirect parameter and use history API to restore the URL
+        const newUrl = window.location.origin + window.location.pathname + redirect;
+        window.history.replaceState(null, '', newUrl);
+      }
+    })();
+  </script>
 
 </head>
 

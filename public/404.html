@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NafizHC Portfolio</title>
+    <script>
+      // GitHub Pages SPA redirect handler
+      // This script takes the current page path and redirects to the index.html
+      // with the path encoded as a query parameter. The index.html script will
+      // then decode this and use React Router to render the correct page.
+
+      const path = window.location.pathname.replace("/Portfolio", "");
+      const search = window.location.search;
+      const hash = window.location.hash;
+
+      // Redirect to index.html with the path as a query parameter
+      window.location.replace(
+        window.location.origin +
+          "/Portfolio/" +
+          "?redirect=" +
+          encodeURIComponent(path + search + hash)
+      );
+    </script>
+  </head>
+  <body>
+    <!-- This page is for GitHub Pages SPA routing -->
+  </body>
+</html>
