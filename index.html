@@ -23,7 +23,9 @@
       
       if (redirect) {
         // Remove the redirect parameter and use history API to restore the URL
-        const newUrl = window.location.origin + window.location.pathname + redirect;
+        // Remove trailing slash from pathname to prevent double slashes
+        const pathname = window.location.pathname.replace(/\/$/, '');
+        const newUrl = window.location.origin + pathname + redirect;
         window.history.replaceState(null, '', newUrl);
       }
     })();
