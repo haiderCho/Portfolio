@@ -54,7 +54,7 @@ function App() {
       }}
       className={`px-4 py-2 font-mono text-sm transition-all border-b-2 ${activeSection === id
         ? 'border-cyber-primary text-cyber-primary'
-        : 'border-transparent text-cyber-muted hover:text-cyber-text'
+        : 'border-transparent text-cyber-muted hover:text-cyber-text active:text-cyber-text'
         }`}
     >
       {`// ${label}`}
@@ -115,7 +115,7 @@ function App() {
               <div className="flex flex-wrap gap-4 pt-4">
                 <button
                   onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-3 bg-cyber-primary text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all font-mono"
+                  className="px-8 py-3 bg-cyber-primary text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] active:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all font-mono"
                 >
                   INITIATE_VIEW
                 </button>
@@ -123,7 +123,7 @@ function App() {
                   href={PROFILE.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-3 border border-cyber-dim hover:border-cyber-primary text-cyber-text rounded transition-all font-mono flex items-center gap-2"
+                  className="px-8 py-3 border border-cyber-dim hover:border-cyber-primary active:border-cyber-primary text-cyber-text rounded transition-all font-mono flex items-center gap-2"
                 >
                   <Github className="w-4 h-4" /> GITHUB
                 </a>
@@ -246,25 +246,25 @@ function App() {
               </h3>
               <div className="flex flex-wrap gap-3 items-center">
                 {/* Windows 11 */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
                   <i className="devicon-windows11-original text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">Windows 11 PRO</span>
                 </div>
 
                 {/* Intel CPU */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
                   <i className="si si-intel text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">i7 11th Gen</span>
                 </div>
 
                 {/* RAM */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
                   <i className="si si-corsair text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">32GB RAM</span>
                 </div>
 
                 {/* NVIDIA GPU */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] rounded text-xs font-mono transition-all hover:scale-105 cursor-pointer">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
                   <i className="si si-nvidia text-cyber-secondary" style={{ fontSize: '16px' }}></i>
                   <span className="text-cyber-text">RTX 3060</span>
                 </div>
@@ -284,20 +284,20 @@ function App() {
             <div className="mb-8">
               <Link
                 to="/blog"
-                className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary hover:bg-cyber-primary/10 text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:scale-105"
+                className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary hover:bg-cyber-primary/10 text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:scale-105 active:border-cyber-primary active:bg-cyber-primary/10 active:shadow-[0_0_20px_rgba(0,240,255,0.6)] active:scale-105"
               >
                 ACCESS_BLOG_ARCHIVE
               </Link>
             </div>
 
             <div className="flex justify-center gap-6">
-              <a href={PROFILE.social.github} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
+              <a href={PROFILE.social.github} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary active:border-cyber-primary active:text-cyber-primary transition-all">
                 <Github className="w-5 h-5" />
               </a>
-              <a href={PROFILE.social.linkedin} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
+              <a href={PROFILE.social.linkedin} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary active:border-cyber-primary active:text-cyber-primary transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href={`mailto:nafizhc@gmail.com`} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary transition-all">
+              <a href={`mailto:nafizhc@gmail.com`} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary active:border-cyber-primary active:text-cyber-primary transition-all">
                 <Mail className="w-5 h-5" />
               </a>
             </div>

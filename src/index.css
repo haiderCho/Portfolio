@@ -1,135 +1,146 @@
 @import "tailwindcss";
 
 @theme {
-    --color-cyber-black: #0a0a0a;
-    --color-cyber-dark: #111111;
-    --color-cyber-panel: #1a1a1a;
-    --color-cyber-primary: #00f0ff;
-    --color-cyber-secondary: #7000ff;
-    --color-cyber-dim: rgba(0, 240, 255, 0.1);
-    --color-cyber-text: #e0e0e0;
-    --color-cyber-muted: #858585;
+  --color-cyber-black: #0a0a0a;
+  --color-cyber-dark: #111111;
+  --color-cyber-panel: #1a1a1a;
+  --color-cyber-primary: #00f0ff;
+  --color-cyber-secondary: #7000ff;
+  --color-cyber-dim: rgba(0, 240, 255, 0.1);
+  --color-cyber-text: #e0e0e0;
+  --color-cyber-muted: #858585;
 
-    --font-family-mono: "JetBrains Mono", monospace;
-    --font-family-sans: "Space Grotesk", sans-serif;
+  --font-family-mono: "JetBrains Mono", monospace;
+  --font-family-sans: "Space Grotesk", sans-serif;
 
-    --animate-spin-slow: spin 12s linear infinite;
-    --animate-pulse-fast: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    --animate-scanline: scanline 4s linear infinite;
-    --animate-speaking: speaking 0.4s ease-in-out infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-pulse-fast: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scanline: scanline 4s linear infinite;
+  --animate-speaking: speaking 0.4s ease-in-out infinite;
 }
 
 @keyframes scanline {
-    0% {
-        top: -20%;
-    }
+  0% {
+    top: -20%;
+  }
 
-    100% {
-        top: 100%;
-    }
+  100% {
+    top: 100%;
+  }
 }
 
 @keyframes speaking {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.4);
-        opacity: 0.6;
-    }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
 }
 
 body {
-    background-color: var(--color-cyber-black);
-    color: var(--color-cyber-text);
+  background-color: var(--color-cyber-black);
+  color: var(--color-cyber-text);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #111;
+  background: #111;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 4px;
+  background: #333;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #00f0ff;
+  background: #00f0ff;
 }
 
 .glitch-text {
-    text-shadow: 2px 0 #00f0ff, -2px 0 #7000ff;
+  text-shadow: 2px 0 #00f0ff, -2px 0 #7000ff;
 }
 
 .crt::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    z-index: 2;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
-    opacity: 0.6;
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 /* Loading Bar Animation */
 .loading-bar {
-    width: 0%;
-    animation: loadingProgress 1.5s ease-in-out forwards;
+  width: 0%;
+  animation: loadingProgress 1.5s ease-in-out forwards;
 }
 
 @keyframes loadingProgress {
-    0% {
-        width: 0%;
-    }
+  0% {
+    width: 0%;
+  }
 
-    100% {
-        width: 100%;
-    }
+  100% {
+    width: 100%;
+  }
 }
 
 /* Card Shine Effect */
 .card-shine {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.card-shine:hover {
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+.card-shine:hover,
+.card-shine:active {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
 }
 
 /* Section Divider Glow */
 .section-glow {
-    position: relative;
+  position: relative;
 }
 
 .section-glow::before,
 .section-glow::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.6) 0%, rgba(0, 240, 255, 0.3) 40%, transparent 70%);
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 240, 255, 0.6) 0%,
+    rgba(0, 240, 255, 0.3) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .section-glow::before {
-    top: 0;
+  top: 0;
 }
 
 .section-glow::after {
-    bottom: 0;
+  bottom: 0;
 }

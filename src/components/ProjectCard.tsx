@@ -10,11 +10,11 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <div
-      className="group relative bg-cyber-panel border border-cyber-dim hover:border-cyber-primary rounded-lg p-6 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] overflow-hidden"
+      className="group relative bg-cyber-panel border border-cyber-dim hover:border-cyber-primary active:border-cyber-primary rounded-lg p-6 transition-all duration-300 hover:transform hover:-translate-y-1 active:transform active:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] active:shadow-[0_0_20px_rgba(0,240,255,0.1)] overflow-hidden"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Decorative Corner */}
-      <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-cyber-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-cyber-primary/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity" />
 
       <div className="flex justify-between items-start mb-4">
         <span className="text-xs font-mono px-2 py-1 rounded bg-cyber-dark border border-cyber-dim text-cyber-primary">
@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyber-primary transition-colors font-sans">
+      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyber-primary group-active:text-cyber-primary transition-colors font-sans">
         {project.title}
       </h3>
 
@@ -109,7 +109,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           const iconInfo = getIconInfo(tech);
 
           return (
-            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary/50 transition-colors">
+            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary/50 active:border-cyber-primary/50 transition-colors">
               {iconInfo ? (
                 <i className={`${iconInfo.type === 'si' ? 'si' : ''} ${iconInfo.class} text-cyber-primary`} style={{ fontSize: '14px' }}></i>
               ) : (
@@ -126,7 +126,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           href={project.repoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary transition-colors"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary active:text-cyber-primary transition-colors"
         >
           <Github className="w-4 h-4" />
           <span className="font-mono">SOURCE</span>
@@ -136,7 +137,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary transition-colors"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary active:text-cyber-primary transition-colors"
           >
             <ExternalLink className="w-4 h-4" />
             <span className="font-mono">DEPLOY</span>
