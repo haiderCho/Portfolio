@@ -1,6 +1,6 @@
 import React from 'react';
 import { Briefcase, Calendar, Building } from 'lucide-react';
-import { EXPERIENCE } from '../constants';
+import { EXPERIENCE } from '@/constants';
 
 const Experience = () => {
     return (

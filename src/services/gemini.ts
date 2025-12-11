@@ -1,6 +1,6 @@
 import { GoogleGenAI, Chat } from "@google/genai";
-import { Message } from "../types";
-import { SYSTEM_PROMPT } from "../constants";
+import { Message } from "@/types";
+import { SYSTEM_PROMPT } from "@/constants";
 
 // Ideally, this is handled via a backend proxy for security in production.
 // For this static portfolio demo, we assume the environment variable is available during build/runtime.

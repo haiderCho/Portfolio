@@ -1,4 +1,4 @@
-import { BlogPost } from '../types';
+import { BlogPost } from '@/types';
 
 // Simple reading time calculation
 const calculateReadingTime = (text: string): string => {
@@ -56,8 +56,6 @@ export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
     // In a Vite setup, we use import.meta.glob to get all markdown files
     const postFiles = import.meta.glob('../data/blog-posts/*.md', { query: '?raw', import: 'default', eager: true });
 
-    // console.log('Blog Utils: Found post files:', Object.keys(postFiles));
-
     const posts: BlogPost[] = [];
 
     for (const path in postFiles) {
@@ -72,7 +70,6 @@ export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
 
         try {
             const { data, content: markdownContent } = parseFrontmatter(content);
-            // console.log('Blog Utils: Parsed post:', slug, data);
 
             const readingTime = calculateReadingTime(markdownContent);
 
@@ -91,8 +88,6 @@ export const getAllBlogPosts = async (): Promise<BlogPost[]> => {
             console.error('Blog Utils: Error parsing post:', slug, e);
         }
     }
-
-    // console.log('Blog Utils: Final posts array:', posts);
 
     // Sort posts by date (newest first)
     return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

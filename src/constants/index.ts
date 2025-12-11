@@ -1,6 +1,6 @@
-import { Experience, Project, Skill, Education } from './types';
+import { Experience, Project, Skill, Education, Profile, ProgrammingLanguage } from '@/types';
 
-export const PROFILE = {
+export const PROFILE: Profile = {
   name: "Nafiz Haider Chowdhury",
   title: "AI/ML Engineer",
   tagline: "Turning ideas into reality.",
@@ -133,7 +133,7 @@ export const EDUCATION: Education[] = [
   }
 ];
 
-export const PROGRAMMING_LANGUAGES: import('./types').ProgrammingLanguage[] = [
+export const PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
   // Languages
   { name: "C", icon: "devicon-c-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
   { name: "C++", icon: "devicon-cplusplus-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },

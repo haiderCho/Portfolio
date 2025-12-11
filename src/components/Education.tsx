@@ -1,6 +1,6 @@
 import React from 'react';
 import { GraduationCap, Calendar, MapPin } from 'lucide-react';
-import { EDUCATION } from '../constants';
+import { EDUCATION } from '@/constants';
 
 const Education = () => {
     return (

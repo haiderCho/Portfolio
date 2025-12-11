@@ -1,7 +1,7 @@
 import React from 'react';
 import { Calendar, Clock, Tag } from 'lucide-react';
-import { BlogPost } from '../types';
-import { formatDate } from '../utils/blogUtils';
+import { BlogPost } from '@/types';
+import { formatDate } from '@/utils/blogUtils';
 import { Link } from 'react-router-dom';
 
 interface BlogPostCardProps {

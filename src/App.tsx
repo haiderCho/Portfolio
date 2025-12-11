@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, Code, ChevronDown, Terminal as TerminalIcon, Database, Layers, Monitor } from 'lucide-react';
-import TerminalChat from './components/TerminalChat';
-import ProjectCard from './components/ProjectCard';
-import SkillRadar from './components/SkillRadar';
-import Education from './components/Education';
-import Experience from './components/Experience';
-import ProgrammingLanguages from './components/ProgrammingLanguages';
-import { PROFILE, PROJECTS } from './constants';
+import TerminalChat from '@/components/TerminalChat';
+import ProjectCard from '@/components/ProjectCard';
+import SkillRadar from '@/components/SkillRadar';
+import Education from '@/components/Education';
+import Experience from '@/components/Experience';
+import ProgrammingLanguages from '@/components/ProgrammingLanguages';
+import { PROFILE, PROJECTS } from '@/constants';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -232,7 +232,7 @@ function App() {
                 <h3 className="text-cyber-secondary font-mono mb-4 text-sm">LATEST_COMMIT_LOG</h3>
                 <div className="space-y-3 font-mono text-xs text-cyber-muted">
                   <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Refactored Neural-Vortex rendering pipeline</p>
-                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Integrated Gemini 2.5 Flash for real-time analysis</p>
+                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Integrated Multi-Provider AI (Gemini, Groq, DeepSeek, OpenRouter)</p>
                   <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Optimized Docker containers for 30% smaller footprint</p>
                 </div>
               </div>
@@ -312,7 +312,7 @@ function App() {
       </main>
 
       {/* Floating Chat Terminal */}
-      {/* <TerminalChat /> */}
+      <TerminalChat />
     </div>
   );
 }

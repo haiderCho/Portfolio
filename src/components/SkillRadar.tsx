@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Tooltip } from 'recharts';
-import { SKILLS } from '../constants';
+import { SKILLS } from '@/constants';
 
 const SkillRadar: React.FC = () => {
   const data = SKILLS.map(s => ({

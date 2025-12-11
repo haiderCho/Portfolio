@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BookOpen, Filter } from 'lucide-react';
-import { BlogPost } from '../types';
-import { getAllBlogPosts, getAllTags } from '../utils/blogUtils';
-import BlogPostCard from '../components/BlogPostCard';
+import { BlogPost } from '@/types';
+import { getAllBlogPosts, getAllTags } from '@/utils/blogUtils';
+import BlogPostCard from '@/components/BlogPostCard';
 import { Link } from 'react-router-dom';
 
 const Blog: React.FC = () => {

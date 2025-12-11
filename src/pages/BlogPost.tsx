@@ -3,8 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
-import { BlogPost as BlogPostType } from '../types';
-import { getBlogPostBySlug, formatDate } from '../utils/blogUtils';
+import { BlogPost as BlogPostType } from '@/types';
+import { getBlogPostBySlug, formatDate } from '@/utils/blogUtils';
 import 'highlight.js/styles/atom-one-dark.css';
 
 const BlogPost: React.FC = () => {

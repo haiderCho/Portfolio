@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Send, Minimize2, Maximize2 } from 'lucide-react';
-import { createChatSession, sendMessageStream, initializeGemini } from '../services/gemini';
-import { Message } from '../types';
+import { Terminal, Send, Minimize2, Maximize2, Sparkles } from 'lucide-react';
+import { createChatSession, sendMessageStream, initializeGemini } from '@/services/gemini';
+import { Message } from '@/types';
 import { Chat } from "@google/genai";
+import { ENABLE_MULTI_PROVIDER_AI } from '@/config/features';
+import { providerManager, type AIProviderType, type ProviderConfig } from '@/services/ai';
 
 // Avatar Component
 const AiAvatar = ({ state, mood }: { state: 'idle' | 'thinking' | 'speaking', mood: 'neutral' | 'happy' | 'alert' }) => {
@@ -53,6 +55,11 @@ const TerminalChat: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [hasKey, setHasKey] = useState(false);
 
+  // Multi-Provider State (only used when ENABLE_MULTI_PROVIDER_AI === true)
+  const [availableProviders, setAvailableProviders] = useState<ProviderConfig[]>([]);
+  const [activeProvider, setActiveProvider] = useState<AIProviderType>('gemini');
+  const [showProviderMenu, setShowProviderMenu] = useState(false);
+
   // Avatar State
   const [avatarState, setAvatarState] = useState<'idle' | 'thinking' | 'speaking'>('idle');
   const [mood, setMood] = useState<'neutral' | 'happy' | 'alert'>('neutral');
@@ -61,10 +68,32 @@ const TerminalChat: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const initialized = initializeGemini();
-    setHasKey(initialized);
-    if (initialized) {
-      chatSessionRef.current = createChatSession();
+    if (ENABLE_MULTI_PROVIDER_AI) {
+      // Multi-provider initialization
+      const providers = providerManager.getAvailableProviders();
+      setAvailableProviders(providers);
+
+      if (providers.length > 0) {
+        // Try to use stored preference or default to first available
+        const stored = providerManager.getStoredPreference();
+        const defaultProvider = (stored && providers.find(p => p.type === stored)) 
+          ? stored 
+          : providers[0].type;
+        
+        const initialized = providerManager.setProvider(defaultProvider);
+        setHasKey(initialized);
+        setActiveProvider(defaultProvider);
+        chatSessionRef.current = providerManager.getCurrentSession();
+      } else {
+        setHasKey(false);
+      }
+    } else {
+      // Original Gemini-only initialization
+      const initialized = initializeGemini();
+      setHasKey(initialized);
+      if (initialized) {
+        chatSessionRef.current = createChatSession();
+      }
     }
   }, []);
 
@@ -132,18 +161,39 @@ const TerminalChat: React.FC = () => {
 
     setMessages(prev => [...prev, botMsg]);
 
-    await sendMessageStream(chatSessionRef.current, userMsg.content, (chunk) => {
-      setMessages(prev => prev.map(msg =>
-        msg.id === botMsgId
-          ? { ...msg, content: msg.content + chunk }
-          : msg
-      ));
-    });
+    if (ENABLE_MULTI_PROVIDER_AI) {
+      // Use provider manager
+      await providerManager.sendMessage(userMsg.content, (chunk) => {
+        setMessages(prev => prev.map(msg =>
+          msg.id === botMsgId
+            ? { ...msg, content: msg.content + chunk }
+            : msg
+        ));
+      });
+    } else {
+      // Original Gemini implementation
+      await sendMessageStream(chatSessionRef.current, userMsg.content, (chunk) => {
+        setMessages(prev => prev.map(msg =>
+          msg.id === botMsgId
+            ? { ...msg, content: msg.content + chunk }
+            : msg
+        ));
+      });
+    }
 
     setMessages(prev => prev.map(msg =>
       msg.id === botMsgId ? { ...msg, isStreaming: false } : msg
     ));
     setIsTyping(false);
+  };
+
+  const handleProviderChange = (providerType: AIProviderType) => {
+    const success = providerManager.setProvider(providerType);
+    if (success) {
+      setActiveProvider(providerType);
+      chatSessionRef.current = providerManager.getCurrentSession();
+      setShowProviderMenu(false);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -182,16 +232,49 @@ const TerminalChat: React.FC = () => {
               FOYTRIX_AI_V2.5
             </span>
             <span className="text-[10px] text-cyber-muted uppercase tracking-widest">
-              STATUS: {avatarState === 'idle' ? 'STANDBY' : avatarState === 'thinking' ? 'PROCESSING' : 'TRANSMITTING'}
+              {ENABLE_MULTI_PROVIDER_AI ? (
+                `PROVIDER: ${availableProviders.find(p => p.type === activeProvider)?.name || 'UNKNOWN'}`
+              ) : (
+                `STATUS: ${avatarState === 'idle' ? 'STANDBY' : avatarState === 'thinking' ? 'PROCESSING' : 'TRANSMITTING'}`
+              )}
             </span>
           </div>
         </div>
-        <button
-          onClick={() => setIsOpen(false)}
-          className="text-cyber-muted hover:text-cyber-primary transition-colors"
-        >
-          <Minimize2 className="w-4 h-4" />
-        </button>
+        <div className="flex items-center gap-2">
+          {ENABLE_MULTI_PROVIDER_AI && availableProviders.length > 1 && (
+            <div className="relative">
+              <button
+                onClick={() => setShowProviderMenu(!showProviderMenu)}
+                className="text-cyber-primary hover:text-cyber-secondary transition-colors p-1"
+                title="Switch AI Provider"
+              >
+                <Sparkles className="w-4 h-4" />
+              </button>
+              {showProviderMenu && (
+                <div className="absolute top-full right-0 mt-2 bg-cyber-panel border border-cyber-dim rounded shadow-lg min-w-[200px] z-50">
+                  {availableProviders.map((provider) => (
+                    <button
+                      key={provider.type}
+                      onClick={() => handleProviderChange(provider.type)}
+                      className={`w-full text-left px-3 py-2 text-xs hover:bg-cyber-black transition-colors ${
+                        provider.type === activeProvider ? 'text-cyber-secondary' : 'text-cyber-text'
+                      }`}
+                    >
+                      <div className="font-bold">{provider.name}</div>
+                      <div className="text-[10px] text-cyber-muted">{provider.description}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+          <button
+            onClick={() => setIsOpen(false)}
+            className="text-cyber-muted hover:text-cyber-primary transition-colors"
+          >
+            <Minimize2 className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       {/* Terminal Output */}

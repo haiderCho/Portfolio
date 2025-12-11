@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project } from '../types';
+import { Project } from '@/types';
 import { Github, ExternalLink, GitFork, Star, Layout, Server, Database, Cpu, Code, Box, Terminal } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -126,7 +126,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           href={project.repoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary active:text-cyber-primary transition-colors"
         >
           <Github className="w-4 h-4" />
@@ -136,7 +135,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <a
             href={project.demoUrl}
             target="_blank"
-            rel="noopener noreferrer"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary active:text-cyber-primary transition-colors"
           >

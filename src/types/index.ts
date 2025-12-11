@@ -13,7 +13,21 @@ export interface Project {
 export interface Skill {
   name: string;
   level: number; // 0-100
-  category: 'Frontend' | 'Backend' | 'DevOps' | 'Core' | 'AI/ML';
+  category: 'Languages' | 'Frameworks' | 'Tools';
+}
+
+export interface Profile {
+  name: string;
+  title: string;
+  tagline: string;
+  bio: string;
+  location: string;
+  availability: string;
+  social: {
+    github: string;
+    linkedin: string;
+    twitter: string;
+  };
 }
 
 export interface Experience {
