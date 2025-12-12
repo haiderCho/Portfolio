@@ -228,6 +228,7 @@ function App() {
           </div>
         </section>
 
+
         {/* SYSTEM ARCHITECTURE / ABOUT */}
         <section id="about" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
           <div className="max-w-4xl mx-auto w-full">
