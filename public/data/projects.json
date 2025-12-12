@@ -1,0 +1,62 @@
+[
+  {
+    "id": "p1",
+    "title": "Music Recommendation System",
+    "description": "A music recommendation system built using Jupyter Notebook, analyzing user preferences to suggest songs.",
+    "techStack": ["Jupyter Notebook", "Python"],
+    "repoUrl": "https://github.com/haiderCho/CSE299-Project-MRS",
+    "stars": 4,
+    "forks": 0,
+    "category": "AI/ML"
+  },
+  {
+    "id": "p2",
+    "title": "USB Access Control",
+    "description": "A C# application designed to control and monitor USB device access on a system for enhanced security.",
+    "techStack": ["C#", "Java", "PHP"],
+    "repoUrl": "https://github.com/haiderCho/CSE323-Project-UAC",
+    "stars": 1,
+    "forks": 0,
+    "category": "Systems"
+  },
+  {
+    "id": "p3",
+    "title": "Tic-Tac-Toe AI",
+    "description": "An unbeatable Tic-Tac-Toe AI implemented using the Minimax algorithm with Alpha-Beta pruning.",
+    "techStack": ["Python", "Minimax Algorithm", "Alpha-Beta Pruning"],
+    "repoUrl": "https://github.com/haiderCho/CSE440-Project-TTTAI",
+    "stars": 1,
+    "forks": 0,
+    "category": "AI/ML"
+  },
+  {
+    "id": "p4",
+    "title": "Phishing URL Detection",
+    "description": "Machine learning model to detect phishing URLs, enhancing cybersecurity by identifying malicious links.",
+    "techStack": ["Python", "Scikit-learn", "XGBoost", "Pandas"],
+    "repoUrl": "https://github.com/haiderCho/CSE445-Project-MLPUD",
+    "stars": 1,
+    "forks": 0,
+    "category": "AI/ML"
+  },
+  {
+    "id": "p5",
+    "title": "Freshwater Fish Disease Classification",
+    "description": "Deep learning model using ResNet50 and transfer learning to classify diseases in freshwater fish from images — aimed at improving aquaculture health monitoring.",
+    "techStack": ["Python", "TensorFlow", "Keras", "ResNet50"],
+    "repoUrl": "https://github.com/haiderCho/FWFDC",
+    "stars": 0,
+    "forks": 0,
+    "category": "AI/ML"
+  },
+  {
+    "id": "p6",
+    "title": "Personal Portfolio Website",
+    "description": "A responsive and modern personal portfolio site showcasing the developer’s skills, projects, experience, and contact information.",
+    "techStack": ["TypeScript", "React", "HTML"],
+    "repoUrl": "https://github.com/haiderCho/Portfolio",
+    "stars": 0,
+    "forks": 0,
+    "category": "Web / Front-end"
+  }
+]

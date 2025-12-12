@@ -1,16 +1,17 @@
 import React from 'react';
 import { Code2, Layers, Wrench, Monitor } from 'lucide-react';
-import { PROGRAMMING_LANGUAGES } from '@/constants';
+import { ProgrammingLanguage } from '@/types';
 
 interface ProgrammingLanguagesProps {
     category?: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms' | 'Operating Systems';
     title?: string;
+    items?: ProgrammingLanguage[];
 }
 
-const ProgrammingLanguages: React.FC<ProgrammingLanguagesProps> = ({ category, title }) => {
+const ProgrammingLanguages: React.FC<ProgrammingLanguagesProps> = ({ category, title, items = [] }) => {
     const filteredLanguages = category
-        ? PROGRAMMING_LANGUAGES.filter(lang => lang.category === category)
-        : PROGRAMMING_LANGUAGES;
+        ? items.filter(lang => lang.category === category)
+        : items;
 
     const displayTitle = title || category || "Programming_Languages";
 

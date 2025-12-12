@@ -7,11 +7,26 @@ import SkillRadar from '@/components/SkillRadar';
 import Education from '@/components/Education';
 import Experience from '@/components/Experience';
 import ProgrammingLanguages from '@/components/ProgrammingLanguages';
-import { PROFILE, PROJECTS } from '@/constants';
+import { Project, ProgrammingLanguage } from '@/types';
+import { PROFILE } from '@/constants';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [booted, setBooted] = useState(false);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [techStack, setTechStack] = useState<ProgrammingLanguage[]>([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/projects.json`)
+      .then(res => res.json())
+      .then(data => setProjects(data))
+      .catch(err => console.error('Failed to load projects:', err));
+
+    fetch(`${import.meta.env.BASE_URL}data/tech-stack.json`)
+      .then(res => res.json())
+      .then(data => setTechStack(data))
+      .catch(err => console.error('Failed to load tech stack:', err));
+  }, []);
 
   useEffect(() => {
     // Simulate system boot sequence
@@ -99,7 +114,8 @@ function App() {
         <section id="home" className="min-h-screen flex items-center justify-center px-6 relative">
           <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-3 py-1 rounded bg-cyber-dim border border-cyber-primary/30 text-cyber-primary text-xs font-mono mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-cyber-dim border border-cyber-primary/30 text-cyber-primary text-xs font-mono mb-4 w-fit">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
                 SYSTEM STATUS: ONLINE
               </div>
               <h1 className="text-5xl md:text-7xl font-bold font-sans leading-tight glitch-text">
@@ -183,14 +199,14 @@ function App() {
                 </div>
               </div>
 
-              <ProgrammingLanguages category="Frameworks & Libraries" />
+              <ProgrammingLanguages category="Frameworks & Libraries" items={techStack} />
             </div>
 
             {/* Right Column: Languages + Tools + OS */}
             <div className="space-y-6 pt-[50px]">
-              <ProgrammingLanguages category="Languages" />
-              <ProgrammingLanguages category="Tools & Platforms" />
-              <ProgrammingLanguages category="Operating Systems" />
+              <ProgrammingLanguages category="Languages" items={techStack} />
+              <ProgrammingLanguages category="Tools & Platforms" items={techStack} />
+              <ProgrammingLanguages category="Operating Systems" items={techStack} />
             </div>
           </div>
         </section>
@@ -201,11 +217,11 @@ function App() {
             <div className="flex items-end gap-4 mb-12 border-b border-cyber-dim pb-4">
               <Code className="w-8 h-8 text-cyber-primary" />
               <h2 className="text-3xl font-bold text-white">Project_Repositories</h2>
-              <span className="text-cyber-muted font-mono text-sm mb-1 ml-auto">Index: {PROJECTS.length} items</span>
+              <span className="text-cyber-muted font-mono text-sm mb-1 ml-auto">Index: {projects.length} items</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {PROJECTS.map((project, index) => (
+              {projects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} />
               ))}
             </div>
@@ -303,7 +319,7 @@ function App() {
             </div>
 
             <div className="mt-8 font-mono text-[10px] text-cyber-dim">
-              <p>SYSTEM ID: Foytrix_Core_V1.17.0</p>
+              <p>SYSTEM ID: Foytrix_Core_V2.4.0</p>
               <p>© {new Date().getFullYear()} ALL RIGHTS RESERVED.</p>
             </div>
           </div>
@@ -311,8 +327,8 @@ function App() {
 
       </main>
 
-      {/* Floating Chat Terminal */}
-      <TerminalChat />
+      {/* Floating Chat Terminal - DISABLED */}
+      {/* <TerminalChat /> */}
     </div>
   );
 }

@@ -1,0 +1,359 @@
+[
+  {
+    "name": "C",
+    "icon": "devicon-c-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "C++",
+    "icon": "devicon-cplusplus-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "C#",
+    "icon": "devicon-csharp-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "Python",
+    "icon": "devicon-python-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "Rust",
+    "icon": "devicon-rust-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "R",
+    "icon": "devicon-r-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "Java",
+    "icon": "devicon-java-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "PHP",
+    "icon": "devicon-php-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "JavaScript",
+    "icon": "devicon-javascript-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "TypeScript",
+    "icon": "devicon-typescript-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "Kotlin",
+    "icon": "devicon-kotlin-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Languages"
+  },
+  {
+    "name": "Laravel",
+    "icon": "devicon-laravel-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Node.js",
+    "icon": "devicon-nodejs-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Vue.js",
+    "icon": "devicon-vuejs-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "React",
+    "icon": "devicon-react-original",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Flutter",
+    "icon": "devicon-flutter-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Streamlit",
+    "icon": "devicon-streamlit-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Django",
+    "icon": "devicon-django-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Qt",
+    "icon": "devicon-qt-original",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "TailwindCSS",
+    "icon": "devicon-tailwindcss-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Hugging Face",
+    "icon": "si si-huggingface",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "JAX",
+    "icon": "devicon-python-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Matplotlib",
+    "icon": "devicon-matplotlib-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "NLTK",
+    "icon": "devicon-python-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "NumPy",
+    "icon": "devicon-numpy-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "OpenCV",
+    "icon": "devicon-opencv-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Pandas",
+    "icon": "devicon-pandas-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "PyTorch",
+    "icon": "devicon-pytorch-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "scikit-learn",
+    "icon": "devicon-scikitlearn-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "TensorFlow",
+    "icon": "devicon-tensorflow-original",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Weights & Biases",
+    "icon": "si si-weightsandbiases",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "YOLOv8",
+    "icon": "si si-yolo",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Frameworks & Libraries"
+  },
+  {
+    "name": "Docker",
+    "icon": "devicon-docker-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Git",
+    "icon": "devicon-git-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Jupyter",
+    "icon": "devicon-jupyter-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "LaTeX",
+    "icon": "devicon-latex-original",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "MongoDB",
+    "icon": "devicon-mongodb-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "PostgreSQL",
+    "icon": "devicon-postgresql-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "MySQL",
+    "icon": "devicon-mysql-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Netlify",
+    "icon": "devicon-netlify-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Vercel",
+    "icon": "devicon-vercel-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Arduino",
+    "icon": "devicon-arduino-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Raspberry Pi",
+    "icon": "devicon-raspberrypi-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Supabase",
+    "icon": "devicon-supabase-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Tools & Platforms"
+  },
+  {
+    "name": "Windows 11",
+    "icon": "devicon-windows11-original",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Operating Systems"
+  },
+  {
+    "name": "Ubuntu",
+    "icon": "devicon-ubuntu-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Operating Systems"
+  },
+  {
+    "name": "Fedora",
+    "icon": "devicon-fedora-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Operating Systems"
+  },
+  {
+    "name": "Arch Linux",
+    "icon": "devicon-archlinux-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Operating Systems"
+  },
+  {
+    "name": "Kali Linux",
+    "icon": "si si-kalilinux",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0, 240, 255, 0.5)",
+    "category": "Operating Systems"
+  },
+  {
+    "name": "Android",
+    "icon": "devicon-android-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0,240,255,0.5)",
+    "category": "Operating Systems"
+  },
+  {
+    "name": "MacOS",
+    "icon": "devicon-apple-plain",
+    "color": "#00f0ff",
+    "glowColor": "rgba(0,240,255,0.5)",
+    "category": "Operating Systems"
+  }
+]

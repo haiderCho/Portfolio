@@ -11,6 +11,8 @@ const Blog: React.FC = () => {
     const [tags, setTags] = useState<string[]>([]);
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [isExpanded, setIsExpanded] = useState(false);
 
     useEffect(() => {
         const loadBlogData = async () => {
@@ -79,33 +81,63 @@ const Blog: React.FC = () => {
 
                 {/* Tag Filter */}
                 {tags.length > 0 && (
-                    <div className="mb-8">
-                        <div className="flex items-center gap-3 mb-4">
-                            <Filter className="w-5 h-5 text-cyber-primary" />
-                            <span className="font-mono text-sm text-cyber-muted">FILTER_BY_TAG:</span>
+                    <div className="mb-8 p-6 bg-cyber-panel border border-cyber-dim rounded-lg">
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                            <div className="flex items-center gap-3">
+                                <Filter className="w-5 h-5 text-cyber-primary" />
+                                <span className="font-mono text-sm text-cyber-muted">FILTER_BY_TAG:</span>
+                            </div>
+
+                            {/* Search Input - Command Line Style */}
+                            <div className="relative group">
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-cyber-primary font-mono text-sm">{'>'}</span>
+                                <input
+                                    type="text"
+                                    placeholder="SEARCH_TAGS..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="w-full md:w-64 bg-cyber-black/50 border border-cyber-dim rounded px-8 py-2 font-mono text-sm text-cyber-text focus:border-cyber-primary focus:outline-none transition-all placeholder:text-cyber-muted/50"
+                                />
+                            </div>
                         </div>
+
                         <div className="flex flex-wrap gap-2">
                             <button
                                 onClick={() => setSelectedTag(null)}
                                 className={`px-4 py-2 rounded border font-mono text-sm transition-all ${selectedTag === null
-                                        ? 'bg-cyber-primary text-black border-cyber-primary'
-                                        : 'bg-cyber-dark border-cyber-dim text-cyber-text hover:border-cyber-primary'
+                                    ? 'bg-cyber-primary text-black border-cyber-primary'
+                                    : 'bg-cyber-dark border-cyber-dim text-cyber-text hover:border-cyber-primary'
                                     }`}
                             >
-                                ALL
+                                ALL_LOGS
                             </button>
-                            {tags.map((tag) => (
-                                <button
-                                    key={tag}
-                                    onClick={() => setSelectedTag(tag)}
-                                    className={`px-4 py-2 rounded border font-mono text-sm transition-all ${selectedTag === tag
+                            
+                            {/* Filtered & Paginated Tags */}
+                            {tags
+                                .filter(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+                                .slice(0, isExpanded || searchQuery ? undefined : 10)
+                                .map((tag) => (
+                                    <button
+                                        key={tag}
+                                        onClick={() => setSelectedTag(tag)}
+                                        className={`px-4 py-2 rounded border font-mono text-sm transition-all ${selectedTag === tag
                                             ? 'bg-cyber-primary text-black border-cyber-primary'
                                             : 'bg-cyber-dark border-cyber-dim text-cyber-text hover:border-cyber-primary'
-                                        }`}
+                                            }`}
+                                    >
+                                        {tag}
+                                    </button>
+                                ))}
+                            
+                            {/* Expand/Collapse Button */}
+                            {!searchQuery && tags.length > 10 && (
+                                <button
+                                    onClick={() => setIsExpanded(!isExpanded)}
+                                    className="px-4 py-2 rounded border border-cyber-dim bg-cyber-dim/20 text-cyber-primary font-mono text-sm hover:bg-cyber-dim/40 transition-all flex items-center gap-2"
                                 >
-                                    {tag}
+                                    {isExpanded ? '[-]_COLLAPSE_MATRIX' : '[+]_EXPAND_MATRIX'}
                                 </button>
-                            ))}
+                            )}
                         </div>
                     </div>
                 )}

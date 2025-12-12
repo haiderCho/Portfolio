@@ -109,7 +109,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           const iconInfo = getIconInfo(tech);
 
           return (
-            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary/50 active:border-cyber-primary/50 transition-colors">
+            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary active:border-cyber-primary transition-all hover:scale-105 active:scale-95 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.3)] hover:text-cyber-primary">
               {iconInfo ? (
                 <i className={`${iconInfo.type === 'si' ? 'si' : ''} ${iconInfo.class} text-cyber-primary`} style={{ fontSize: '14px' }}></i>
               ) : (

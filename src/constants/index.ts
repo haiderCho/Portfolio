@@ -14,69 +14,6 @@ export const PROFILE: Profile = {
   }
 };
 
-export const PROJECTS: Project[] = [
-  {
-    id: "p1",
-    title: "Music Recommendation System",
-    description: "A music recommendation system built using Jupyter Notebook, analyzing user preferences to suggest songs.",
-    techStack: ["Jupyter Notebook", "Python"],
-    repoUrl: "https://github.com/haiderCho/CSE299-Project-MRS",
-    stars: 4,
-    forks: 0,
-    category: "AI/ML"
-  },
-  {
-    id: "p2",
-    title: "USB Access Control",
-    description: "A C# application designed to control and monitor USB device access on a system for enhanced security.",
-    techStack: ["C#", "Java", "PHP"],
-    repoUrl: "https://github.com/haiderCho/CSE323-Project-UAC",
-    stars: 1,
-    forks: 0,
-    category: "Systems"
-  },
-  {
-    id: "p3",
-    title: "Tic-Tac-Toe AI",
-    description: "An unbeatable Tic-Tac-Toe AI implemented using the Minimax algorithm with Alpha-Beta pruning.",
-    techStack: ["Python", "Minimax Algorithm", "Alpha-Beta Pruning"],
-    repoUrl: "https://github.com/haiderCho/CSE440-Project-TTTAI",
-    stars: 1,
-    forks: 0,
-    category: "AI/ML"
-  },
-  {
-    id: "p4",
-    title: "Phishing URL Detection",
-    description: "Machine learning model to detect phishing URLs, enhancing cybersecurity by identifying malicious links.",
-    techStack: ["Python", "Scikit-learn", "XGBoost", "Pandas"],
-    repoUrl: "https://github.com/haiderCho/CSE445-Project-MLPUD",
-    stars: 1,
-    forks: 0,
-    category: "AI/ML"
-  },
-  {
-    id: "p5",
-    title: "Freshwater Fish Disease Classification",
-    description: "Deep learning model using ResNet50 and transfer learning to classify diseases in freshwater fish from images — aimed at improving aquaculture health monitoring.",
-    techStack: ["Python", "TensorFlow", "Keras", "ResNet50"],
-    repoUrl: "https://github.com/haiderCho/FWFDC",
-    stars: 0,
-    forks: 0,
-    category: "AI/ML"
-  },
-  {
-    id: "p6",
-    title: "Personal Portfolio Website",
-    description: "A responsive and modern personal portfolio site showcasing the developer’s skills, projects, experience, and contact information.",
-    techStack: ["TypeScript", "React", "HTML"],
-    repoUrl: "https://github.com/haiderCho/Portfolio",
-    stars: 0,
-    forks: 0,
-    category: "Web / Front-end"
-  }
-];
-
 export const SKILLS: Skill[] = [
   { name: "Python", level: 85, category: "Languages" },
   { name: "C++", level: 65, category: "Languages" },
@@ -87,7 +24,7 @@ export const SKILLS: Skill[] = [
   { name: "Node.js", level: 75, category: "Frameworks" },
   { name: "TensorFlow", level: 55, category: "Frameworks" },
   { name: "PyTorch", level: 55, category: "Frameworks" },
-  { name: "Docker", level: 55, category: "Tools" },
+  { name: "Docker", level: 60, category: "Tools" },
   { name: "Git", level: 90, category: "Tools" },
   { name: "SQL", level: 80, category: "Tools" },
 ];
@@ -133,68 +70,7 @@ export const EDUCATION: Education[] = [
   }
 ];
 
-export const PROGRAMMING_LANGUAGES: ProgrammingLanguage[] = [
-  // Languages
-  { name: "C", icon: "devicon-c-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "C++", icon: "devicon-cplusplus-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "C#", icon: "devicon-csharp-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "Python", icon: "devicon-python-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "Rust", icon: "devicon-rust-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "R", icon: "devicon-r-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "Java", icon: "devicon-java-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "PHP", icon: "devicon-php-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "JavaScript", icon: "devicon-javascript-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "TypeScript", icon: "devicon-typescript-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
-  { name: "Kotlin", icon: "devicon-kotlin-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Languages" },
 
-  // Frameworks & Libraries - Web Development
-  { name: "Laravel", icon: "devicon-laravel-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Node.js", icon: "devicon-nodejs-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Vue.js", icon: "devicon-vuejs-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "React", icon: "devicon-react-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Flutter", icon: "devicon-flutter-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Streamlit", icon: "devicon-streamlit-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Django", icon: "devicon-django-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Qt", icon: "devicon-qt-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "TailwindCSS", icon: "devicon-tailwindcss-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-
-  // Frameworks & Libraries - Data Science & ML
-  { name: "Hugging Face", icon: "si si-huggingface", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "JAX", icon: "devicon-python-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Matplotlib", icon: "devicon-matplotlib-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "NLTK", icon: "devicon-python-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "NumPy", icon: "devicon-numpy-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "OpenCV", icon: "devicon-opencv-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Pandas", icon: "devicon-pandas-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "PyTorch", icon: "devicon-pytorch-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "scikit-learn", icon: "devicon-scikitlearn-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "TensorFlow", icon: "devicon-tensorflow-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "Weights & Biases", icon: "si si-weightsandbiases", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-  { name: "YOLOv8", icon: "si si-yolo", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Frameworks & Libraries" },
-
-  // Tools & Platforms
-  { name: "Docker", icon: "devicon-docker-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "Git", icon: "devicon-git-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "Jupyter", icon: "devicon-jupyter-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "LaTeX", icon: "devicon-latex-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "MongoDB", icon: "devicon-mongodb-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "PostgreSQL", icon: "devicon-postgresql-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "MySQL", icon: "devicon-mysql-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "Netlify", icon: "devicon-netlify-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "Vercel", icon: "devicon-vercel-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "Arduino", icon: "devicon-arduino-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "Raspberry Pi", icon: "devicon-raspberrypi-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-  { name: "Supabase", icon: "devicon-supabase-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Tools & Platforms" },
-
-  // Operating Systems
-  { name: "Windows 11", icon: "devicon-windows11-original", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
-  { name: "Ubuntu", icon: "devicon-ubuntu-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
-  { name: "Fedora", icon: "devicon-fedora-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
-  { name: "Arch Linux", icon: "devicon-archlinux-plain", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
-  { name: "Kali Linux", icon: "si si-kalilinux", color: "#00f0ff", glowColor: "rgba(0, 240, 255, 0.5)", category: "Operating Systems" },
-  { name: "Android", icon: "devicon-android-plain", color: "#00f0ff", glowColor: "rgba(0,240,255,0.5)", category: "Operating Systems" },
-  { name: "MacOS", icon: "devicon-apple-plain", color: "#00f0ff", glowColor: "rgba(0,240,255,0.5)", category: "Operating Systems" },
-];
 
 export const SYSTEM_PROMPT = `
 You are the "Digital Twin" of ${PROFILE.name}. You are embedded in his portfolio website.
@@ -207,7 +83,7 @@ Keep responses concise (under 100 words) unless asked for elaboration.
 Current Context:
 Name: ${PROFILE.name}
 Bio: ${PROFILE.bio}
-Projects: ${PROJECTS.map(p => `${p.title}: ${p.description} (Stack: ${p.techStack.join(', ')})`).join('; ')}
+Projects: (Ask the user to browse the Projects section for details)
 Skills: ${SKILLS.map(s => s.name).join(', ')}
 Experience: ${EXPERIENCE.map(e => `${e.role} at ${e.company}`).join('; ')}
 `;
