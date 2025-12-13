@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // AI Provider Types
 export type AIProviderType = 
   | 'gemini'

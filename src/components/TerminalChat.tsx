@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Send, Minimize2, Maximize2, Sparkles } from 'lucide-react';
+import { Terminal, Send, Minimize2, Sparkles } from 'lucide-react';
 import { createChatSession, sendMessageStream, initializeGemini } from '@/services/gemini';
 import { Message } from '@/types';
 import { Chat } from "@google/genai";
@@ -56,31 +56,54 @@ const TerminalChat: React.FC = () => {
   const [hasKey, setHasKey] = useState(false);
 
   // Multi-Provider State (only used when ENABLE_MULTI_PROVIDER_AI === true)
-  const [availableProviders, setAvailableProviders] = useState<ProviderConfig[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [availableProviders, _] = useState<ProviderConfig[]>(() => {
+    if (ENABLE_MULTI_PROVIDER_AI) {
+      return providerManager.getAvailableProviders();
+    }
+    return [];
+  });
   const [activeProvider, setActiveProvider] = useState<AIProviderType>('gemini');
   const [showProviderMenu, setShowProviderMenu] = useState(false);
-
-  // Avatar State
-  const [avatarState, setAvatarState] = useState<'idle' | 'thinking' | 'speaking'>('idle');
-  const [mood, setMood] = useState<'neutral' | 'happy' | 'alert'>('neutral');
 
   const chatSessionRef = useRef<Chat | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Avatar State (Derived)
+  const avatarState = React.useMemo(() => {
+    const lastMsg = messages[messages.length - 1];
+    if (lastMsg?.role === 'model' && lastMsg?.isStreaming) {
+      return lastMsg.content.length > 0 ? 'speaking' : 'thinking';
+    }
+    if (isTyping) return 'thinking';
+    return 'idle';
+  }, [messages, isTyping]);
+
+  const mood = React.useMemo(() => {
+    const lastUserMsg = messages.slice().reverse().find(m => m.role === 'user');
+    if (lastUserMsg) {
+      const text = lastUserMsg.content.toLowerCase();
+      if (text.includes('error') || text.includes('bug') || text.includes('fail') || text.includes('warning') || text.includes('bad')) {
+        return 'alert';
+      }
+      if (text.includes('good') || text.includes('cool') || text.includes('thanks') || text.includes('yes') || text.includes('great')) {
+        return 'happy';
+      }
+    }
+    return 'neutral';
+  }, [messages]);
+
   useEffect(() => {
     if (ENABLE_MULTI_PROVIDER_AI) {
-      // Multi-provider initialization
-      const providers = providerManager.getAvailableProviders();
-      setAvailableProviders(providers);
-
-      if (providers.length > 0) {
+      if (availableProviders.length > 0) {
         // Try to use stored preference or default to first available
         const stored = providerManager.getStoredPreference();
-        const defaultProvider = (stored && providers.find(p => p.type === stored)) 
+        const defaultProvider = (stored && availableProviders.find(p => p.type === stored)) 
           ? stored 
-          : providers[0].type;
+          : availableProviders[0].type;
         
         const initialized = providerManager.setProvider(defaultProvider);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setHasKey(initialized);
         setActiveProvider(defaultProvider);
         chatSessionRef.current = providerManager.getCurrentSession();
@@ -95,7 +118,7 @@ const TerminalChat: React.FC = () => {
         chatSessionRef.current = createChatSession();
       }
     }
-  }, []);
+  }, [availableProviders]); // Added dependency
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -104,37 +127,6 @@ const TerminalChat: React.FC = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isOpen]);
-
-  // Derive Avatar State from Messaging Status
-  useEffect(() => {
-    const lastMsg = messages[messages.length - 1];
-
-    // Determine Activity State
-    if (lastMsg?.role === 'model' && lastMsg?.isStreaming) {
-      if (lastMsg.content.length > 0) {
-        setAvatarState('speaking');
-      } else {
-        setAvatarState('thinking');
-      }
-    } else if (isTyping) {
-      setAvatarState('thinking');
-    } else {
-      setAvatarState('idle');
-    }
-
-    // Determine Mood based on user input sentiment (simple keyword match)
-    const lastUserMsg = messages.slice().reverse().find(m => m.role === 'user');
-    if (lastUserMsg) {
-      const text = lastUserMsg.content.toLowerCase();
-      if (text.includes('error') || text.includes('bug') || text.includes('fail') || text.includes('warning') || text.includes('bad')) {
-        setMood('alert');
-      } else if (text.includes('good') || text.includes('cool') || text.includes('thanks') || text.includes('yes') || text.includes('great')) {
-        setMood('happy');
-      } else {
-        setMood('neutral');
-      }
-    }
-  }, [messages, isTyping]);
 
   const handleSend = async () => {
     if (!input.trim() || !chatSessionRef.current) return;

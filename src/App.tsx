@@ -1,20 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail, Code, ChevronDown, Terminal as TerminalIcon, Database, Layers, Monitor } from 'lucide-react';
-import TerminalChat from '@/components/TerminalChat';
-import ProjectCard from '@/components/ProjectCard';
-import SkillRadar from '@/components/SkillRadar';
-import Education from '@/components/Education';
-import Experience from '@/components/Experience';
-import ProgrammingLanguages from '@/components/ProgrammingLanguages';
+
 import { Project, ProgrammingLanguage } from '@/types';
-import { PROFILE } from '@/constants';
+import Hero from '@/components/sections/Hero';
+import Experience from '@/components/sections/Experience';
+import Education from '@/components/sections/Education';
+import Skills from '@/components/sections/Skills';
+import Projects from '@/components/sections/Projects';
+import About from '@/components/sections/About';
+import Contact from '@/components/sections/Contact';
+import { useSystemBoot } from '@/hooks/useSystemBoot';
+
+const NavItem = ({ id, label, activeSection, setActiveSection }: { id: string, label: string, activeSection: string, setActiveSection: (id: string) => void }) => (
+  <button
+    onClick={() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(id);
+    }}
+    className={`px-4 py-2 font-mono text-sm transition-all border-b-2 ${activeSection === id
+      ? 'border-cyber-primary text-cyber-primary'
+      : 'border-transparent text-cyber-muted hover:text-cyber-text active:text-cyber-text'
+      }`}
+  >
+    {`// ${label}`}
+  </button>
+);
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
-  const [booted, setBooted] = useState(false);
   const [projects, setProjects] = useState<Project[]>([]);
   const [techStack, setTechStack] = useState<ProgrammingLanguage[]>([]);
+  const booted = useSystemBoot();
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/projects.json`)
@@ -26,14 +41,6 @@ function App() {
       .then(res => res.json())
       .then(data => setTechStack(data))
       .catch(err => console.error('Failed to load tech stack:', err));
-  }, []);
-
-  useEffect(() => {
-    // Simulate system boot sequence
-    const timer = setTimeout(() => {
-      setBooted(true);
-    }, 1500);
-    return () => clearTimeout(timer);
   }, []);
 
   if (!booted) {
@@ -61,21 +68,6 @@ function App() {
     );
   }
 
-  const NavItem = ({ id, label }: { id: string, label: string }) => (
-    <button
-      onClick={() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-        setActiveSection(id);
-      }}
-      className={`px-4 py-2 font-mono text-sm transition-all border-b-2 ${activeSection === id
-        ? 'border-cyber-primary text-cyber-primary'
-        : 'border-transparent text-cyber-muted hover:text-cyber-text active:text-cyber-text'
-        }`}
-    >
-      {`// ${label}`}
-    </button>
-  );
-
   return (
     <div className="min-h-screen bg-cyber-black text-cyber-text overflow-x-hidden selection:bg-cyber-primary selection:text-black">
       {/* Background Matrix/Grid Effect */}
@@ -96,239 +88,33 @@ function App() {
             <span className="font-mono">NafizHC</span>
           </div>
           <div className="hidden md:flex gap-2">
-            <NavItem id="home" label="ROOT" />
-            <NavItem id="experience" label="EXPERIENCE" />
-            <NavItem id="education" label="EDUCATION" />
-            <NavItem id="skills" label="TECH_STACK" />
-            <NavItem id="projects" label="PROJECTS" />
-            <NavItem id="about" label="SYSTEM" />
-            <NavItem id="contact" label="UPLINK" />
+            <NavItem id="home" label="ROOT" activeSection={activeSection} setActiveSection={setActiveSection} />
+            <NavItem id="experience" label="EXPERIENCE" activeSection={activeSection} setActiveSection={setActiveSection} />
+            <NavItem id="education" label="EDUCATION" activeSection={activeSection} setActiveSection={setActiveSection} />
+            <NavItem id="skills" label="TECH_STACK" activeSection={activeSection} setActiveSection={setActiveSection} />
+            <NavItem id="projects" label="PROJECTS" activeSection={activeSection} setActiveSection={setActiveSection} />
+            <NavItem id="about" label="SYSTEM" activeSection={activeSection} setActiveSection={setActiveSection} />
+            <NavItem id="contact" label="UPLINK" activeSection={activeSection} setActiveSection={setActiveSection} />
           </div>
         </div>
       </nav>
 
       {/* Main Content */}
       <main className="relative z-10 pt-20">
-
-        {/* HERO SECTION */}
-        <section id="home" className="min-h-screen flex items-center justify-center px-6 relative">
-          <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-cyber-dim border border-cyber-primary/30 text-cyber-primary text-xs font-mono mb-4 w-fit">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
-                SYSTEM STATUS: ONLINE
-              </div>
-              <h1 className="text-5xl md:text-7xl font-bold font-sans leading-tight glitch-text">
-                {PROFILE.name.replace('_', ' ')}
-              </h1>
-              <h2 className="text-2xl text-cyber-muted font-mono">
-                {`<${PROFILE.title} />`}
-              </h2>
-              <p className="text-lg text-cyber-text/80 max-w-xl leading-relaxed">
-                {PROFILE.bio}
-              </p>
-
-              <div className="flex flex-wrap gap-4 pt-4">
-                <button
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-3 bg-cyber-primary text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] active:shadow-[0_0_20px_rgba(0,240,255,0.5)] transition-all font-mono"
-                >
-                  INITIATE_VIEW
-                </button>
-                <a
-                  href={PROFILE.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-3 border border-cyber-dim hover:border-cyber-primary active:border-cyber-primary text-cyber-text rounded transition-all font-mono flex items-center gap-2"
-                >
-                  <Github className="w-4 h-4" /> GITHUB
-                </a>
-              </div>
-            </div>
-
-            {/* Hero Visual - Abstract ASCII/Data Representation */}
-            <div className="hidden lg:flex justify-center items-center relative">
-              <div className="w-80 h-80 relative border border-cyber-dim rounded-full flex items-center justify-center animate-spin-slow">
-                <div className="absolute inset-0 border border-cyber-dim rounded-full transform rotate-45" />
-                <div className="absolute inset-4 border border-dashed border-cyber-primary/30 rounded-full" />
-              </div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyber-primary/5 rounded-full blur-3xl" />
-              <div className="absolute font-mono text-[10px] text-cyber-primary/40 whitespace-pre leading-none">
-                {`
-      10101010101010
-    10101 FOYTRIX 10101
-   10101   CORE    10101
-    10101 SYSTEM  10101
-      10101010101010
-                `}
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ChevronDown className="w-6 h-6 text-cyber-muted" />
-          </div>
-        </section>
-
-        {/* EXPERIENCE SECTION */}
-        <section id="experience" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
-          <div className="max-w-7xl mx-auto w-full">
-            <Experience />
-          </div>
-        </section>
-
-        {/* EDUCATION SECTION */}
-        <section id="education" className="min-h-screen flex items-center py-20 px-6">
-          <div className="max-w-7xl mx-auto w-full">
-            <Education />
-          </div>
-        </section>
-
-        {/* SKILLS & TECH STACK SECTION */}
-        <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Left Column: Matrix + Frameworks */}
-            <div className="space-y-6">
-              <div>
-                <div className="flex items-center gap-3 mb-8">
-                  <Database className="w-8 h-8 text-cyber-primary" />
-                  <h2 className="text-3xl font-bold">Tech_Stack_Matrix</h2>
-                </div>
-                <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative mb-6">
-                  <SkillRadar />
-                </div>
-              </div>
-
-              <ProgrammingLanguages category="Frameworks & Libraries" items={techStack} />
-            </div>
-
-            {/* Right Column: Languages + Tools + OS */}
-            <div className="space-y-6 pt-[50px]">
-              <ProgrammingLanguages category="Languages" items={techStack} />
-              <ProgrammingLanguages category="Tools & Platforms" items={techStack} />
-              <ProgrammingLanguages category="Operating Systems" items={techStack} />
-            </div>
-          </div>
-        </section>
-
-        {/* PROJECTS SECTION */}
-        <section id="projects" className="min-h-screen flex items-center py-24 px-6 bg-cyber-dark/50">
-          <div className="max-w-7xl mx-auto w-full">
-            <div className="flex items-end gap-4 mb-12 border-b border-cyber-dim pb-4">
-              <Code className="w-8 h-8 text-cyber-primary" />
-              <h2 className="text-3xl font-bold text-white">Project_Repositories</h2>
-              <span className="text-cyber-muted font-mono text-sm mb-1 ml-auto">Index: {projects.length} items</span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-              {projects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-
-        {/* SYSTEM ARCHITECTURE / ABOUT */}
-        <section id="about" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
-          <div className="max-w-4xl mx-auto w-full">
-            <div className="flex items-center gap-3 mb-8">
-              <Layers className="w-8 h-8 text-cyber-secondary" />
-              <h2 className="text-3xl font-bold text-white">System_Architecture</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="md:col-span-2 space-y-6 text-cyber-text/90 leading-relaxed font-light text-lg">
-                <p>
-                  <strong className="text-white">Philosophy:</strong> I treat code as a living organism. It requires structure to survive, but adaptability to thrive. My approach to software engineering combines rigorous type safety with creative problem-solving.
-                </p>
-                <p>
-                  <strong className="text-white">Focus:</strong> Currently exploring the intersection of distributed systems and generative AI. I am particularly interested in how LLMs can be optimized for edge computing environments (WebGPU/WASM).
-                </p>
-              </div>
-              <div className="p-6 bg-cyber-dark border-l-2 border-cyber-secondary h-fit">
-                <h3 className="text-cyber-secondary font-mono mb-4 text-sm">LATEST_COMMIT_LOG</h3>
-                <div className="space-y-3 font-mono text-xs text-cyber-muted">
-                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Refactored Neural-Vortex rendering pipeline</p>
-                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Integrated Multi-Provider AI (Gemini, Groq, DeepSeek, OpenRouter)</p>
-                  <p className="flex gap-2"><span className="text-cyber-secondary">&gt;</span> Optimized Docker containers for 30% smaller footprint</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Current Workspace */}
-            <div className="mt-12 p-6 bg-cyber-dark border-l-2 border-cyber-secondary">
-              <h3 className="text-cyber-secondary font-mono mb-6 text-lg flex items-center gap-2">
-                <Monitor className="w-5 h-5" />
-                CURRENT_WORKSPACE
-              </h3>
-              <div className="flex flex-wrap gap-3 items-center">
-                {/* Windows 11 */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
-                  <i className="devicon-windows11-original text-cyber-secondary" style={{ fontSize: '16px' }}></i>
-                  <span className="text-cyber-text">Windows 11 PRO</span>
-                </div>
-
-                {/* Intel CPU */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
-                  <i className="si si-intel text-cyber-secondary" style={{ fontSize: '16px' }}></i>
-                  <span className="text-cyber-text">i7 11th Gen</span>
-                </div>
-
-                {/* RAM */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
-                  <i className="si si-corsair text-cyber-secondary" style={{ fontSize: '16px' }}></i>
-                  <span className="text-cyber-text">32GB RAM</span>
-                </div>
-
-                {/* NVIDIA GPU */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-dark border border-cyber-dim hover:border-cyber-secondary hover:shadow-[0_0_10px_rgba(112,0,255,0.3)] hover:scale-105 active:border-cyber-secondary active:shadow-[0_0_10px_rgba(112,0,255,0.3)] active:scale-105 rounded text-xs font-mono transition-all cursor-pointer">
-                  <i className="si si-nvidia text-cyber-secondary" style={{ fontSize: '16px' }}></i>
-                  <span className="text-cyber-text">RTX 3060</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FOOTER / CONTACT */}
-        <section id="contact" className="py-8 px-6 bg-cyber-black border-t border-cyber-dim relative overflow-hidden">
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-2xl font-bold mb-4 glitch-text">Establish_Uplink</h2>
-            <p className="text-cyber-muted mb-6 max-w-xl mx-auto text-sm">
-              Open for collaboration on AI infrastructure and high-performance web applications.
-            </p>
-
-            <div className="mb-8">
-              <Link
-                to="/blog"
-                className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary hover:bg-cyber-primary/10 text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:scale-105 active:border-cyber-primary active:bg-cyber-primary/10 active:shadow-[0_0_20px_rgba(0,240,255,0.6)] active:scale-105"
-              >
-                ACCESS_BLOG_ARCHIVE
-              </Link>
-            </div>
-
-            <div className="flex justify-center gap-6">
-              <a href={PROFILE.social.github} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary active:border-cyber-primary active:text-cyber-primary transition-all">
-                <Github className="w-5 h-5" />
-              </a>
-              <a href={PROFILE.social.linkedin} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary active:border-cyber-primary active:text-cyber-primary transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href={`mailto:nafizhc@gmail.com`} className="p-3 rounded-full bg-cyber-panel border border-cyber-dim hover:border-cyber-primary hover:text-cyber-primary active:border-cyber-primary active:text-cyber-primary transition-all">
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
-
-            <div className="mt-8 font-mono text-[10px] text-cyber-dim">
-              <p>SYSTEM ID: Foytrix_Core_V2.4.0</p>
-              <p>© {new Date().getFullYear()} ALL RIGHTS RESERVED.</p>
-            </div>
-          </div>
-        </section>
-
+        <Hero />
+        <Experience />
+        <Education />
+        <Skills techStack={techStack} />
+        <Projects projects={projects} />
+        <About />
+        <Contact />
       </main>
 
-      {/* Floating Chat Terminal - DISABLED */}
+      {/* Floating Chat Terminal */}
+      {/* 
+        NOTE: TerminalChat is currently disabled to prevent API key exposure. 
+        Uncomment the line below to enable it if you have configured VITE_GEMINI_API_KEY globally.
+      */}
       {/* <TerminalChat /> */}
     </div>
   );

@@ -1,5 +1,5 @@
 import { GoogleGenAI, Chat } from "@google/genai";
-import { Message } from "@/types";
+
 import { SYSTEM_PROMPT } from "@/constants";
 
 // Ideally, this is handled via a backend proxy for security in production.

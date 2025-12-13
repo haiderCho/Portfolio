@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '@/types';
-import { Github, ExternalLink, GitFork, Star, Layout, Server, Database, Cpu, Code, Box, Terminal } from 'lucide-react';
+import { Github, ExternalLink, GitFork, Star, Terminal } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;

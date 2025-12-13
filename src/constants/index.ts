@@ -1,4 +1,4 @@
-import { Experience, Project, Skill, Education, Profile, ProgrammingLanguage } from '@/types';
+import { Experience, Skill, Education, Profile } from '@/types';
 
 export const PROFILE: Profile = {
   name: "Nafiz Haider Chowdhury",
