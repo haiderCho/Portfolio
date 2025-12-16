@@ -15,28 +15,28 @@ const SkillRadar: React.FC = () => {
 
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={data}>
-          <PolarGrid stroke="#333" />
+          <PolarGrid stroke="var(--color-cyber-dim)" />
           <PolarAngleAxis
             dataKey="subject"
-            tick={{ fill: '#a0a0a0', fontSize: 12, fontFamily: '"JetBrains Mono", monospace' }}
+            tick={{ fill: 'var(--color-cyber-muted)', fontSize: 12, fontFamily: 'var(--font-mono)' }}
           />
           <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
           <Radar
             name="Proficiency"
             dataKey="A"
-            stroke="#00f0ff"
+            stroke="var(--color-cyber-primary)"
             strokeWidth={2}
-            fill="#00f0ff"
+            fill="var(--color-cyber-primary)"
             fillOpacity={0.2}
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: '#0a0a0a',
-              borderColor: '#00f0ff',
-              color: '#fff',
-              fontFamily: 'monospace'
+              backgroundColor: 'var(--color-cyber-panel)',
+              borderColor: 'var(--color-cyber-primary)',
+              color: 'var(--color-cyber-text)',
+              fontFamily: 'var(--font-mono)'
             }}
-            itemStyle={{ color: '#00f0ff' }}
+            itemStyle={{ color: 'var(--color-cyber-primary)' }}
           />
         </RadarChart>
       </ResponsiveContainer>

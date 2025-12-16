@@ -1,13 +1,15 @@
 import React from 'react';
 import { Briefcase, Calendar, Building } from 'lucide-react';
 import { EXPERIENCE } from '@/constants';
+import { useTheme } from '@/context/ThemeContext';
 
 const Experience = () => {
+    const { themeConfig } = useTheme();
     return (
         <div className="space-y-8">
             <div className="flex items-center gap-3 mb-8">
                 <Briefcase className="w-8 h-8 text-cyber-primary" />
-                <h2 className="text-3xl font-bold text-white">Experience_Log</h2>
+                <h2 className="text-3xl font-bold text-[var(--color-cyber-text)]">{themeConfig.sectionTitles.experience}</h2>
             </div>
 
             <div className="grid gap-6">
@@ -22,7 +24,7 @@ const Experience = () => {
 
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                             <div>
-                                <h3 className="text-xl font-bold text-white group-hover:text-cyber-primary group-active:text-cyber-primary transition-colors">
+                                <h3 className="text-xl font-bold text-[var(--color-cyber-text)] group-hover:text-cyber-primary group-active:text-cyber-primary transition-colors">
                                     {exp.role}
                                 </h3>
                                 <div className="flex items-center gap-2 text-cyber-muted mt-1">

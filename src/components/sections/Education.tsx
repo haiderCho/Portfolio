@@ -1,5 +1,6 @@
 import React from 'react';
 import EducationContent from '@/components/Education';
+import { useTheme } from '@/context/ThemeContext';
 
 const Education = () => {
   return (

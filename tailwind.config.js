@@ -8,19 +8,19 @@ export default {
         extend: {
             colors: {
                 cyber: {
-                    black: '#0a0a0a',
-                    dark: '#111111',
-                    panel: '#1a1a1a',
-                    primary: '#00f0ff', // Cyan
-                    secondary: '#7000ff', // Electric Purple
-                    dim: 'rgba(0, 240, 255, 0.1)',
-                    text: '#e0e0e0',
-                    muted: '#858585'
+                    black: 'var(--color-cyber-black)',
+                    dark: 'var(--color-cyber-dark)',
+                    panel: 'var(--color-cyber-panel)',
+                    primary: 'var(--color-cyber-primary)',
+                    secondary: 'var(--color-cyber-secondary)',
+                    dim: 'var(--color-cyber-dim)',
+                    text: 'var(--color-cyber-text)',
+                    muted: 'var(--color-cyber-muted)'
                 }
             },
             fontFamily: {
-                mono: ['"JetBrains Mono"', 'monospace'],
-                sans: ['"Space Grotesk"', 'sans-serif'],
+                mono: ['var(--font-family-mono)', 'monospace'],
+                sans: ['var(--font-family-sans)', 'sans-serif'],
             },
             animation: {
                 'spin-slow': 'spin 12s linear infinite',

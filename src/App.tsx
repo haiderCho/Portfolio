@@ -8,7 +8,10 @@ import Skills from '@/components/sections/Skills';
 import Projects from '@/components/sections/Projects';
 import About from '@/components/sections/About';
 import Contact from '@/components/sections/Contact';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { useSystemBoot } from '@/hooks/useSystemBoot';
+import { useTheme } from '@/context/ThemeContext';
+import Logo from '@/components/common/Logo';
 
 const NavItem = ({ id, label, activeSection, setActiveSection }: { id: string, label: string, activeSection: string, setActiveSection: (id: string) => void }) => (
   <button
@@ -17,11 +20,11 @@ const NavItem = ({ id, label, activeSection, setActiveSection }: { id: string, l
       setActiveSection(id);
     }}
     className={`px-4 py-2 font-mono text-sm transition-all border-b-2 ${activeSection === id
-      ? 'border-cyber-primary text-cyber-primary'
-      : 'border-transparent text-cyber-muted hover:text-cyber-text active:text-cyber-text'
+      ? 'border-[var(--color-cyber-primary)] text-[var(--color-cyber-primary)]'
+      : 'border-transparent text-[var(--color-cyber-muted)] hover:text-[var(--color-cyber-text)] active:text-[var(--color-cyber-text)]'
       }`}
   >
-    {`// ${label}`}
+    {label}
   </button>
 );
 
@@ -43,30 +46,29 @@ function App() {
       .catch(err => console.error('Failed to load tech stack:', err));
   }, []);
 
+  const { themeConfig } = useTheme();
+
   if (!booted) {
     return (
-      <div className="h-screen w-full bg-cyber-black flex flex-col items-center justify-center font-mono text-cyber-primary p-4">
+      <div className="h-screen w-full bg-[var(--color-cyber-black)] flex flex-col items-center justify-center font-mono text-[var(--color-cyber-primary)] p-4 transition-colors duration-300">
         {/* Logo */}
-        <div className="w-32 h-32 mb-8 animate-pulse flex items-center justify-center">
-          <img
-            src={`${import.meta.env.BASE_URL}assets/icons/logo-bold.svg`}
-            alt="NHC Logo"
-            className="w-full h-full"
-          />
+        <div className="w-32 h-32 mb-8 animate-[var(--animate-pulse-fast)] flex items-center justify-center">
+          <Logo className="w-full h-full" />
         </div>
 
-        <div className="w-64 border-2 border-cyber-dim p-1 mb-4">
-          <div className="h-2 bg-cyber-primary loading-bar" />
+        <div className="w-64 border-2 border-[var(--color-cyber-dim)] p-1 mb-4">
+          <div className="h-2 bg-[var(--color-cyber-primary)] loading-bar" />
         </div>
         <div className="text-sm animate-pulse">
-          INITIALIZING FOYTRIX CORE...
+          INITIALIZING {themeConfig.label.toUpperCase()} CORE...
         </div>
-        <div className="mt-2 text-xs text-cyber-muted">
+        <div className="mt-2 text-xs text-[var(--color-cyber-muted)]">
           LOADING MODULES: [ REACT, TAILWIND, D3 ]
         </div>
       </div>
     );
   }
+
 
   return (
     <div className="min-h-screen bg-cyber-black text-cyber-text overflow-x-hidden selection:bg-cyber-primary selection:text-black">
@@ -77,24 +79,25 @@ function App() {
       </div>
 
       {/* Top Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-cyber-black/80 backdrop-blur-md border-b border-cyber-dim">
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-[var(--color-cyber-black)]/80 backdrop-blur-md border-b border-[var(--color-cyber-dim)] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tighter flex items-center gap-2">
-            <img
-              src={`${import.meta.env.BASE_URL}assets/icons/logo-bold.svg`}
-              alt="NHC"
-              className="w-8 h-8 animate-pulse"
-            />
+            <Logo className="w-8 h-8 animate-[var(--animate-pulse-fast)]" />
             <span className="font-mono">NafizHC</span>
           </div>
-          <div className="hidden md:flex gap-2">
-            <NavItem id="home" label="ROOT" activeSection={activeSection} setActiveSection={setActiveSection} />
-            <NavItem id="experience" label="EXPERIENCE" activeSection={activeSection} setActiveSection={setActiveSection} />
-            <NavItem id="education" label="EDUCATION" activeSection={activeSection} setActiveSection={setActiveSection} />
-            <NavItem id="skills" label="TECH_STACK" activeSection={activeSection} setActiveSection={setActiveSection} />
-            <NavItem id="projects" label="PROJECTS" activeSection={activeSection} setActiveSection={setActiveSection} />
-            <NavItem id="about" label="SYSTEM" activeSection={activeSection} setActiveSection={setActiveSection} />
-            <NavItem id="contact" label="UPLINK" activeSection={activeSection} setActiveSection={setActiveSection} />
+
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:flex gap-1 xl:gap-2">
+              <NavItem id="home" label={themeConfig.navLabels.home} activeSection={activeSection} setActiveSection={setActiveSection} />
+              <NavItem id="experience" label={themeConfig.navLabels.experience} activeSection={activeSection} setActiveSection={setActiveSection} />
+              <NavItem id="education" label={themeConfig.navLabels.education} activeSection={activeSection} setActiveSection={setActiveSection} />
+              <NavItem id="skills" label={themeConfig.navLabels.skills} activeSection={activeSection} setActiveSection={setActiveSection} />
+              <NavItem id="projects" label={themeConfig.navLabels.projects} activeSection={activeSection} setActiveSection={setActiveSection} />
+              <NavItem id="about" label={themeConfig.navLabels.about} activeSection={activeSection} setActiveSection={setActiveSection} />
+              <NavItem id="contact" label={themeConfig.navLabels.contact} activeSection={activeSection} setActiveSection={setActiveSection} />
+            </div>
+            
+            <ThemeSwitcher />
           </div>
         </div>
       </nav>

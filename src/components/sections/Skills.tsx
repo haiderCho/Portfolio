@@ -3,12 +3,14 @@ import { Database } from 'lucide-react';
 import SkillRadar from '@/components/SkillRadar';
 import ProgrammingLanguages from '@/components/ProgrammingLanguages';
 import { ProgrammingLanguage } from '@/types';
+import { useTheme } from '@/context/ThemeContext';
 
 interface SkillsProps {
   techStack: ProgrammingLanguage[];
 }
 
 const Skills: React.FC<SkillsProps> = ({ techStack }) => {
+  const { themeConfig } = useTheme();
   return (
     <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-24 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -16,10 +18,10 @@ const Skills: React.FC<SkillsProps> = ({ techStack }) => {
         <div className="space-y-6">
           <div>
             <div className="flex items-center gap-3 mb-8">
-              <Database className="w-8 h-8 text-cyber-primary" />
-              <h2 className="text-3xl font-bold">Tech_Stack_Matrix</h2>
+              <Database className="w-8 h-8 text-[var(--color-cyber-primary)]" />
+              <h2 className="text-3xl font-bold">{themeConfig.sectionTitles.skills}</h2>
             </div>
-            <div className="bg-cyber-panel border border-cyber-dim rounded-lg p-6 relative mb-6">
+            <div className="bg-[var(--color-cyber-panel)] border border-[var(--color-cyber-dim)] rounded-lg p-6 relative mb-6">
               <SkillRadar />
             </div>
           </div>

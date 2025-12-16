@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { PROFILE } from '@/constants';
+import { useTheme } from '@/context/ThemeContext';
 
 const Contact = () => {
+  const { themeConfig } = useTheme();
   return (
     <section id="contact" className="py-8 px-6 bg-cyber-black border-t border-cyber-dim relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <h2 className="text-2xl font-bold mb-4 glitch-text">Establish_Uplink</h2>
-        <p className="text-cyber-muted mb-6 max-w-xl mx-auto text-sm">
+        <h2 className="text-2xl font-bold mb-4 glitch-text text-[var(--color-cyber-text)]">{themeConfig.sectionTitles.contact}</h2>
+        <p className="text-[var(--color-cyber-muted)] mb-6 max-w-xl mx-auto text-sm">
           Open for collaboration on AI infrastructure and high-performance web applications.
         </p>
 

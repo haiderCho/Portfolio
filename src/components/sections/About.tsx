@@ -1,21 +1,24 @@
 import React from 'react';
-import { Layers, Monitor } from 'lucide-react';
+import { Layers, Cpu, Monitor } from 'lucide-react';
+import { useTheme } from '@/context/ThemeContext';
+import { PROFILE } from '@/constants';
 
 const About = () => {
+  const { themeConfig } = useTheme();
   return (
     <section id="about" className="min-h-screen flex items-center py-20 px-6 bg-cyber-dark/30 border-y border-cyber-dim/30 section-glow">
       <div className="max-w-4xl mx-auto w-full">
         <div className="flex items-center gap-3 mb-8">
           <Layers className="w-8 h-8 text-cyber-secondary" />
-          <h2 className="text-3xl font-bold text-white">System_Architecture</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-cyber-text)]">{themeConfig.sectionTitles.about}</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 space-y-6 text-cyber-text/90 leading-relaxed font-light text-lg">
+          <div className="md:col-span-2 space-y-4 text-[var(--color-cyber-text)]/80 leading-relaxed text-lg">
             <p>
-              <strong className="text-white">Philosophy:</strong> I treat code as a living organism. It requires structure to survive, but adaptability to thrive. My approach to software engineering combines rigorous type safety with creative problem-solving.
+              <strong className="text-[var(--color-cyber-text)]">Philosophy:</strong> I treat code as a living organism. It requires structure to survive, but adaptability to thrive. My approach to software engineering combines rigorous type safety with creative problem-solving.
             </p>
             <p>
-              <strong className="text-white">Focus:</strong> Currently exploring the intersection of distributed systems and generative AI. I am particularly interested in how LLMs can be optimized for edge computing environments (WebGPU/WASM).
+              <strong className="text-[var(--color-cyber-text)]">Focus:</strong> Currently exploring the intersection of distributed systems and generative AI. I am particularly interested in how LLMs can be optimized for edge computing environments (WebGPU/WASM).
             </p>
           </div>
           <div className="p-6 bg-cyber-dark border-l-2 border-cyber-secondary h-fit">

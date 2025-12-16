@@ -44,7 +44,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
                     )}
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyber-primary transition-colors mb-2">
+                    <h3 className="text-xl font-bold text-[var(--color-cyber-text)] group-hover:text-[var(--color-cyber-primary)] transition-colors mb-2">
                         {post.title}
                     </h3>
 

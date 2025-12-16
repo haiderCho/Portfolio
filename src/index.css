@@ -1,29 +1,176 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-cyber-black: #0a0a0a;
-  --color-cyber-dark: #111111;
-  --color-cyber-panel: #1a1a1a;
-  --color-cyber-primary: #00f0ff;
-  --color-cyber-secondary: #7000ff;
-  --color-cyber-dim: rgba(0, 240, 255, 0.1);
-  --color-cyber-text: #e0e0e0;
-  --color-cyber-muted: #858585;
+  /* Default (Cyber) Base Variables - Will be overridden by data-theme */
+  --color-cyber-black: var(--bg-main);
+  --color-cyber-dark: var(--bg-secondary);
+  --color-cyber-panel: var(--bg-panel);
+  --color-cyber-primary: var(--primary);
+  --color-cyber-secondary: var(--secondary);
+  --color-cyber-dim: var(--dim);
+  --color-cyber-text: var(--text-main);
+  --color-cyber-muted: var(--text-muted);
 
-  --font-family-mono: "JetBrains Mono", monospace;
-  --font-family-sans: "Space Grotesk", sans-serif;
+  --font-family-mono: var(--font-mono);
+  --font-family-sans: var(--font-main);
 
   --animate-spin-slow: spin 12s linear infinite;
   --animate-pulse-fast: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-scanline: scanline 4s linear infinite;
   --animate-speaking: speaking 0.4s ease-in-out infinite;
+
+  /* New Animations */
+  --animate-glitch: glitch 1s infinite;
+  --animate-slide-up: slideUp 0.8s var(--ease-flow) forwards;
+  --animate-neon-pulse: neonPulse 2s ease-in-out infinite;
+  --animate-crt-flicker: crtFlicker 0.1s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-rgb-border: rgbBorder 3s linear infinite;
 }
+
+/* 
+  ========================================
+  THEME DEFINITIONS
+  ========================================
+*/
+
+/* 1. Cyber (Default) */
+:root {
+  --bg-main: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-panel: #1a1a1a;
+  --primary: #00f0ff; /* Cyan */
+  --secondary: #7000ff; /* Electric Purple */
+  --dim: rgba(0, 240, 255, 0.1);
+  --text-main: #e0e0e0;
+  --text-muted: #858585;
+  --font-main: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --cursor-type: crosshair;
+  --radius-card: 0px;
+  --ease-flow: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* 2. Minimal Light */
+[data-theme='minimal'] {
+  --bg-main: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-panel: #ffffff;
+  --primary: #2563eb; /* Royal Blue */
+  --secondary: #475569; /* Slate 600 - Darker */
+  --dim: rgba(37, 99, 235, 0.1);
+  --text-main: #0f172a;
+  --text-muted: #475569; /* Slate 600 - Improved Contrast */
+  --font-main: 'Inter', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  --cursor-type: auto;
+  --radius-card: 12px;
+  --ease-flow: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3. Synthwave */
+[data-theme='synthwave'] {
+  --bg-main: #2b213a; /* Deep Purple */
+  --bg-secondary: #241b31;
+  --bg-panel: #332745;
+  --primary: #ff00ff; /* Hot Pink (Reverted) */
+  --secondary: #facc15; /* Yellow (Reverted) */
+  --dim: rgba(255, 0, 255, 0.6); /* High opacity for "shine" */
+  --text-main: #f3e8ff;
+  --text-muted: #d8b4fe;
+  --font-main: 'Righteous', cursive;
+  --font-mono: 'VT323', monospace;
+  --cursor-type: text;
+  --radius-card: 4px;
+  --ease-flow: ease-in-out;
+}
+
+/* 4. Terminal */
+[data-theme='terminal'] {
+  --bg-main: #000000;
+  --bg-secondary: #0c0c0c;
+  --bg-panel: #000000;
+  --primary: #4ade80; /* Neon Green */
+  --secondary: #22c55e;
+  --dim: rgba(74, 222, 128, 0.1);
+  --text-main: #4ade80;
+  --text-muted: #15803d;
+  --font-main: 'VT323', monospace;
+  --font-mono: 'Courier New', monospace;
+  --cursor-type: block;
+  --radius-card: 0px;
+  --ease-flow: steps(5);
+}
+
+/* 5. Midnight */
+[data-theme='midnight'] {
+  --bg-main: #020617; /* Very Dark Blue */
+  --bg-secondary: #0f172a;
+  --bg-panel: #1e293b;
+  --primary: #38bdf8; /* Sky Blue */
+  --secondary: #818cf8; /* Indigo */
+  --dim: rgba(56, 189, 248, 0.1);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --font-main: 'Montserrat', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --cursor-type: default;
+  --radius-card: 16px;
+  --ease-flow: ease-out;
+}
+
+/* 6. Gamer */
+[data-theme='gamer'] {
+  --bg-main: #121212;
+  --bg-secondary: #1a1a1a;
+  --bg-panel: #202020;
+  --primary: #ef4444; /* Red */
+  --secondary: #ffffff;
+  --dim: rgba(239, 68, 68, 0.2);
+  --text-main: #ffffff;
+  --text-muted: #a3a3a3;
+  --font-main: 'Orbitron', sans-serif;
+  --font-mono: 'Rajdhani', sans-serif;
+  --cursor-type: crosshair;
+  --radius-card: 2px;
+  --ease-flow: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy */
+}
+
+body {
+  background-color: var(--color-cyber-black);
+  color: var(--color-cyber-text);
+  font-family: var(--font-family-sans);
+  cursor: var(--cursor-type);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cyber-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyber-panel);
+  border-radius: var(--radius-card);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyber-primary);
+}
+
+/* 
+  ========================================
+  ANIMATION KEYFRAMES
+  ========================================
+*/
 
 @keyframes scanline {
   0% {
     top: -20%;
   }
-
   100% {
     top: 100%;
   }
@@ -35,112 +182,171 @@
     transform: scale(1);
     opacity: 1;
   }
-
   50% {
     transform: scale(1.4);
     opacity: 0.6;
   }
 }
 
-body {
-  background-color: var(--color-cyber-black);
-  color: var(--color-cyber-text);
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+@keyframes neonPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px var(--color-cyber-primary),
+      0 0 10px var(--color-cyber-secondary);
+  }
+  50% {
+    box-shadow:
+      0 0 20px var(--color-cyber-primary),
+      0 0 30px var(--color-cyber-secondary);
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #111;
+@keyframes crtFlicker {
+  0% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+@keyframes rgbBorder {
+  0% {
+    border-color: red;
+  }
+  33% {
+    border-color: lime;
+  }
+  66% {
+    border-color: blue;
+  }
+  100% {
+    border-color: red;
+  }
 }
 
+/* 
+  ========================================
+  UTILITY CLASSES (Theme Specific)
+  ========================================
+*/
+
+/* Cyber Glitch */
 .glitch-text {
-  text-shadow: 2px 0 #00f0ff, -2px 0 #7000ff;
+  text-shadow:
+    2px 0 var(--color-cyber-primary),
+    -2px 0 var(--color-cyber-secondary);
+  animation: var(--animate-glitch) 3s infinite reverse;
+}
+[data-theme='minimal'] .glitch-text {
+  text-shadow: none;
+  animation: none;
 }
 
+/* CRT Overlay for Cyber/Terminal */
 .crt::before {
-  content: " ";
+  content: ' ';
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(
-      90deg,
-      rgba(255, 0, 0, 0.06),
-      rgba(0, 255, 0, 0.02),
-      rgba(0, 0, 255, 0.06)
-    );
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
   z-index: 2;
-  background-size: 100% 2px, 3px 100%;
+  background-size:
+    100% 2px,
+    3px 100%;
   pointer-events: none;
   opacity: 0.6;
 }
-
-/* Loading Bar Animation */
-.loading-bar {
-  width: 0%;
-  animation: loadingProgress 1.5s ease-in-out forwards;
+/* Disable CRT on non-retro themes */
+[data-theme='minimal'] .crt::before,
+[data-theme='midnight'] .crt::before {
+  display: none;
+}
+[data-theme='gamer'] .crt::before {
+  display: none;
 }
 
+/* Loading Bar */
+.loading-bar {
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-cyber-primary);
+  animation: loadingProgress 1.5s ease-in-out forwards;
+}
 @keyframes loadingProgress {
   0% {
     width: 0%;
   }
-
   100% {
     width: 100%;
   }
 }
 
-/* Card Shine Effect */
+/* Card Shine / Uniqueness per theme */
 .card-shine {
   transition: all 0.3s ease;
+  border-radius: var(--radius-card);
+  background-color: var(--color-cyber-panel);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.card-shine:hover {
+  box-shadow: 0 0 20px var(--color-cyber-dim);
+  border-color: var(--color-cyber-primary);
+}
+[data-theme='minimal'] .card-shine:hover {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--color-cyber-secondary);
+}
+[data-theme='gamer'] .card-shine:hover {
+  animation: var(--animate-shake) 0.5s;
+  box-shadow: 0 0 15px var(--color-cyber-primary);
 }
 
-.card-shine:hover,
-.card-shine:active {
-  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-}
-
-/* Section Divider Glow */
+/* Section Divider */
 .section-glow {
   position: relative;
 }
-
 .section-glow::before,
 .section-glow::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
   height: 1px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 240, 255, 0.6) 0%,
-    rgba(0, 240, 255, 0.3) 40%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse at center, var(--color-cyber-dim) 0%, transparent 70%);
   pointer-events: none;
 }
-
 .section-glow::before {
   top: 0;
 }
-
 .section-glow::after {
   bottom: 0;
 }
