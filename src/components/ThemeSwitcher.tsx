@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Monitor, Sun, Moon, Terminal, Cpu, Gamepad2, Palette } from 'lucide-react';
+import { Monitor, Sun, Moon, Terminal, Cpu, Gamepad2, Palette, TreePine, Coffee, Compass, Gem, Mountain, Flower2, Code, Waves, Square } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { ThemeId, themes } from '@/config/themes';
 
@@ -10,10 +10,19 @@ const ThemeSwitcher: React.FC = () => {
     const icons: Record<ThemeId, React.ReactNode> = {
         cyber: <Cpu size={18} />,
         minimal: <Sun size={18} />,
-        synthwave: <Palette size={18} />, // or a different icon if preferred
+        synthwave: <Palette size={18} />,
         terminal: <Terminal size={18} />,
         midnight: <Moon size={18} />,
         gamer: <Gamepad2 size={18} />,
+        forest: <TreePine size={18} />,
+        coffee: <Coffee size={18} />,
+        blueprint: <Compass size={18} />,
+        noir: <Gem size={18} />,
+        nordic: <Mountain size={18} />,
+        sakura: <Flower2 size={18} />,
+        dracula: <Code size={18} />,
+        ocean: <Waves size={18} />,
+        brutal: <Square size={18} />,
     };
 
     return (

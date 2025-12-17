@@ -30,6 +30,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             terminal: 'usr@portfolio:~$',
             midnight: 'Night Mode',
             gamer: 'Lvl. 99 Boss',
+            forest: 'Nature System',
+            coffee: 'Coffee Shop',
+            blueprint: 'Schematics',
+            noir: 'Noir Luxury',
+            nordic: 'Nordic Design',
+            sakura: 'Sakura Season',
+            dracula: 'Dracula Theme',
+            ocean: 'Deep Ocean',
+            brutal: 'BRUTALISM',
         };
         document.title = titles[currentTheme] || 'Portfolio';
 

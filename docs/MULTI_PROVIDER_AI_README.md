@@ -16,6 +16,7 @@ export const ENABLE_MULTI_PROVIDER_AI = true;
 ```
 
 That's it! Once you change this, the system will:
+
 - ✅ Show a provider selector in the chat UI
 - ✅ Allow switching between available AI providers
 - ✅ Remember user's provider preference
@@ -25,13 +26,15 @@ That's it! Once you change this, the system will:
 
 The system supports 4 providers (with 3 more available if you install their SDKs):
 
-### Ready to Use (No additional dependencies):
+### Ready to Use (No additional dependencies)
+
 1. **Gemini** - Google AI (1M tokens/min free)
 2. **Groq** - Ultra-fast inference (30 req/min free)
 3. **DeepSeek** - Advanced reasoning (free tier)
 4. **OpenRouter** - Multi-model access (free tier)
 
-### Requires Additional SDKs:
+### Requires Additional SDKs
+
 5. **Cohere** - Requires `npm install cohere-ai`
 6. **Mistral AI** - Requires `npm install @mistralai/mistralai`  
 7. **Hugging Face** - Requires `npm install @huggingface/inference`
@@ -57,17 +60,18 @@ HUGGINGFACE_API_KEY=your_hf_token_here
 
 ## Getting Free API Keys
 
-- **Gemini**: https://aistudio.google.com/app/apikey
-- **Groq**: https://console.groq.com/keys
-- **DeepSeek**: https://platform.deepseek.com/api_keys
-- **OpenRouter**: https://openrouter.ai/settings/keys
-- **Cohere**: https://dashboard.cohere.com/api-keys
-- **Mistral**: https://console.mistral.ai/api-keys
-- **Hugging Face**: https://huggingface.co/settings/tokens
+- **Gemini**: <https://aistudio.google.com/app/apikey>
+- **Groq**: <https://console.groq.com/keys>
+- **DeepSeek**: <https://platform.deepseek.com/api_keys>
+- **OpenRouter**: <https://openrouter.ai/settings/keys>
+- **Cohere**: <https://dashboard.cohere.com/api-keys>
+- **Mistral**: <https://console.mistral.ai/api-keys>
+- **Hugging Face**: <https://huggingface.co/settings/tokens>
 
 ## Implementation Details
 
 ### Folder Structure
+
 ```
 src/
 ├── config/
@@ -88,12 +92,14 @@ src/
 ### How It Works
 
 When `ENABLE_MULTI_PROVIDER_AI = false` (default):
+
 - Uses the original `src/services/gemini.ts`
 - Only Gemini is available
 - No provider switching UI
 - Backward compatible with existing code
 
 When `ENABLE_MULTI_PROVIDER_AI = true`:
+
 - Uses the new `src/services/ai/` system
 - Shows provider selector in chat header
 - Saves user's provider preference to localStorage
@@ -118,7 +124,6 @@ When `ENABLE_MULTI_PROVIDER_AI = true`:
    - Conditionally uses multi-provider or original implementation
    - Shows provider selector when multi-provider is enabled
    - Maintains backward compatibility
-
 
 ## Development Notes
 

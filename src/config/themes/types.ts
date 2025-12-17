@@ -1,4 +1,4 @@
-export type ThemeId = 'cyber' | 'minimal' | 'synthwave' | 'terminal' | 'midnight' | 'gamer';
+export type ThemeId = 'cyber' | 'minimal' | 'synthwave' | 'terminal' | 'midnight' | 'gamer' | 'forest' | 'coffee' | 'blueprint' | 'noir' | 'nordic' | 'sakura' | 'dracula' | 'ocean' | 'brutal';
 
 export interface SectionTitles {
     hero: string;
@@ -20,11 +20,28 @@ export interface NavLabels {
     contact: string;
 }
 
+export interface ThemeColors {
+    primary: string;
+    secondary: string;
+    background: string;
+    panel: string;
+    text: string;
+    muted: string;
+    dim: string;
+}
+
+export interface ThemeFonts {
+    mono: string;
+    sans: string;
+}
+
 export interface ThemeConfig {
     id: ThemeId;
     label: string;
     greetingText: string;
     description: string;
+    colors: ThemeColors;
+    fonts: ThemeFonts;
     sectionTitles: SectionTitles;
     navLabels: NavLabels;
     heroAscii: string;

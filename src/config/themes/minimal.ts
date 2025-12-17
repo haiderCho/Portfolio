@@ -4,7 +4,20 @@ export const minimal: ThemeConfig = {
     id: 'minimal',
     label: 'Minimal',
     greetingText: 'Welcome',
-    description: 'Clean, Soft, Professional',
+    description: 'Clean, Simple, Focus',
+    colors: {
+        primary: '#2563eb',
+        secondary: '#475569',
+        background: '#ffffff',
+        panel: '#ffffff',
+        text: '#0f172a',
+        muted: '#475569',
+        dim: 'rgba(37, 99, 235, 0.1)'
+    },
+    fonts: {
+        mono: '"Roboto Mono", monospace',
+        sans: '"Inter", sans-serif'
+    },
     sectionTitles: {
         hero: 'View Work',
         experience: 'My Experience',

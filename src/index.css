@@ -350,3 +350,129 @@ body {
 .section-glow::after {
   bottom: 0;
 }
+@layer base {
+  [data-theme='forest'] {
+    --color-cyber-primary: 6 78 59; /* Emerald 900 base for rich contrast, but using hex directly is better in tailwind config if not using HSL... wait the system uses hex in config but vars here? */
+    /* Looking at index.css previously viewed, it uses hex or rgb values often. I'll stick to replacing the variable values directly like the existing themes. */
+    --color-cyber-primary: #10b981;
+    --color-cyber-secondary: #d97706;
+    --color-cyber-black: #022c22;
+    --color-cyber-dark: #064e3b;
+    --color-cyber-panel: #064e3b;
+    --color-cyber-text: #ecfdf5;
+    --color-cyber-muted: #6ee7b7;
+    --color-cyber-dim: rgba(16, 185, 129, 0.1);
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+  }
+
+  [data-theme='coffee'] {
+    --color-cyber-primary: #d4c5b0;
+    --color-cyber-secondary: #ca8a04;
+    --color-cyber-black: #271c19;
+    --color-cyber-dark: #43302b;
+    --color-cyber-panel: #5c4033;
+    --color-cyber-text: #e8e0d5;
+    --color-cyber-muted: #a89f91;
+    --color-cyber-dim: rgba(212, 197, 176, 0.1);
+    --font-mono: 'Fira Code', monospace;
+    --font-sans: 'Lora', serif;
+  }
+
+  [data-theme='blueprint'] {
+    --color-cyber-primary: #ffffff;
+    --color-cyber-secondary: #93c5fd;
+    --color-cyber-black: #1e3a8a;
+    --color-cyber-dark: #172554;
+    --color-cyber-panel: #1e40af;
+    --color-cyber-text: #ffffff;
+    --color-cyber-muted: #bfdbfe;
+    --color-cyber-dim: rgba(255, 255, 255, 0.1);
+    --font-mono: 'Courier Prime', monospace;
+    --font-sans: 'Courier New', monospace;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  [data-theme='noir'] {
+    --color-cyber-primary: #d4af37;
+    --color-cyber-secondary: #a3a3a3;
+    --color-cyber-black: #000000;
+    --color-cyber-dark: #111111;
+    --color-cyber-panel: #1a1a1a;
+    --color-cyber-text: #e5e5e5;
+    --color-cyber-muted: #525252;
+    --color-cyber-dim: rgba(212, 175, 55, 0.1);
+    --font-mono: 'Cormorant Garamond', serif;
+    --font-sans: 'Playfair Display', serif;
+  }
+
+  [data-theme='nordic'] {
+    --color-cyber-primary: #38bdf8;
+    --color-cyber-secondary: #94a3b8;
+    --color-cyber-black: #f8fafc;
+    --color-cyber-dark: #e2e8f0;
+    --color-cyber-panel: #ffffff;
+    --color-cyber-text: #0f172a;
+    --color-cyber-muted: #64748b;
+    --color-cyber-dim: rgba(56, 189, 248, 0.1);
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+  }
+
+  [data-theme='sakura'] {
+    --color-cyber-primary: #ec4899;
+    --color-cyber-secondary: #be185d;
+    --color-cyber-black: #fff1f2;
+    --color-cyber-dark: #ffe4e6;
+    --color-cyber-panel: #ffffff;
+    --color-cyber-text: #881337;
+    --color-cyber-muted: #fb7185;
+    --color-cyber-dim: rgba(236, 72, 153, 0.1);
+    --font-mono: 'Space Mono', monospace;
+    --font-sans: 'Quicksand', sans-serif;
+  }
+
+  [data-theme='dracula'] {
+    --color-cyber-primary: #ff79c6;
+    --color-cyber-secondary: #bd93f9;
+    --color-cyber-black: #282a36;
+    --color-cyber-dark: #44475a;
+    --color-cyber-panel: #44475a;
+    --color-cyber-text: #f8f8f2;
+    --color-cyber-muted: #6272a4;
+    --color-cyber-dim: rgba(255, 121, 198, 0.1);
+    --font-mono: 'Fira Code', monospace;
+    --font-sans: 'Fira Sans', sans-serif;
+  }
+
+  [data-theme='ocean'] {
+    --color-cyber-primary: #22d3ee;
+    --color-cyber-secondary: #38bdf8;
+    --color-cyber-black: #0f172a;
+    --color-cyber-dark: #1e293b;
+    --color-cyber-panel: #334155;
+    --color-cyber-text: #f1f5f9;
+    --color-cyber-muted: #94a3b8;
+    --color-cyber-dim: rgba(34, 211, 238, 0.1);
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+  }
+
+  [data-theme='brutal'] {
+    --color-cyber-primary: #0000ff;
+    --color-cyber-secondary: #ffff00;
+    --color-cyber-black: #ffffff;
+    --color-cyber-dark: #e5e5e5;
+    --color-cyber-panel: #ffffff;
+    --color-cyber-text: #000000;
+    --color-cyber-muted: #525252;
+    --color-cyber-dim: rgba(0, 0, 255, 0.1);
+    --font-mono: 'Courier New', monospace;
+    --font-sans: 'Arial Black', sans-serif;
+    border: 3px solid black;
+    box-shadow: 5px 5px 0px 0px black;
+  }
+}

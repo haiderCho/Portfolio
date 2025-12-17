@@ -4,7 +4,20 @@ export const synthwave: ThemeConfig = {
     id: 'synthwave',
     label: 'Synthwave',
     greetingText: 'RETRO MODE ENGAGED',
-    description: 'Sunset, Purple, 80s Vibe',
+    description: 'Retro, Vibrant, 80s',
+    colors: {
+        primary: '#ff00ff',
+        secondary: '#facc15',
+        background: '#2b213a',
+        panel: '#332745',
+        text: '#f3e8ff',
+        muted: '#d8b4fe',
+        dim: 'rgba(255, 0, 255, 0.6)'
+    },
+    fonts: {
+        mono: '"VT323", monospace',
+        sans: '"Righteous", cursive'
+    },
     sectionTitles: {
         hero: 'START GAME',
         experience: 'Career Mode',

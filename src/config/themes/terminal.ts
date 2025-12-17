@@ -4,7 +4,20 @@ export const terminal: ThemeConfig = {
     id: 'terminal',
     label: 'Terminal',
     greetingText: 'root@nafiz:~$ init',
-    description: 'Monospace, Hacker, Raw',
+    description: 'Hacker, CLI, Matrix',
+    colors: {
+        primary: '#4ade80',
+        secondary: '#22c55e',
+        background: '#000000',
+        panel: '#000000',
+        text: '#4ade80',
+        muted: '#15803d',
+        dim: 'rgba(74, 222, 128, 0.1)'
+    },
+    fonts: {
+        mono: '"Courier New", monospace',
+        sans: '"VT323", monospace'
+    },
     sectionTitles: {
         hero: './view_projects.sh',
         experience: 'cat /var/log/experience',

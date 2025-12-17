@@ -5,11 +5,13 @@
 ## Primary Colors
 
 ### 1. **Cyber Cyan** (Primary Accent)
+
 ```css
 #00F0FF
 rgb(0, 240, 255)
 hsl(182, 100%, 50%)
 ```
+
 - **Usage**: Primary buttons, links, glows, active states, brand accent
 - **Effect**: Electric, futuristic, high-tech vibe
 - **Characteristics**: Bright, eye-catching, neon glow effect
@@ -17,11 +19,13 @@ hsl(182, 100%, 50%)
 ---
 
 ### 2. **Deep Space Black** (Background)
+
 ```css
 #0A0A0A
 rgb(10, 10, 10)
 hsl(0, 0%, 4%)
 ```
+
 - **Usage**: Main background, dark sections
 - **Effect**: Premium dark mode, reduces eye strain
 - **Characteristics**: Almost pure black with slight warmth
@@ -29,11 +33,13 @@ hsl(0, 0%, 4%)
 ---
 
 ### 3. **Onyx Gray** (Secondary Background)
+
 ```css
 #1A1A1A
 rgb(26, 26, 26)
 hsl(0, 0%, 10%)
 ```
+
 - **Usage**: Panels, cards, elevated surfaces, borders
 - **Effect**: Subtle depth and hierarchy
 - **Characteristics**: Slightly lighter than main background for layering
@@ -41,11 +47,13 @@ hsl(0, 0%, 10%)
 ---
 
 ### 4. **Slate Muted** (Tertiary/Muted Text)
+
 ```css
 #6B7280
 rgb(107, 114, 128)
 hsl(220, 9%, 46%)
 ```
+
 - **Usage**: Secondary text, muted information, subtle borders
 - **Effect**: Readable but not distracting
 - **Characteristics**: Neutral gray with slight cool tone
@@ -53,11 +61,13 @@ hsl(220, 9%, 46%)
 ---
 
 ### 5. **Pure White** (Text)
+
 ```css
 #F9FAFB
 rgb(249, 250, 251)
 hsl(210, 20%, 98%)
 ```
+
 - **Usage**: Primary text, headings, important information
 - **Effect**: Maximum contrast and readability
 - **Characteristics**: Slightly off-white to reduce harshness
@@ -67,11 +77,13 @@ hsl(210, 20%, 98%)
 ## Accent & Effect Colors (Optional)
 
 ### 6. **Neon Purple** (Secondary Accent - Optional)
+
 ```css
 #A855F7
 rgb(168, 85, 247)
 hsl(271, 91%, 65%)
 ```
+
 - **Usage**: Alternative highlights, hover states, special effects
 - **Effect**: Complementary to cyan, adds variety
 - **Characteristics**: Vibrant, modern, cyberpunk aesthetic
@@ -79,11 +91,13 @@ hsl(271, 91%, 65%)
 ---
 
 ### 7. **Electric Green** (Success/Positive - Optional)
+
 ```css
 #10B981
 rgb(16, 185, 129)
 hsl(160, 84%, 39%)
 ```
+
 - **Usage**: Success messages, positive indicators, status online
 - **Effect**: High visibility, tech-inspired
 - **Characteristics**: Matrix-style green
@@ -111,15 +125,18 @@ text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
 ## Color Combinations
 
 ### High Contrast (Primary CTA)
+
 - **Background**: `#00F0FF` (Cyber Cyan)
 - **Text**: `#0A0A0A` (Deep Space Black)
 
 ### Subtle Elevation
+
 - **Background**: `#1A1A1A` (Onyx Gray)
 - **Border**: `#00F0FF` with 30% opacity
 - **Text**: `#F9FAFB` (Pure White)
 
 ### Muted Information
+
 - **Background**: Transparent or `#0A0A0A`
 - **Text**: `#6B7280` (Slate Muted)
 

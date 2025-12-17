@@ -5,6 +5,19 @@ export const cyber: ThemeConfig = {
     label: 'Cyber',
     greetingText: 'SYSTEM STATUS: ONLINE',
     description: 'Neon, Glitch, High Contrast',
+    colors: {
+        primary: '#00f0ff',
+        secondary: '#7000ff',
+        background: '#0a0a0a',
+        panel: '#1a1a1a',
+        text: '#e0e0e0',
+        muted: '#858585',
+        dim: 'rgba(0, 240, 255, 0.1)'
+    },
+    fonts: {
+        mono: '"JetBrains Mono", monospace',
+        sans: '"Space Grotesk", sans-serif'
+    },
     sectionTitles: {
         hero: 'INITIATE_VIEW',
         experience: 'Experience_Log',
