@@ -68,7 +68,7 @@ const ThemeSwitcher: React.FC = () => {
                                 className={`w-full px-4 py-2 text-left flex items-center gap-3 transition-colors
                                             ${currentTheme === theme.id 
                                                 ? 'bg-[var(--color-cyber-primary)]/10 text-[var(--color-cyber-primary)]' 
-                                                : 'text-[var(--color-cyber-text)] hover:bg-[rgba(255,255,255,0.05)]'}
+                                                : 'text-[var(--color-cyber-text)] hover:bg-[var(--color-cyber-dim)]'}
                                 `}
                             >
                                 <span className={`${currentTheme === theme.id ? 'animate-pulse' : ''}`}>

@@ -25,19 +25,7 @@ export default {
             animation: {
                 'spin-slow': 'spin 12s linear infinite',
                 'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                'scanline': 'scanline 4s linear infinite',
-                'speaking': 'speaking 0.4s ease-in-out infinite',
             },
-            keyframes: {
-                scanline: {
-                    '0%': { top: '-20%' },
-                    '100%': { top: '100%' },
-                },
-                speaking: {
-                    '0%, 100%': { transform: 'scale(1)', opacity: '1' },
-                    '50%': { transform: 'scale(1.4)', opacity: '0.6' },
-                }
-            }
         }
     },
     plugins: [],

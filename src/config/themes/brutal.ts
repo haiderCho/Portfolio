@@ -1,17 +1,19 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
+
 
 export const brutal: ThemeConfig = {
     id: 'brutal',
     label: 'Brutal',
-    description: 'Neo-Brutalism',
+    description: 'Raw Concrete Architecture',
     colors: {
-        primary: '#0000ff', // Pure Blue
-        secondary: '#ffff00', // Pure Yellow
-        background: '#ffffff', // White
-        panel: '#e5e5e5', // Light Grey
-        text: '#000000', // Black
-        muted: '#525252', // Dark Grey
-        dim: 'rgba(0, 0, 255, 0.1)'
+        primary: PALETTE.concrete800, // Dark concrete
+        secondary: PALETTE.concrete600,
+        background: PALETTE.concrete100, // Light raw concrete
+        panel: PALETTE.concrete200, // Slightly darker panel
+        text: PALETTE.concrete900, // Almost black
+        muted: PALETTE.concrete500,
+        dim: 'rgba(28, 25, 23, 0.05)' // Subtle shadow
     },
     fonts: {
         mono: '"Courier New", monospace',
@@ -37,8 +39,17 @@ export const brutal: ThemeConfig = {
     },
     greetingText: "NO_QS.",
     heroAscii: `
-  [RW]
-  [RW]
-  [RW]
+████████████████████████████████████
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+█  ╔══════════════════════════╗  █
+█  ║  ██████╗ ██████╗ ██╗   ██║  █
+█  ║  ██╔══██╗██╔══██╗██║   ██║  █
+█  ║  ██████╔╝██████╔╝██║   ██║  █
+█  ║  ██╔══██╗██╔══██╗██║   ██║  █
+█  ║  ██████╔╝██║  ██║╚██████║  █
+█  ║  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝  █
+█  ╚══════════════════════════╝  █
+█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+████████████████████████████████████
 `
 };

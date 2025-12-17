@@ -10,7 +10,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   return (
     <div
-      className="group relative bg-cyber-panel border border-cyber-dim hover:border-cyber-primary active:border-cyber-primary rounded-lg p-6 transition-all duration-300 hover:transform hover:-translate-y-1 active:transform active:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,240,255,0.1)] active:shadow-[0_0_20px_rgba(0,240,255,0.1)] overflow-hidden"
+      className="group relative bg-cyber-panel border border-cyber-dim hover:border-cyber-primary active:border-cyber-primary rounded-lg p-6 transition-all duration-300 hover:transform hover:-translate-y-1 active:transform active:-translate-y-1 hover:shadow-[0_0_20px_var(--color-cyber-dim)] active:shadow-[0_0_20px_var(--color-cyber-dim)] overflow-hidden"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Decorative Corner */}
@@ -109,7 +109,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           const iconInfo = getIconInfo(tech);
 
           return (
-            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary active:border-cyber-primary transition-all hover:scale-105 active:scale-95 cursor-default hover:shadow-[0_0_10px_rgba(0,240,255,0.3)] hover:text-cyber-primary">
+            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary active:border-cyber-primary transition-all hover:scale-105 active:scale-95 cursor-default hover:shadow-[0_0_10px_var(--color-cyber-dim)] hover:text-cyber-primary">
               {iconInfo ? (
                 <i className={`${iconInfo.type === 'si' ? 'si' : ''} ${iconInfo.class} text-cyber-primary`} style={{ fontSize: '14px' }}></i>
               ) : (

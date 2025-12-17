@@ -1,17 +1,18 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const nordic: ThemeConfig = {
     id: 'nordic',
     label: 'Nordic',
     description: 'Clean & Minimal',
     colors: {
-        primary: '#38bdf8', // Sky 400
-        secondary: '#94a3b8', // Slate 400
-        background: '#f8fafc', // Slate 50
-        panel: '#ffffff', // White
-        text: '#0f172a', // Slate 900
-        muted: '#64748b', // Slate 500
-        dim: 'rgba(56, 189, 248, 0.1)'
+        primary: PALETTE.brightCyan,
+        secondary: PALETTE.slate600,
+        background: PALETTE.iceWhite,
+        panel: PALETTE.white,
+        text: PALETTE.slate900,
+        muted: PALETTE.slate500,
+        dim: PALETTE.dim.sky
     },
     fonts: {
         mono: '"IBM Plex Mono", monospace',

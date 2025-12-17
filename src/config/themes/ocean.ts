@@ -1,17 +1,18 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const ocean: ThemeConfig = {
     id: 'ocean',
     label: 'Ocean',
     description: 'Deep & Quiet',
     colors: {
-        primary: '#22d3ee', // Cyan 400
-        secondary: '#38bdf8', // Sky 400
-        background: '#0f172a', // Slate 900 (Deep Blue)
-        panel: '#1e293b', // Slate 800
-        text: '#f1f5f9', // Slate 100
-        muted: '#94a3b8', // Slate 400
-        dim: 'rgba(34, 211, 238, 0.1)'
+        primary: PALETTE.cyan400,
+        secondary: PALETTE.sky400,
+        background: PALETTE.slate900,
+        panel: PALETTE.slate800,
+        text: PALETTE.slate100,
+        muted: PALETTE.slate400,
+        dim: PALETTE.dim.sky
     },
     fonts: {
         mono: '"JetBrains Mono", monospace',

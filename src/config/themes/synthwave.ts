@@ -1,4 +1,5 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const synthwave: ThemeConfig = {
     id: 'synthwave',
@@ -6,13 +7,13 @@ export const synthwave: ThemeConfig = {
     greetingText: 'RETRO MODE ENGAGED',
     description: 'Retro, Vibrant, 80s',
     colors: {
-        primary: '#ff00ff',
-        secondary: '#facc15',
-        background: '#2b213a',
-        panel: '#332745',
-        text: '#f3e8ff',
-        muted: '#d8b4fe',
-        dim: 'rgba(255, 0, 255, 0.6)'
+        primary: PALETTE.magenta,
+        secondary: PALETTE.yellow400,
+        background: PALETTE.purpleDark,
+        panel: PALETTE.purpleDark3,
+        text: PALETTE.violet50,
+        muted: PALETTE.purple300,
+        dim: PALETTE.dim.magenta
     },
     fonts: {
         mono: '"VT323", monospace',

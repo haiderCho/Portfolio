@@ -1,18 +1,20 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
+
 
 export const minimal: ThemeConfig = {
     id: 'minimal',
     label: 'Minimal',
     greetingText: 'Welcome',
-    description: 'Clean, Simple, Focus',
+    description: 'Polished, Sharp, Luxury',
     colors: {
-        primary: '#2563eb',
-        secondary: '#475569',
-        background: '#ffffff',
-        panel: '#ffffff',
-        text: '#0f172a',
-        muted: '#475569',
-        dim: 'rgba(37, 99, 235, 0.1)'
+        primary: PALETTE.obsidian, // Stark Black
+        secondary: PALETTE.silver400, // Chrome Silver
+        background: PALETTE.white, // Pure White
+        panel: PALETTE.silver100, // Very faint silver/white
+        text: PALETTE.obsidian, // Absolute black
+        muted: PALETTE.silver500,
+        dim: 'rgba(9, 9, 11, 0.03)'
     },
     fonts: {
         mono: '"Roboto Mono", monospace',
@@ -37,13 +39,14 @@ export const minimal: ThemeConfig = {
         contact: 'Contact'
     },
     heroAscii: `
-._____. ._____.
-| ._. | | ._. |
-| !_| |_|_|_! |
-!___| |_______!
-.___|_|_| |___.
-| ._____| |_. |
-| !_! | | !_! |
-!_____! !_____!
+    ◦  ·  ◦  ·  ◦
+    
+    ·    ━━━    ·
+    
+    ◦   ╱   ╲   ◦
+    
+    ·  ╱     ╲  ·
+    
+    ◦  ·  ◦  ·  ◦
     `
 };

@@ -16,8 +16,7 @@ const Contact = () => {
 
         <div className="mb-8">
           <Link
-            to="/blog"
-            className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary hover:bg-cyber-primary/10 text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] hover:scale-105 active:border-cyber-primary active:bg-cyber-primary/10 active:shadow-[0_0_20px_rgba(0,240,255,0.6)] active:scale-105"
+            className="inline-block px-6 py-2 border border-cyber-dim rounded hover:border-cyber-primary hover:bg-cyber-primary/10 text-cyber-primary font-mono text-sm transition-all hover:shadow-[0_0_20px_var(--color-cyber-dim)] hover:scale-105 active:border-cyber-primary active:bg-cyber-primary/10 active:shadow-[0_0_20px_var(--color-cyber-dim)] active:scale-105"
           >
             ACCESS_BLOG_ARCHIVE
           </Link>

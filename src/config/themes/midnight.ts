@@ -1,4 +1,5 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const midnight: ThemeConfig = {
     id: 'midnight',
@@ -6,13 +7,13 @@ export const midnight: ThemeConfig = {
     greetingText: 'Good Evening',
     description: 'Starlight, Cool, Calm',
     colors: {
-        primary: '#38bdf8',
-        secondary: '#818cf8',
-        background: '#020617',
-        panel: '#1e293b',
-        text: '#f1f5f9',
-        muted: '#94a3b8',
-        dim: 'rgba(56, 189, 248, 0.1)'
+        primary: PALETTE.sky400,
+        secondary: PALETTE.indigo400,
+        background: PALETTE.sky900,
+        panel: PALETTE.slate800,
+        text: PALETTE.slate100,
+        muted: PALETTE.slate400,
+        dim: PALETTE.dim.sky
     },
     fonts: {
         mono: '"Fira Code", monospace',

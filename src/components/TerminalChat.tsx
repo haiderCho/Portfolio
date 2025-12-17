@@ -199,7 +199,7 @@ const TerminalChat: React.FC = () => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 p-4 bg-cyber-black border border-cyber-primary text-cyber-primary rounded-full shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] transition-all z-50 group"
+        className="fixed bottom-6 right-6 p-4 bg-cyber-black border border-cyber-primary text-cyber-primary rounded-full shadow-[0_0_15px_var(--color-cyber-dim)] hover:shadow-[0_0_25px_var(--color-cyber-dim)] transition-all z-50 group"
       >
         <Terminal className="w-6 h-6 group-hover:scale-110 transition-transform" />
         <span className="absolute -top-12 right-0 bg-cyber-panel border border-cyber-dim text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-cyber-text">
@@ -212,8 +212,8 @@ const TerminalChat: React.FC = () => {
   return (
     <div className="fixed bottom-6 right-6 w-[90vw] md:w-[450px] h-[600px] bg-cyber-black/95 backdrop-blur-md border border-cyber-primary rounded-lg flex flex-col shadow-[0_0_30px_rgba(0,0,0,0.8)] z-50 overflow-hidden font-mono text-sm">
 
-      {/* Scanline Overlay */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-cyber-primary/10 to-transparent animate-scanline pointer-events-none z-20" />
+
+
 
       {/* Header */}
       <div className="flex items-center justify-between p-3 bg-cyber-panel border-b border-cyber-dim select-none cursor-move relative z-30">
@@ -270,7 +270,7 @@ const TerminalChat: React.FC = () => {
       </div>
 
       {/* Terminal Output */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 font-mono crt relative z-10">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 font-mono relative z-10">
         {!hasKey && (
           <div className="p-3 border border-red-500 bg-red-900/20 text-red-400 rounded">
             Warning: API_KEY not detected. Neural link offline. Please configure environment.
@@ -298,7 +298,7 @@ const TerminalChat: React.FC = () => {
                   </span>
                 )}
                 {msg.isStreaming && msg.content && (
-                  <span className="inline-block w-2.5 h-5 bg-cyber-primary ml-1 animate-pulse align-middle shadow-[0_0_8px_rgba(0,240,255,0.8)]" />
+                  <span className="inline-block w-2.5 h-5 bg-cyber-primary ml-1 animate-pulse align-middle shadow-[0_0_8px_var(--color-cyber-primary)]" />
                 )}
               </div>
             </div>

@@ -1,17 +1,18 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const blueprint: ThemeConfig = {
     id: 'blueprint',
     label: 'Blueprint',
     description: 'Technical & Precise',
     colors: {
-        primary: '#ffffff', // White
-        secondary: '#93c5fd', // Blue 300
-        background: '#1e3a8a', // Blue 900
-        panel: '#172554', // Blue 950
-        text: '#ffffff', // White
-        muted: '#bfdbfe', // Blue 200
-        dim: 'rgba(255, 255, 255, 0.1)'
+        primary: PALETTE.white,
+        secondary: PALETTE.blue300,
+        background: PALETTE.blue900,
+        panel: PALETTE.blue950,
+        text: PALETTE.white,
+        muted: PALETTE.blue200,
+        dim: PALETTE.dim.white
     },
     fonts: {
         mono: '"Courier Prime", monospace',

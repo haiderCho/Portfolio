@@ -1,17 +1,18 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const noir: ThemeConfig = {
     id: 'noir',
     label: 'Noir',
     description: 'Luxury & Gold',
     colors: {
-        primary: '#d4af37', // Gold
-        secondary: '#a3a3a3', // Neutral 400
-        background: '#000000', // Black
-        panel: '#111111', // Almost Black
-        text: '#e5e5e5', // Neutral 200
-        muted: '#525252', // Neutral 600
-        dim: 'rgba(212, 175, 55, 0.1)'
+        primary: PALETTE.gold,
+        secondary: PALETTE.grey300,
+        background: PALETTE.black,
+        panel: PALETTE.grey900,
+        text: PALETTE.grey200,
+        muted: PALETTE.grey700,
+        dim: PALETTE.dim.gold
     },
     fonts: {
         mono: '"Cormorant Garamond", serif',

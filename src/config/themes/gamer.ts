@@ -1,4 +1,5 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const gamer: ThemeConfig = {
     id: 'gamer',
@@ -6,13 +7,13 @@ export const gamer: ThemeConfig = {
     greetingText: 'READY PLAYER ONE',
     description: 'RGB, Bold, Aggressive',
     colors: {
-        primary: '#00ff9f',
-        secondary: '#ff005e',
-        background: '#0a0a0a',
-        panel: '#181818',
-        text: '#f0f0f0',
-        muted: '#888888',
-        dim: 'rgba(0, 255, 159, 0.15)'
+        primary: PALETTE.neonGreen,
+        secondary: PALETTE.neonPink,
+        background: PALETTE.grey950,
+        panel: PALETTE.grey850,
+        text: PALETTE.grey100,
+        muted: PALETTE.grey400,
+        dim: PALETTE.dim.neonGreen
     },
     fonts: {
         mono: '"Inconsolata", monospace',

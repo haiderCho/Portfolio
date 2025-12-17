@@ -1,17 +1,18 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const dracula: ThemeConfig = {
     id: 'dracula',
     label: 'Dracula',
     description: 'Dark & Coding',
     colors: {
-        primary: '#ff79c6', // Pink
-        secondary: '#bd93f9', // Purple
-        background: '#282a36', // Dark Blue/Grey
-        panel: '#44475a', // Selection
-        text: '#f8f8f2', // White
-        muted: '#6272a4', // Comment
-        dim: 'rgba(255, 121, 198, 0.1)'
+        primary: PALETTE.magentaDark,
+        secondary: PALETTE.purple600,
+        background: PALETTE.draculaBg,
+        panel: PALETTE.draculaSelection,
+        text: PALETTE.draculaFg,
+        muted: PALETTE.draculaComment,
+        dim: PALETTE.dim.draculaPink
     },
     fonts: {
         mono: '"Fira Code", monospace',

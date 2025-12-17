@@ -12,6 +12,7 @@ import ThemeSwitcher from '@/components/ThemeSwitcher';
 import { useSystemBoot } from '@/hooks/useSystemBoot';
 import { useTheme } from '@/context/ThemeContext';
 import Logo from '@/components/common/Logo';
+import SakuraRain from '@/components/effects/SakuraRain';
 
 const NavItem = ({ id, label, activeSection, setActiveSection }: { id: string, label: string, activeSection: string, setActiveSection: (id: string) => void }) => (
   <button
@@ -72,11 +73,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cyber-black text-cyber-text overflow-x-hidden selection:bg-cyber-primary selection:text-black">
-      {/* Background Matrix/Grid Effect */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] opacity-20" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,240,255,0.03),transparent_70%)]" />
-      </div>
+      {/* Sakura Petal Effect */}
+      {themeConfig.id === 'sakura' && <SakuraRain />}
 
       {/* Top Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-[var(--color-cyber-black)]/80 backdrop-blur-md border-b border-[var(--color-cyber-dim)] transition-colors duration-300">

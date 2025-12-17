@@ -48,7 +48,7 @@ const Hero = () => {
             <div className="absolute inset-4 border border-dashed border-[var(--color-cyber-primary)]/30 rounded-full" />
           </div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--color-cyber-primary)]/5 rounded-full blur-3xl" />
-          <div className="absolute font-mono text-[10px] text-[var(--color-cyber-primary)]/70 whitespace-pre leading-none animate-[var(--animate-float)]">
+          <div className="absolute font-mono text-[10px] whitespace-pre leading-none animate-[var(--animate-float)]" style={{ color: 'var(--color-ascii-art, var(--color-cyber-primary))', opacity: 0.7 }}>
             {themeConfig.heroAscii}
           </div>
         </div>

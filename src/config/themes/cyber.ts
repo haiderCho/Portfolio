@@ -1,4 +1,5 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const cyber: ThemeConfig = {
     id: 'cyber',
@@ -6,13 +7,13 @@ export const cyber: ThemeConfig = {
     greetingText: 'SYSTEM STATUS: ONLINE',
     description: 'Neon, Glitch, High Contrast',
     colors: {
-        primary: '#00f0ff',
-        secondary: '#7000ff',
-        background: '#0a0a0a',
-        panel: '#1a1a1a',
-        text: '#e0e0e0',
-        muted: '#858585',
-        dim: 'rgba(0, 240, 255, 0.1)'
+        primary: PALETTE.cyan,
+        secondary: PALETTE.purple700,
+        background: PALETTE.grey950,
+        panel: PALETTE.grey850,
+        text: PALETTE.grey200,
+        muted: PALETTE.grey500,
+        dim: PALETTE.dim.cyan
     },
     fonts: {
         mono: '"JetBrains Mono", monospace',

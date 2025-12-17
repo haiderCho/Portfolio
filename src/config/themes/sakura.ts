@@ -1,17 +1,18 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const sakura: ThemeConfig = {
     id: 'sakura',
     label: 'Sakura',
     description: 'Soft & Floral',
     colors: {
-        primary: '#ec4899', // Pink 500
-        secondary: '#be185d', // Pink 700
-        background: '#fff1f2', // Rose 50
-        panel: '#ffffff', // White
-        text: '#881337', // Rose 900
-        muted: '#fb7185', // Rose 400
-        dim: 'rgba(236, 72, 153, 0.1)'
+        primary: PALETTE.sakuraText, // Darker pink for readability/primary elements
+        secondary: PALETTE.sakuraPink, // Soft pink for accents (borders/cards)
+        background: PALETTE.creamWhite,
+        panel: PALETTE.white,
+        text: PALETTE.sakuraText, // Consistent soft dark pink
+        muted: PALETTE.sakuraDark,
+        dim: 'rgba(255, 183, 197, 0.15)' // Soft pink dim
     },
     fonts: {
         mono: '"Space Mono", monospace',

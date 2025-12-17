@@ -1,4 +1,5 @@
 import { ThemeConfig } from './types';
+import { PALETTE } from '../colors';
 
 export const terminal: ThemeConfig = {
     id: 'terminal',
@@ -6,13 +7,13 @@ export const terminal: ThemeConfig = {
     greetingText: 'root@nafiz:~$ init',
     description: 'Hacker, CLI, Matrix',
     colors: {
-        primary: '#4ade80',
-        secondary: '#22c55e',
-        background: '#000000',
-        panel: '#000000',
-        text: '#4ade80',
-        muted: '#15803d',
-        dim: 'rgba(74, 222, 128, 0.1)'
+        primary: PALETTE.green400,
+        secondary: PALETTE.green600,
+        background: PALETTE.black,
+        panel: PALETTE.black,
+        text: PALETTE.green400,
+        muted: PALETTE.green900,
+        dim: PALETTE.dim.green
     },
     fonts: {
         mono: '"Courier New", monospace',
