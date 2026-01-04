@@ -30,6 +30,12 @@ export interface ThemeColors {
     dim: string;
 }
 
+export interface CursorConfig {
+    style: 'default' | 'none'; // 'none' hides the system cursor
+    custom?: 'dot' | 'block' | 'glitch' | 'petal' | 'underscore' | 'ring' | 'crosshair' | 'leaf' | 'bubble' | 'focus' | 'steam' | 'fang' | 'guide';
+    color?: string;
+}
+
 export interface ThemeFonts {
     mono: string;
     sans: string;
@@ -42,6 +48,7 @@ export interface ThemeConfig {
     description: string;
     colors: ThemeColors;
     fonts: ThemeFonts;
+    cursor?: CursorConfig;
     sectionTitles: SectionTitles;
     navLabels: NavLabels;
     heroAscii: string;

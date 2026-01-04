@@ -2,7 +2,7 @@ import React from 'react';
 import { Database } from 'lucide-react';
 import SkillRadar from '@/components/SkillRadar';
 import ProgrammingLanguages from '@/components/ProgrammingLanguages';
-import { ProgrammingLanguage } from '@/types';
+import { ProgrammingLanguage } from '@/types/schemas';
 import { useTheme } from '@/context/ThemeContext';
 
 interface SkillsProps {

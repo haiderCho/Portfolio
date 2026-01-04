@@ -1,7 +1,7 @@
 import React from 'react';
 import { Code } from 'lucide-react';
 import ProjectCard from '@/components/ProjectCard';
-import { Project } from '@/types';
+import { Project } from '@/types/schemas';
 import { useTheme } from '@/context/ThemeContext';
 
 interface ProjectsProps {
@@ -19,9 +19,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           <span className="text-cyber-muted font-mono text-sm mb-1 ml-auto">Index: {projects.length} items</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 auto-rows-min">
           {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <div key={project.id} className={project.variant === 'hero' ? 'md:col-span-2' : ''}>
+                <ProjectCard project={project} index={index} />
+            </div>
           ))}
         </div>
       </div>

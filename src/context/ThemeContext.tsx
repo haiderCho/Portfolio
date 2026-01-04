@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { defaultTheme, ThemeId, themes } from '../config/themes';
+import { cursorDefaults } from '../config/themes/cursorDefaults';
 
 interface ThemeContextType {
     currentTheme: ThemeId;
@@ -24,21 +25,21 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
         // Dynamic Title (Optional Polish)
         const titles: Record<ThemeId, string> = {
-            cyber: 'SYSTEM: ONLINE',
-            minimal: 'Portfolio',
-            synthwave: 'R E T R O // WAVE',
-            terminal: 'usr@portfolio:~$',
-            midnight: 'Night Mode',
-            gamer: 'Lvl. 99 Boss',
-            forest: 'Nature System',
-            coffee: 'Coffee Shop',
-            blueprint: 'Schematics',
-            noir: 'Noir Luxury',
-            nordic: 'Nordic Design',
-            sakura: 'Sakura Season',
-            dracula: 'Dracula Theme',
-            ocean: 'Deep Ocean',
-            brutal: 'BRUTALISM',
+            cyber: 'NafizHC : SYSTEM ONLINE',
+            minimal: 'NafizHC | Portfolio',
+            synthwave: 'NafizHC // R E T R O',
+            terminal: 'nafizhc@portfolio:~$',
+            midnight: 'NafizHC • Night Mode',
+            gamer: 'NafizHC [Lvl. 99 Boss]',
+            forest: 'NafizHC 🌿 Nature',
+            coffee: 'NafizHC ☕ Coffee',
+            blueprint: 'NafizHC (Schematics)',
+            noir: 'NafizHC : Noir Luxury',
+            nordic: 'NafizHC | Nordic',
+            sakura: 'NafizHC 🌸 Sakura',
+            dracula: 'NafizHC { Dracula }',
+            ocean: 'NafizHC ~ Deep Ocean',
+            brutal: 'NAFIZHC // BRUTALISM',
         };
         document.title = titles[currentTheme] || 'Portfolio';
 
@@ -52,7 +53,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             value={{ 
                 currentTheme, 
                 setTheme: setCurrentTheme,
-                themeConfig: themes[currentTheme]
+                themeConfig: {
+                    ...themes[currentTheme],
+                    cursor: themes[currentTheme].cursor || cursorDefaults[currentTheme]
+                }
             }}
         >
             {children}

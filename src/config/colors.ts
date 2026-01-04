@@ -9,6 +9,14 @@ export const PALETTE = {
   black: '#000000',
   white: '#ffffff',
   
+  // Obsidian (Deepest Neutrals)
+  obsidian: '#09090b',
+
+  // Silver Scale (Chrome/Metallic Neutrals)
+  silver100: '#f4f4f5',
+  silver400: '#a1a1aa',
+  silver500: '#71717a',
+  
   // Dark Neutrals (for dark theme backgrounds)
   grey950: '#0a0a0a',
   grey900: '#111111',

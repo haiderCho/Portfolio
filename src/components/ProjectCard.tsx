@@ -1,6 +1,9 @@
-import React from 'react';
-import { Project } from '@/types';
-import { Github, ExternalLink, GitFork, Star, Terminal } from 'lucide-react';
+import { Project } from '@/types/schemas';
+import { Github, ExternalLink, GitFork, Star, Terminal, BookOpen, Layers, Monitor } from 'lucide-react';
+import { cn } from '@/lib/utils'; // Assuming cn utility exists, usually does in current stacks. If not I'll use template literals.
+
+// Fallback for cn if not present (I'll implement basic string logic inside for safety)
+const classNames = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(' ');
 
 interface ProjectCardProps {
   project: Project;
@@ -8,18 +11,51 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const isHero = project.variant === 'hero';
+  const isShowcase = project.variant === 'showcase';
+  const isWriting = project.variant === 'writing';
+
+  // Base card styles
+  const baseCardStyles = "relative p-6 rounded-lg transition-all group overflow-hidden border";
+  
+  // Variant specific styles
+  const variantStyles = {
+    hero: `bg-cyber-panel/80 border-cyber-primary/50 hover:border-cyber-primary hover:shadow-[0_0_20px_rgba(var(--color-primary-rgb),0.2)]`,
+    showcase: `bg-white/5 border-cyber-dim hover:bg-white/10 hover:border-cyber-secondary/50 backdrop-blur-sm`,
+    writing: `bg-cyber-black border-cyber-dim hover:border-cyber-text/50`,
+    standard: `bg-cyber-panel border-cyber-dim hover:border-cyber-primary/50`
+  };
+
+  const currentStyle = variantStyles[project.variant || 'standard'];
+
   return (
     <div
-      className="group relative bg-cyber-panel border border-cyber-dim hover:border-cyber-primary active:border-cyber-primary rounded-lg p-6 transition-all duration-300 hover:transform hover:-translate-y-1 active:transform active:-translate-y-1 hover:shadow-[0_0_20px_var(--color-cyber-dim)] active:shadow-[0_0_20px_var(--color-cyber-dim)] overflow-hidden"
+      className={classNames(baseCardStyles, currentStyle, "card-shine", isHero ? "md:min-h-[300px]" : "min-h-[250px]")}
       style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Decorative Corner */}
-      <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-cyber-primary/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity" />
+      {/* Decorative Elements */}
+      {isHero && (
+         <div className="absolute inset-0 bg-gradient-to-br from-cyber-primary/5 to-transparent pointer-events-none" />
+      )}
+      <div className={`absolute left-0 top-0 bottom-0 w-1 transition-colors rounded-l-lg 
+        ${isHero ? 'bg-cyber-primary' : 'bg-cyber-dim group-hover:bg-cyber-primary'}`} 
+      />
 
-      <div className="flex justify-between items-start mb-4">
-        <span className="text-xs font-mono px-2 py-1 rounded bg-cyber-dark border border-cyber-dim text-cyber-primary">
-          {project.category}
-        </span>
+      {/* Header */}
+      <div className="flex justify-between items-start mb-4 relative z-10">
+        <div className="flex items-center gap-2">
+            {isHero && <Star className="w-4 h-4 text-cyber-primary fill-cyber-primary animate-pulse" />}
+            {isShowcase && <Monitor className="w-4 h-4 text-cyber-secondary" />}
+            {isWriting && <BookOpen className="w-4 h-4 text-cyber-muted" />}
+            
+            <span className={classNames(
+                "text-xs font-mono px-2 py-1 rounded border",
+                isHero ? "bg-cyber-primary/10 border-cyber-primary text-cyber-primary" : "bg-cyber-dark border-cyber-dim text-cyber-muted"
+            )}>
+            {project.category}
+            </span>
+        </div>
+        
         <div className="flex items-center gap-3 text-cyber-muted text-xs">
           <span className="flex items-center gap-1">
             <Star className="w-3 h-3" /> {project.stars}
@@ -30,118 +66,71 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      <h3 className="text-xl font-bold text-[var(--color-cyber-text)] mb-2 group-hover:text-[var(--color-cyber-primary)] group-active:text-[var(--color-cyber-primary)] transition-colors font-sans">
-        {project.title}
-      </h3>
+      {/* Content */}
+      <div className="relative z-10">
+        <h3 className={classNames(
+            "font-bold text-[var(--color-cyber-text)] mb-3 transition-colors font-sans group-hover:text-[var(--color-cyber-primary)]",
+            isHero ? "text-3xl" : "text-xl"
+        )}>
+            {project.title}
+        </h3>
 
-      <p className="text-cyber-muted text-sm mb-6 leading-relaxed min-h-[60px]">
-        {project.description}
-      </p>
+        <p className={classNames(
+            "text-cyber-muted mb-6 leading-relaxed",
+            isHero ? "text-lg max-w-2xl" : "text-sm min-h-[60px]"
+        )}>
+            {project.description}
+        </p>
 
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.techStack.map((tech) => {
-          const getIconInfo = (t: string): { class: string; type: 'devicon' | 'si' } | null => {
-            const lower = t.toLowerCase();
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2 mb-8">
+            {project.tech?.slice(0, isHero ? 8 : 4).map((tech) => (
+               <span
+                key={tech}
+                className={classNames(
+                    "text-xs px-2 py-1 rounded border transition-all cursor-default",
+                    isHero 
+                        ? "bg-cyber-primary/10 border-cyber-primary/30 text-cyber-primary" 
+                        : "bg-cyber-dark border-cyber-dim text-cyber-muted hover:text-cyber-primary hover:border-cyber-primary/50"
+                )}
+               >
+                 {tech}
+               </span> 
+            ))}
+            {project.tech && project.tech.length > (isHero ? 8 : 4) && (
+                <span className="text-xs px-2 py-1 text-cyber-muted">+{project.tech.length - (isHero ? 8 : 4)}</span>
+            )}
+        </div>
 
-            // Languages
-            if (lower === 'assembly') return { class: 'si-assemblyscript', type: 'si' };
-            if (lower === 'c') return { class: 'devicon-c-plain', type: 'devicon' };
-            if (lower === 'c++') return { class: 'devicon-cplusplus-plain', type: 'devicon' };
-            if (lower === 'c#') return { class: 'devicon-csharp-plain', type: 'devicon' };
-            if (lower === 'css' || lower === 'css3') return { class: 'devicon-css3-plain', type: 'devicon' };
-            if (lower === 'html' || lower === 'html5') return { class: 'devicon-html5-plain', type: 'devicon' };
-            if (lower === 'java') return { class: 'devicon-java-plain', type: 'devicon' };
-            if (lower === 'javascript') return { class: 'devicon-javascript-plain', type: 'devicon' };
-            if (lower === 'kotlin') return { class: 'devicon-kotlin-plain', type: 'devicon' };
-            if (lower === 'php') return { class: 'devicon-php-plain', type: 'devicon' };
-            if (lower === 'python') return { class: 'devicon-python-plain', type: 'devicon' };
-            if (lower === 'r') return { class: 'devicon-r-plain', type: 'devicon' };
-            if (lower === 'rust') return { class: 'devicon-rust-plain', type: 'devicon' };
-            if (lower === 'typescript') return { class: 'devicon-typescript-plain', type: 'devicon' };
-
-            // Frameworks & Libraries - Web
-            if (lower === 'react') return { class: 'devicon-react-original', type: 'devicon' };
-            if (lower === 'nodejs' || lower === 'node.js') return { class: 'devicon-nodejs-plain', type: 'devicon' };
-            if (lower === 'vue' || lower === 'vuejs' || lower === 'vue.js') return { class: 'devicon-vuejs-plain', type: 'devicon' };
-            if (lower === 'angular') return { class: 'devicon-angular-plain', type: 'devicon' };
-            if (lower === 'bootstrap') return { class: 'devicon-bootstrap-plain', type: 'devicon' };
-            if (lower === 'tailwind' || lower === 'tailwindcss') return { class: 'devicon-tailwindcss-plain', type: 'devicon' };
-            if (lower === 'jquery') return { class: 'devicon-jquery-plain', type: 'devicon' };
-            if (lower === 'laravel') return { class: 'devicon-laravel-plain', type: 'devicon' };
-            if (lower === 'flask') return { class: 'devicon-flask-original', type: 'devicon' };
-            if (lower === 'django') return { class: 'devicon-django-plain', type: 'devicon' };
-            if (lower === 'streamlit') return { class: 'devicon-streamlit-plain', type: 'devicon' };
-
-            // Frameworks & Libraries - ML/AI
-            if (lower === 'tensorflow') return { class: 'devicon-tensorflow-original', type: 'devicon' };
-            if (lower === 'pytorch') return { class: 'devicon-pytorch-plain', type: 'devicon' };
-            if (lower === 'keras') return { class: 'devicon-keras-plain', type: 'devicon' };
-            if (lower === 'numpy') return { class: 'devicon-numpy-plain', type: 'devicon' };
-            if (lower === 'pandas') return { class: 'devicon-pandas-plain', type: 'devicon' };
-            if (lower === 'scikit-learn' || lower === 'sklearn') return { class: 'devicon-scikitlearn-plain', type: 'devicon' };
-            if (lower === 'opencv') return { class: 'devicon-opencv-plain', type: 'devicon' };
-            if (lower === 'matplotlib') return { class: 'devicon-matplotlib-plain', type: 'devicon' };
-            if (lower === 'hugging face' || lower === 'huggingface') return { class: 'si-huggingface', type: 'si' };
-            if (lower === 'jax') return { class: 'devicon-python-plain', type: 'devicon' };
-            if (lower === 'weights & biases' || lower === 'wandb') return { class: 'si-weightsandbiases', type: 'si' };
-            if (lower === 'yolov8' || lower === 'yolo') return { class: 'si-yolo', type: 'si' };
-            if (lower === 'tensorboard') return { class: 'devicon-tensorflow-original', type: 'devicon' };
-            if (lower.includes('nltk') || lower.includes('seaborn')) return { class: 'devicon-python-plain', type: 'devicon' };
-
-            // Tools & Platforms
-            if (lower === 'docker') return { class: 'devicon-docker-plain', type: 'devicon' };
-            if (lower === 'git') return { class: 'devicon-git-plain', type: 'devicon' };
-            if (lower === 'github') return { class: 'devicon-github-original', type: 'devicon' };
-            if (lower === 'mysql') return { class: 'devicon-mysql-plain', type: 'devicon' };
-            if (lower === 'postgresql' || lower === 'postgres') return { class: 'devicon-postgresql-plain', type: 'devicon' };
-            if (lower === 'mongodb' || lower === 'mongo') return { class: 'devicon-mongodb-plain', type: 'devicon' };
-            if (lower === 'jupyter notebook' || lower === 'jupyter') return { class: 'devicon-jupyter-plain', type: 'devicon' };
-            if (lower === 'linux') return { class: 'devicon-linux-plain', type: 'devicon' };
-            if (lower === 'vscode' || lower === 'visual studio code') return { class: 'devicon-vscode-plain', type: 'devicon' };
-
-            // Algorithms & Concepts (no specific icon)
-            if (lower.includes('algorithm') || lower.includes('pruning') || lower.includes('minimax')) return null;
-            if (lower.includes('resnet') || lower.includes('xgboost') || lower.includes('alpha-beta')) return null;
-
-            return null;
-          };
-
-          const iconInfo = getIconInfo(tech);
-
-          return (
-            <span key={tech} className="flex items-center gap-1.5 text-xs text-cyber-text/80 bg-cyber-dark px-2 py-1 rounded border border-cyber-dim/50 hover:border-cyber-primary active:border-cyber-primary transition-all hover:scale-105 active:scale-95 cursor-default hover:shadow-[0_0_10px_var(--color-cyber-dim)] hover:text-cyber-primary">
-              {iconInfo ? (
-                <i className={`${iconInfo.type === 'si' ? 'si' : ''} ${iconInfo.class} text-cyber-primary`} style={{ fontSize: '14px' }}></i>
-              ) : (
-                <Terminal className="w-3 h-3" />
-              )}
-              {tech}
-            </span>
-          );
-        })}
-      </div>
-
-      <div className="flex items-center gap-4 pt-4 border-t border-cyber-dim">
-        <a
-          href={project.repoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary active:text-cyber-primary transition-colors"
-        >
-          <Github className="w-4 h-4" />
-          <span className="font-mono">SOURCE</span>
-        </a>
-        {project.demoUrl && (
-          <a
-            href={project.demoUrl}
+        {/* Actions */}
+        <div className="flex items-center gap-4 mt-auto">
+            <a
+            href={project.repoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary active:text-cyber-primary transition-colors"
-          >
-            <ExternalLink className="w-4 h-4" />
-            <span className="font-mono">DEPLOY</span>
-          </a>
-        )}
+            className={classNames(
+                "flex items-center gap-2 text-sm font-mono transition-colors",
+                isHero 
+                    ? "bg-cyber-primary/10 px-4 py-2 rounded text-cyber-primary hover:bg-cyber-primary hover:text-black border border-cyber-primary" 
+                    : "text-cyber-text hover:text-cyber-primary"
+            )}
+            >
+            <Github className="w-4 h-4" />
+            <span>{isWriting ? 'READ DOCS' : 'SOURCE'}</span>
+            </a>
+            
+            {project.demoUrl && (
+            <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-cyber-text hover:text-cyber-primary active:text-cyber-primary transition-colors font-mono"
+            >
+                <ExternalLink className="w-4 h-4" />
+                <span>DEPLOY</span>
+            </a>
+            )}
+        </div>
       </div>
     </div>
   );

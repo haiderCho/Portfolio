@@ -1,6 +1,6 @@
 import React from 'react';
 import { Code2, Layers, Wrench, Monitor } from 'lucide-react';
-import { ProgrammingLanguage } from '@/types';
+import { ProgrammingLanguage } from '@/types/schemas';
 
 interface ProgrammingLanguagesProps {
     category?: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms' | 'Operating Systems';
