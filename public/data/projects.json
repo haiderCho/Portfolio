@@ -2,11 +2,16 @@
   {
     "id": "p-resume-jrs",
     "title": "Resume Job Recommender",
-    "description": "A sophisticated recommendation system that parses resumes and matches them with relevant job openings using NLP and Vector Search.",
-    "techStack": ["Python", "React", "FastAPI", "Vector DB"],
+    "description": "Semantic Resume Matching powered by AI Embeddings. Instantly finds relevant job opportunities from a curated dataset using Hugging Face transformers and Vector Similarity Search.",
+    "techStack": [
+      "Next.js",
+      "Python",
+      "Hugging Face",
+      "Vector Search"
+    ],
     "repoUrl": "https://github.com/haiderCho/Resume-JRS",
-    "stars": 12,
-    "forks": 3,
+    "stars": 0,
+    "forks": 0,
     "category": "AI/Systems",
     "featured": true,
     "variant": "hero"
@@ -14,11 +19,16 @@
   {
     "id": "p-mediasage",
     "title": "MediaSage",
-    "description": "An intelligent media management application with content analysis and smart tagging capabilities.",
-    "techStack": ["React", "Node.js", "TensorFlow.js"],
+    "description": "A high-performance semantic search engine built without a heavy backend database. Features client-side vector search and intelligent content analysis.",
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Vector Search",
+      "Python"
+    ],
     "repoUrl": "https://github.com/haiderCho/MediaSage",
-    "stars": 8,
-    "forks": 2,
+    "stars": 0,
+    "forks": 0,
     "category": "Web App",
     "featured": true,
     "variant": "showcase"
@@ -26,11 +36,16 @@
   {
     "id": "p-uac",
     "title": "USB Access Control",
-    "description": "A system-level security tool written in C# to monitor and control USB device access, preventing unauthorized data transfer.",
-    "techStack": ["C#", ".NET", "Windows API"],
+    "description": "Comprehensive security solution for managing USB access via hardware fingerprinting. Features real-time Android notifications and system-wide lockdown protocols.",
+    "techStack": [
+      "C#",
+      ".NET",
+      "Windows API",
+      "Android"
+    ],
     "repoUrl": "https://github.com/haiderCho/CSE323-Project-UAC",
-    "stars": 5,
-    "forks": 1,
+    "stars": 1,
+    "forks": 0,
     "category": "Systems Security",
     "featured": true,
     "variant": "writing"
@@ -38,10 +53,15 @@
   {
     "id": "p-fish-disease",
     "title": "Fish Disease AI",
-    "description": "Deep Learning model (ResNet50) providing early detection of freshwater fish diseases to aid aquaculture.",
-    "techStack": ["Python", "TensorFlow", "Keras"],
+    "description": "Deep learning model using Transfer Learning (ResNet50) to classify freshwater fish diseases with high accuracy. Trained on a curated dataset from South Asian aquaculture.",
+    "techStack": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "Transfer Learning"
+    ],
     "repoUrl": "https://github.com/haiderCho/FWFDC",
-    "stars": 4,
+    "stars": 0,
     "forks": 0,
     "category": "AI/Research",
     "featured": false,
@@ -50,11 +70,16 @@
    {
     "id": "p-phishing",
     "title": "Phishing Detection",
-    "description": "Machine Learning pipeline to identify malicious URLs with high accuracy using lexical feature analysis.",
-    "techStack": ["Python", "Scikit-Learn", "XGBoost"],
+    "description": "Comprehensive machine learning pipeline to classify phishing URLs. Utilizes ensemble methods (StackingClassifier), LIME interpretability, and advanced feature selection.",
+    "techStack": [
+      "Python",
+      "Scikit-Learn",
+      "XGBoost",
+      "LIME"
+    ],
     "repoUrl": "https://github.com/haiderCho/CSE445-Project-MLPUD",
-    "stars": 3,
-    "forks": 1,
+    "stars": 1,
+    "forks": 0,
     "category": "Cybersecurity",
     "featured": false,
     "variant": "standard"

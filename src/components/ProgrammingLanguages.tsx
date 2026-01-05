@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code2, Layers, Wrench, Monitor } from 'lucide-react';
 import { ProgrammingLanguage } from '@/types/schemas';
+import { getTechIcon } from '@/lib/techIconMap';
 
 interface ProgrammingLanguagesProps {
     category?: 'Languages' | 'Frameworks & Libraries' | 'Tools & Platforms' | 'Operating Systems';
@@ -23,6 +24,13 @@ const ProgrammingLanguages: React.FC<ProgrammingLanguagesProps> = ({ category, t
         return <Code2 className="w-5 h-5 text-[var(--color-cyber-primary)]" />;
     };
 
+    /**
+     * Resolve icon class: prioritize shared techIconMap, fallback to lang.icon
+     */
+    const resolveIconClass = (lang: ProgrammingLanguage): string => {
+        return getTechIcon(lang.name) || lang.icon || 'devicon-devicon-plain';
+    };
+
     return (
         <div>
             <div className="flex items-center gap-3 mb-4">
@@ -42,7 +50,7 @@ const ProgrammingLanguages: React.FC<ProgrammingLanguagesProps> = ({ category, t
                         >
                             {/* Icon */}
                             <i
-                                className={`${lang.icon} text-2xl mb-1 transition-all duration-300 group-hover:scale-110 group-active:scale-110`}
+                                className={`${resolveIconClass(lang)} text-2xl mb-1 transition-all duration-300 group-hover:scale-110 group-active:scale-110`}
                                 style={{ color: 'var(--color-cyber-text)' }}
                             />
 
